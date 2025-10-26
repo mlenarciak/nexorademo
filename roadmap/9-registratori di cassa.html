@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title></title>
+	<meta name="generator" content="LibreOffice 7.3.7.2 (Linux)"/>
+	<meta name="created" content="2025-10-24T01:42:29.918450385"/>
+	<meta name="changed" content="2025-10-24T01:43:41.143252735"/>
+	<style type="text/css">
+		@page { size: 8.27in 11.69in; margin: 0.79in }
+		p { line-height: 115%; margin-bottom: 0.1in; background: transparent }
+		strong { font-weight: bold }
+	</style>
+</head>
+<body lang="en-US" link="#000080" vlink="#800000" dir="ltr"><p>Per
+collegare il registratore di cassa o stampante fiscale abbiamo
+bisogno dei seguenti dati:</p>
+<ul>
+	<li><p style="margin-bottom: 0in">INDIRIZZO DI RETE STATICO</p>
+	<li><p style="margin-bottom: 0in">PORTA</p>
+	<li><p style="margin-bottom: 0in">MARCA</p>
+	<li><p style="margin-bottom: 0in">MATRICOLA</p>
+	<li><p style="margin-bottom: 0in">PROTOCOLLO</p>
+	<li><p style="margin-bottom: 0in">CODICI DI PAGAMENTO (esempio al
+	metodo di pagamento contanti corrisponde il codice 2)</p>
+	<li><p>CODICI DI REPARTO (esempio all'aliquota 10% corrisponde il
+	codice 1)</p>
+</ul>
+<p>Per prima cosa è necessario installare l'applicazione “Scidoo”
+scaricabile da Impostazioni → Generali → Software Scidoo
+(Scegliendo il giusto Sistema Operativo).</p>
+<p>&nbsp;</p>
+<p><strong>*Per Apple</strong></p>
+<p>Per apple è necessario, dopo aver installato l'applicazione
+lanciare questo comando dal terminale: “ xattr -d
+com.apple.quarantine /Applications/Scidoo.app ”.</p>
+<p>Se non avesse i permessi è necessario scrivere prima “sudo su”
+e scrivere la password. Ricordiamo che da terminale la password è
+invisibile e quindi scrivendo non vedrete nessun asterisco.</p>
+<p>&nbsp;</p>
+<p>Una volta installata l'applicazione e lanciata è necessario:</p>
+<p>1) Avviare l'app ed accedere al proprio profilo.</p>
+<p>2) Andare su Impostazioni → Fiscalità → Stampanti Fiscali</p>
+<p>3) Creare una nuova stampante ed inserire indirizzo IP e Porta.</p>
+<p>4) Accedere a “Modifica” ed associare alla stampante la marca,
+il protocollo, l'azienda di rifermento e la numerazione fiscale
+associata ad essa.</p>
+<p>5) Inserire i codici REPARTO. Ad ogni codice reparto va inserto un
+numero (solitamente fornitori dall'istallatore del registratore di
+cassa) ed associato all'aliquota iva e/o codice iva presente in
+Scidoo.</p>
+<p>6) Inserire i codici pagamento. Ad ogni codice pagamento è
+associato un pagamento interno di Scidoo.&nbsp;</p>
+<p>7) POSTAZIONE: Dall'applicazione precedentemente installata è
+necessario andare in “Modifica” sulla stampante fiscale e
+cliccare su “Postazioni” e poi cliccare su “Abilita questa
+postazione”. Facendo questo si dice al software Scidoo che questa
+applicazione installata farà da ponte fra il server online ed il
+registratore di cassa, inoltrando i comandi inviati dal software.
+Qualora essa risultasse spenta, si avrà l'errore “App desktop non
+connessa” e quindi Scidoo non potrà comunicare con la stampante
+fiscale.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>* Note</p>
+<ul>
+	<li><p style="margin-bottom: 0in">Stampa copia di cortesia: serve
+	per stampare un doppio scontrino (il secondo non fiscale)</p>
+	<li><p style="margin-bottom: 0in">Stampa righe di cortesia : Stampa
+	tutte le note presenti all'interno del documento fiscale a vista su
+	Scidoo</p>
+	<li><p style="margin-bottom: 0in">Matricola: Inserire la matricola
+	del registratore. Servirà per identificarlo e per emettere Resi e
+	Storni.</p>
+	<li><p style="margin-bottom: 0in">Disattiva controllo chiusura:
+	Serve per evitare il controllo della chiusura fiscale. Potrebbe
+	essere utile in caso di più numerazione per un solo registratore di
+	cassa fisico.</p>
+	<li><p>Non stampare valori a 0: non invia valori a 0 al
+	registratore. Potrebbe servire in caso il registratore non
+	supportasse i valore a 0. Le stampanti RCH ad esempio non lo
+	supportano di Default.</p>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><strong><font size="4" style="font-size: 15pt">Registratore di
+cassa RCH:</font></strong></p>
+<p>Per poter stampare scontrini a 0 (zero) è necessario che il
+reparto dell'aliquota principale dell'hotel abbia un valore minimo
+consentito di 0 (zero) e non 0.01 ad esempio.</p>
+<p>&nbsp;</p>
+<p>Per attivare il collegamento con una stampante fiscale CUSTOM , la
+stampante deve trovare in stato “FPU”. &nbsp;Qualora non ci fosse
+è necessario cliccare sul tastierino 2,2,2 e poi tasto “chiave”.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p style="line-height: 100%; margin-bottom: 0in"><br/>
+
+</p>
+</body>
+</html>

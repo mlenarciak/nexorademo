@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title></title>
+	<meta name="generator" content="LibreOffice 7.3.7.2 (Linux)"/>
+	<meta name="created" content="2025-10-24T01:23:01.755439474"/>
+	<meta name="changed" content="2025-10-24T01:24:39.736311284"/>
+	<style type="text/css">
+		@page { size: 8.27in 11.69in; margin: 0.79in }
+		p { line-height: 115%; margin-bottom: 0.1in; background: transparent }
+		strong { font-weight: bold }
+		a:link { color: #000080; text-decoration: underline }
+	</style>
+</head>
+<body lang="en-US" link="#000080" vlink="#800000" dir="ltr"><p><font face="Georgia, serif">Per
+collegare VivaWallet abbiamo bisogno dei seguenti dati:</font></p>
+<ul>
+	<li><p style="margin-bottom: 0in"><font face="Georgia, serif">SOURCE
+	CODE</font></p>
+	<li><p><font face="Georgia, serif">MERCHANT ID</font></p>
+</ul>
+<p><font face="Georgia, serif">Per recuperare questi dati è
+possibile seguire i seguenti passaggi all'interno dell'account di
+Viva Wallet:</font></p>
+<ul>
+	<li><p style="line-height: 115%; margin-bottom: 0in"><font face="Verdana, sans-serif"><font size="2" style="font-size: 11pt">IMPOSTAZIONI&nbsp;</font></font></p>
+	<li><p style="line-height: 115%; margin-bottom: 0in"><font face="Verdana, sans-serif"><font size="2" style="font-size: 11pt">ACCESSO
+	API&nbsp;</font></font></p>
+	<li><p style="line-height: 115%; margin-bottom: 0in"><font face="Verdana, sans-serif"><font size="2" style="font-size: 11pt">ID
+	VENDITORE e copiare la stringa nella voce del metodo di pagamento
+	dentro Scidoo in <u>Mechant Id</u></font></font></p>
+	<li><p style="line-height: 115%; margin-bottom: 0in"><font face="Verdana, sans-serif"><font size="2" style="font-size: 11pt">VENDITE
+	(o Saldi → Pagamenti Online)</font></font></p>
+	<li><p style="line-height: 115%; margin-bottom: 0in"><font face="Verdana, sans-serif"><font size="2" style="font-size: 11pt">SITI
+	WEB/APP e creare il collegamento con Scidoo inserendo nel Dominio →
+	</font></font><strong><font face="Verdana, sans-serif"><font size="2" style="font-size: 11pt">www.scidoo.com</font></font></strong><font face="Verdana, sans-serif"><font size="2" style="font-size: 11pt">
+	→ Protocollo </font></font><strong><font face="Verdana, sans-serif"><font size="2" style="font-size: 11pt">HTTPS</font></font></strong><font face="Verdana, sans-serif"><font size="2" style="font-size: 11pt">
+	→ se si vuole, si può sostituire il logo di Viva Wallet con
+	quello della struttura</font></font></p>
+	<li><p style="margin-bottom: 0in"><font face="Georgia, serif">Inserire
+	su “NOME DEL DOMINIO” → “www.scidoo.com” e selezionare
+	“https”.</font></p>
+	<li><p><font face="Georgia, serif">Incollare i seguenti url negli
+	spazi corrispondenti:&nbsp;</font></p>
+</ul>
+<p align="center" style="line-height: 115%"><strong><font face="Georgia, serif">-
+E'</font></strong><font face="Georgia, serif"> </font><strong><font face="Georgia, serif">ANDATO
+A BUON FINE →
+</font></strong><font color="#0070c0"><font face="Verdana, sans-serif"><font size="2" style="font-size: 11pt">config/controllo_pagamenti/redirect_controllo_pagamento.php?service=21&amp;success=1&nbsp;</font></font></font></p>
+<p align="center" style="line-height: 115%"><strong><font face="Georgia, serif">-
+NON E' ANDATO A BUON FINE →</font></strong><font face="Georgia, serif">
+</font><font color="#0070c0"><font face="Verdana, sans-serif"><font size="2" style="font-size: 11pt">config/controllo_pagamenti/redirect_controllo_pagamento.php?service=21&amp;success=0&nbsp;</font></font></font></p>
+<ul>
+	<li><p style="margin-bottom: 0in"><font face="Georgia, serif">fleggare
+	tutte le voci e accettare</font></p>
+	<li><p><font face="Georgia, serif">Copiare il numero in alto a
+	sinistra nella voce del metodo di pagamento dentro Scidoo in <u>Source
+	Code</u></font></p>
+</ul>
+<p>&nbsp;</p>
+<p><font face="Georgia, serif"><u>Per poter attivare il prelievo da
+carta:</u></font></p>
+<ul>
+	<li><p style="margin-bottom: 0in"><font face="Georgia, serif">Dal
+	metodo di pagamento dentro alle impostazione flaggare “Prelievo
+	diretto”</font></p>
+	<li><p><font face="Georgia, serif">Cambiare la password delle carte
+	di credito da “impostazioni” → Generali → Modifica password</font></p>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Per collegare PayPal abbiamo bisogno di questo dato:</p>
+<ul>
+	<li><p>CODICE CLIENTE</p>
+</ul>
+<p>Per recuperarlo è possibile seguire i seguenti passaggi
+all'interno dell'account di PayPal:</p>
+<ul>
+	<li><p style="margin-bottom: 0in">SVILUPPATORE</p>
+	<li><p style="margin-bottom: 0in">LIVE</p>
+	<li><p style="margin-bottom: 0in">APP E CREDENZIALI&nbsp;</p>
+	<li><p>creare L'App SCIDOO e copiare la stringa all'interno del
+	codice cliente in Metodi di Pagamento</p>
+</ul>
+<p>Per collegare Stripe abbiamo bisogno di questo dato:</p>
+<ul>
+	<li><p style="margin-bottom: 0in">CHIAVE PUBBLICABILE</p>
+	<li><p>CHIAVE SEGRETA</p>
+</ul>
+<p>Per recuperarli è possibile seguire i seguenti passaggi
+all'interno dell'account di Stripe:</p>
+<ul>
+	<li><p style="margin-bottom: 0in">SVILUPPATORI (in basso a sinistra)</p>
+	<li><p style="margin-bottom: 0in">CHIAVI API e copiare la stringa
+	dentro Scidoo in CHIAVE PUBBLICABILE</p>
+	<li><p style="margin-bottom: 0in">+ CREA CHIAVE PRIVATA</p>
+	<li><p style="margin-bottom: 0in">CREARE LA TUA INTEGRAZIONE e far
+	partire la mail alla struttura per l'autenticazione con successivo
+	codice OTP</p>
+	<li><p>creare la chiave segreta inserendo il nome Scidoo e copiare
+	la nuova stringa dentro Scidoo in CHIAVE SEGRETA</p>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><img src="3-metodi%20di%20pagamento_html_9a61ae98ee9e569d.png" name="Image1" align="bottom" width="36%" height="365" border="0"/>
+<img src="3-metodi%20di%20pagamento_html_8eb071ab701503aa.png" name="Image2" align="bottom" width="18%" height="258" border="0"/>
+</p>
+<p>Per collegare Nexi Ecommerce abbiamo bisogno dei seguenti dati:</p>
+<ul>
+	<li><p style="margin-bottom: 0in">ALIAS</p>
+	<li><p>SECRET KEY (detta anche CHIAVE MAC)</p>
+</ul>
+<p style="margin-bottom: 0in"><img src="3-metodi%20di%20pagamento_html_7d99e304a9ad3b83.png" name="Image3" align="bottom" width="394" height="356" border="0"/>
+
+</p>
+<p>Per collegare PayWay abbiamo bisogno dei seguenti dati:</p>
+<ul>
+	<li><p style="margin-bottom: 0in">TERMINAL_ID</p>
+	<li><p>SIGN_KEY</p>
+</ul>
+<p>Per collegare Scala Pay abbiamo bisogno dei seguenti dati:</p>
+<ul>
+	<li><p>API KEY</p>
+</ul>
+<p>Per collegare Worldline abbiamo bisogno dei seguenti dati:</p>
+<ul>
+	<li><p style="margin-bottom: 0in">Easy Checkout</p>
+	<li><p style="margin-bottom: 0in">Token</p>
+	<li><p>ApyKey</p>
+</ul>
+<p>Per recuperare questi dati basta entrare su WorldLine cliccando
+sul seguente link: <a href="https://docs.axepta.it/" target="_blank">https://docs.axepta.it/</a>
+e seguire i passaggi:</p>
+<ul>
+	<li><p style="margin-bottom: 0in">CONFIGURE</p>
+	<li><p style="margin-bottom: 0in">PRODUCTION SOLUTIONS</p>
+	<li><p style="margin-bottom: 0in">copiare License Key Api su <strong>Api
+	Key</strong></p>
+	<li><p style="margin-bottom: 0in">copiare License Key Checkout su
+	<strong>Easy Checkout Key</strong></p>
+	<li><p>GENERATE ACCESS TOKEN → inserire le credenziali per
+	generare il Token e copiarlo su Token</p>
+</ul>
+<p><img src="3-metodi%20di%20pagamento_html_44fce1f4b6a18812.png" name="Image4" align="bottom" width="885" height="515" border="0"/>
+</p>
+<p>&nbsp;</p>
+<p>Per collegare Holipay oppure HeyLight abbiamo bisogno dei seguenti
+dati:</p>
+<ul>
+	<li><p style="margin-bottom: 0in">MERCHANT ID (<span lang="en-US">Hotel
+	ID)</span></p>
+	<li><p>SECRET KEY (<span lang="en-US">Chiave privata holipay)</span></p>
+</ul>
+<p align="justify">Per collegare Axerve abbiamo bisogno dei seguenti
+dati:</p>
+<ul>
+	<li><p align="justify" style="margin-bottom: 0in">Api Key</p>
+	<li><p align="justify">Shop Login</p>
+</ul>
+<p align="justify">Per recuperare i dati necessari al collegamento
+seguire i seguenti passaggi:</p>
+<ul>
+	<li><p align="justify" style="margin-bottom: 0in"><font face="Verdana, sans-serif">ENTRARE
+	NELL’AREA RISERVATA e cliccare su APRE IMPOSTAZIONI (setting a
+	sinistra)&nbsp;</font></p>
+	<li><p align="justify" style="margin-bottom: 0in"><font face="Verdana, sans-serif">SICUREZZA</font></p>
+	<li><p align="justify" style="margin-bottom: 0in"><font face="Verdana, sans-serif">ACCESSI
+	(ultima TAB) e creare le ApiKey</font></p>
+	<li><p align="justify" style="margin-bottom: 0in"><font face="Verdana, sans-serif">LIMITAZIONI
+	IP mettere </font><strong><font face="Verdana, sans-serif">217.61.36.74</font></strong></p>
+	<li><p align="justify" style="margin-bottom: 0in"><font face="Verdana, sans-serif">SICUREZZA</font></p>
+	<li><p align="justify"><font face="Verdana, sans-serif">LIMITAZIONI
+	(attivare comunicazioni ApiKey e IP)</font></p>
+</ul>
+<p style="line-height: 115%"><font face="Verdana, sans-serif"><font size="2" style="font-size: 11pt">Lo
+SHOP LOGIN si trova in alto a destra vicino al nome del login ed è
+un codice di 6 o 7 cifre</font></font></p>
+<p style="line-height: 100%; margin-bottom: 0in"><br/>
+
+</p>
+</body>
+</html>

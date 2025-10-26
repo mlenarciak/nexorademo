@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title></title>
+	<meta name="generator" content="LibreOffice 7.3.7.2 (Linux)"/>
+	<meta name="created" content="2025-10-24T01:25:30.789709732"/>
+	<meta name="changed" content="2025-10-24T01:28:05.146503760"/>
+	<style type="text/css">
+		@page { size: 8.27in 11.69in; margin: 0.79in }
+		p { line-height: 115%; margin-bottom: 0.1in; background: transparent }
+		h2 { margin-top: 0.14in; margin-bottom: 0.08in; background: transparent; page-break-after: avoid }
+		h2.western { font-family: "Liberation Serif", serif; font-size: 18pt; font-weight: bold }
+		h2.cjk { font-family: "Noto Serif CJK SC"; font-size: 18pt; font-weight: bold }
+		h2.ctl { font-family: "Lohit Devanagari"; font-size: 18pt; font-weight: bold }
+		h3 { margin-top: 0.1in; margin-bottom: 0.08in; background: transparent; page-break-after: avoid }
+		h3.western { font-family: "Liberation Serif", serif; font-size: 14pt; font-weight: bold }
+		h3.cjk { font-family: "Noto Serif CJK SC"; font-size: 14pt; font-weight: bold }
+		h3.ctl { font-family: "Lohit Devanagari"; font-size: 14pt; font-weight: bold }
+		td p { orphans: 0; widows: 0; background: transparent }
+		th p { font-weight: bold; text-align: center; orphans: 0; widows: 0; background: transparent }
+		strong { font-weight: bold }
+		code.western { font-family: "Liberation Mono", monospace }
+		code.cjk { font-family: "Noto Sans Mono CJK SC", monospace }
+		code.ctl { font-family: "Liberation Mono", monospace }
+		a:link { color: #000080; text-decoration: underline }
+		em { font-style: italic }
+		a:visited { color: #800000; text-decoration: underline }
+	</style>
+</head>
+<body lang="en-US" link="#000080" vlink="#800000" dir="ltr"><h2 class="western">
+📘 <font size="4" style="font-size: 13pt">Manuale Operativo –
+Integrazione AccommodationSMART / Eurosystem su Scidoo</font></h2>
+<p><font size="2" style="font-size: 10pt">Il sistema
+</font><strong><font size="2" style="font-size: 10pt">AccommodationSMART</font></strong><font size="2" style="font-size: 10pt">
+(o </font><strong><font size="2" style="font-size: 10pt">Eurosystem</font></strong><font size="2" style="font-size: 10pt">)
+consente la gestione da remoto di strutture ricettive (B&amp;B,
+hotel, case vacanze, residence, ecc.).</font><br/>
+<font size="2" style="font-size: 10pt">In
+</font><strong><font size="2" style="font-size: 10pt">Scidoo</font></strong><font size="2" style="font-size: 10pt">,
+puoi integrarlo per </font><strong><font size="2" style="font-size: 10pt">generare
+automaticamente i codici di accesso</font></strong><font size="2" style="font-size: 10pt">
+delle camere.</font></p>
+<hr/>
+
+<h2 class="western">🔧 <font size="2" style="font-size: 10pt">1.
+Configurazione dell’Integrazione</font></h2>
+<h3 class="western">🔹 <font size="2" style="font-size: 10pt">Passaggi:</font></h3>
+<p><font size="2" style="font-size: 10pt">Vai su </font><strong><font size="2" style="font-size: 10pt">Impostazioni</font></strong><font size="2" style="font-size: 10pt">
+→ </font><strong><font size="2" style="font-size: 10pt">Generali</font></strong><font size="2" style="font-size: 10pt">.</font></p>
+<p><font size="2" style="font-size: 10pt">Accedi alla sezione
+</font><strong><font size="2" style="font-size: 10pt">Integrazioni</font></strong><font size="2" style="font-size: 10pt">.</font></p>
+<p><font size="2" style="font-size: 10pt">Clicca su </font><strong><font size="2" style="font-size: 10pt">+
+Nuova integrazione</font></strong><font size="2" style="font-size: 10pt">.</font></p>
+<p><font size="2" style="font-size: 10pt">Seleziona
+</font><strong><font size="2" style="font-size: 10pt">AccommodationSMART</font></strong><font size="2" style="font-size: 10pt">
+dall’elenco.</font></p>
+<p><font size="2" style="font-size: 10pt">Premi sull’</font><strong><font size="2" style="font-size: 10pt">icona
+(⚙️)</font></strong><font size="2" style="font-size: 10pt"> per
+aprire le impostazioni.</font></p>
+<h3 class="western">🔐 <font size="2" style="font-size: 10pt">Inserimento
+Token/API Key:</font></h3>
+<p><font size="2" style="font-size: 10pt">Inserisci il </font><strong><font size="2" style="font-size: 10pt">Token
+o API Key</font></strong><font size="2" style="font-size: 10pt">
+fornito dal provider.</font></p>
+<p><font size="2" style="font-size: 10pt">Premi il pulsante </font><strong><font size="2" style="font-size: 10pt">Scarica</font></strong><font size="2" style="font-size: 10pt">
+per caricare i dati.</font></p>
+<p>🔴<font size="2" style="font-size: 10pt">Assicurati che il token
+sia </font><strong><font size="2" style="font-size: 10pt">corretto e
+attivo</font></strong><font size="2" style="font-size: 10pt">. Un
+token errato bloccherà l’intera integrazione.</font></p>
+<h3 class="western">🏷️ <font size="2" style="font-size: 10pt">Codice
+Locale Automatico:</font></h3>
+<p><font size="2" style="font-size: 10pt">Inserisci il campo </font><strong><font size="2" style="font-size: 10pt">Codice
+locale automatico</font></strong><font size="2" style="font-size: 10pt">.</font></p>
+<p><font size="2" style="font-size: 10pt">Deve </font><strong><font size="2" style="font-size: 10pt">coincidere
+perfettamente</font></strong><font size="2" style="font-size: 10pt">
+con il nome del </font><strong><font size="2" style="font-size: 10pt">Codice
+Locali</font></strong><font size="2" style="font-size: 10pt">
+configurato nel sistema di AccommodationSMART.</font></p>
+<p>🔴 <font size="2" style="font-size: 10pt">Se il nome non è
+identico, </font><strong><font size="2" style="font-size: 10pt">la
+generazione automatica dei codici non funzionerà</font></strong><font size="2" style="font-size: 10pt">.</font></p>
+<h3 class="western">✅ <font size="2" style="font-size: 10pt">Attivazione:</font></h3>
+<p><font size="2" style="font-size: 10pt">Dopo aver confermato i
+dati, premi su </font><strong><font size="2" style="font-size: 10pt">Conferma</font></strong><font size="2" style="font-size: 10pt">.</font></p>
+<p><font size="2" style="font-size: 10pt">Poi clicca su </font><strong><font size="2" style="font-size: 10pt">Attiva</font></strong><font size="2" style="font-size: 10pt">
+per rendere operativa l’integrazione.</font></p>
+<hr/>
+
+<h2 class="western">🔑 <font size="2" style="font-size: 10pt">2.
+Generazione dei Codici di Accesso</font></h2>
+<h3 class="western">🔁 <font size="2" style="font-size: 10pt">Codici
+Generati Automaticamente:</font></h3>
+<p><font size="2" style="font-size: 10pt">Se hai attivato la
+generazione automatica:</font></p>
+<p><font size="2" style="font-size: 10pt">Accedi a una prenotazione.</font></p>
+<p><font size="2" style="font-size: 10pt">In alto a destra, clicca
+sul pulsante </font><strong><font size="2" style="font-size: 10pt">“Software”</font></strong><font size="2" style="font-size: 10pt">.</font></p>
+<p><font size="2" style="font-size: 10pt">Il codice sarà </font><strong><font size="2" style="font-size: 10pt">già
+generato automaticamente</font></strong><font size="2" style="font-size: 10pt">
+e visibile.</font></p>
+<p>🔴 <font size="2" style="font-size: 10pt">Questa funzione è
+attiva </font><strong><font size="2" style="font-size: 10pt">solo se
+il Codice Locale Automatico è configurato correttamente</font></strong><font size="2" style="font-size: 10pt">.</font></p>
+<h3 class="western">🛠️ <font size="2" style="font-size: 10pt">Generazione
+Manuale:</font></h3>
+<p><font size="2" style="font-size: 10pt">Se non hai attivato
+l’automatismo:</font></p>
+<p><font size="2" style="font-size: 10pt">Apri la prenotazione.</font></p>
+<p><font size="2" style="font-size: 10pt">Vai su </font><strong><font size="2" style="font-size: 10pt">Software</font></strong><font size="2" style="font-size: 10pt">.</font></p>
+<p><font size="2" style="font-size: 10pt">Clicca su </font><strong><font size="2" style="font-size: 10pt">Genera
+Chiave</font></strong><font size="2" style="font-size: 10pt"> per
+creare manualmente il codice di accesso.</font></p>
+<p>🔴 &nbsp;<font size="2" style="font-size: 10pt">Le </font><strong><font size="2" style="font-size: 10pt">prenotazioni
+già esistenti</font></strong><font size="2" style="font-size: 10pt">
+prima della configurazione </font><strong><font size="2" style="font-size: 10pt">non
+generano i codici in automatico</font></strong><font size="2" style="font-size: 10pt">.</font><br/>
+🔴
+<font size="2" style="font-size: 10pt">In questi casi, è
+</font><strong><font size="2" style="font-size: 10pt">obbligatorio
+generare le chiavi manualmente una per una</font></strong><font size="2" style="font-size: 10pt">.</font></p>
+<hr/>
+
+<h2 class="western">✉️ <font size="2" style="font-size: 10pt">3.
+Invio del Codice al Cliente</font></h2>
+<p><font size="2" style="font-size: 10pt">Per inviare il codice via
+email o messaggio al cliente:</font></p>
+<h3 class="western">📝 <font size="2" style="font-size: 10pt">Crea
+un modello di messaggio:</font></h3>
+<p><font size="2" style="font-size: 10pt">Accedi a </font><strong><font size="2" style="font-size: 10pt">Modelli
+di messaggio</font></strong><font size="2" style="font-size: 10pt">.</font></p>
+<p><font size="2" style="font-size: 10pt">Crea un nuovo modello o
+modifica uno esistente.</font></p>
+<p><font size="2" style="font-size: 10pt">Inserisci il </font><strong><font size="2" style="font-size: 10pt">tag
+</font></strong><code class="western"><strong><font size="2" style="font-size: 10pt">codice
+tag</font></strong></code><font size="2" style="font-size: 10pt"> nel
+punto desiderato del messaggio.</font></p>
+<p><font size="2" style="font-size: 10pt">Dal menu a tendina,
+seleziona la variabile </font><strong><font size="2" style="font-size: 10pt">Chiave</font></strong><font size="2" style="font-size: 10pt">.</font></p>
+<p>🔴 <font size="2" style="font-size: 10pt">Si </font><strong><font size="2" style="font-size: 10pt">sconsiglia
+l’invio automatico</font></strong><font size="2" style="font-size: 10pt">
+del codice per motivi di sicurezza. È preferibile avere un controllo
+manuale sull'invio.</font></p>
+<hr/>
+
+<h2 class="western">🖨️ <font size="2" style="font-size: 10pt">4.
+Stampa del Codice</font></h2>
+<p><font size="2" style="font-size: 10pt">Se preferisci fornire il
+codice in formato cartaceo o PDF:</font></p>
+<p><font size="2" style="font-size: 10pt">Apri la prenotazione.</font></p>
+<p><font size="2" style="font-size: 10pt">Vai nella sezione </font><strong><font size="2" style="font-size: 10pt">Ospite</font></strong><font size="2" style="font-size: 10pt">.</font></p>
+<p><font size="2" style="font-size: 10pt">Troverai il codice
+generato.</font></p>
+<p><font size="2" style="font-size: 10pt">Clicca sull’</font><strong><font size="2" style="font-size: 10pt">icona
+della stampante 🖨️</font></strong><font size="2" style="font-size: 10pt">
+accanto al codice.</font></p>
+<p>🔴<font size="2" style="font-size: 10pt">La stampa è utile come
+alternativa all’invio automatico, o come backup manuale in caso di
+problemi con i messaggi.</font></p>
+<hr/>
+
+<h2 class="western">✅ <font size="2" style="font-size: 10pt">Riepilogo
+Operativo</font></h2>
+<p>&nbsp;</p>
+<table cellpadding="2" cellspacing="2">
+	<thead>
+		<tr>
+			<th style="border: none; padding: 0in"><p>Fase</p>
+			</th>
+			<th style="border: none; padding: 0in"><p>Azione principale</p>
+			</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td style="border: none; padding: 0in"><p><strong>Configurazione</strong></p>
+			</td>
+			<td style="border: none; padding: 0in"><p>Impostazioni →
+				Generali → Integrazioni → AccommodationSMART</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="border: none; padding: 0in"><p><strong>Attivazione</strong></p>
+			</td>
+			<td style="border: none; padding: 0in"><p>Inserisci API Key →
+				Codice locale → Conferma → Attiva</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="border: none; padding: 0in"><p><strong>Generazione
+				codice</strong></p>
+			</td>
+			<td style="border: none; padding: 0in"><p>Automatica (se attiva) o
+				Manuale (pulsante “Genera”)</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="border: none; padding: 0in"><p><strong>Invio al cliente</strong></p>
+			</td>
+			<td style="border: none; padding: 0in"><p>Crea modello → Tag
+				<code class="western">codice tag</code> → Seleziona “Chiave”</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="border: none; padding: 0in"><p><strong>Stampa codice</strong></p>
+			</td>
+			<td style="border: none; padding: 0in"><p>Dalla prenotazione →
+				Sezione ospite → Icona stampa</p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<p>Per collegare Guest Pass ci servono i seguenti dati di accesso al
+portale TURIST MANAGER:</p>
+<ul>
+	<li><p style="margin-bottom: 0in">user</p>
+	<li><p style="margin-bottom: 0in">password</p>
+	<li><p>id generico</p>
+</ul>
+<p>Per il funzionamento, la struttura dovrà entrare nella
+prenotazione, cliccare su SOFTWARE- + GENERA CHIAVE e la mail
+arriverà al primo componente della prenotazione</p>
+<p><font size="4" style="font-size: 13pt">per impostare il
+collegamento con Trentino Guest Card seguire i passaggi:</font></p>
+<p>&nbsp;</p>
+<ol>
+	<li><p style="margin-bottom: 0in">IMPOSTAZIONI</p>
+	<li><p style="margin-bottom: 0in">GENERALI</p>
+	<li><p style="margin-bottom: 0in">INTEGRAZIONI</p>
+	<li><p style="margin-bottom: 0in">NUOVA INTEGRAZIONE&nbsp;</p>
+	<ol>
+		<li><p style="margin-bottom: 0in">SOFTWARE → selezionare Trentino
+		Guest Card dal menù a tendina</p>
+		<li><p style="margin-bottom: 0in">cliccare su MOSTRA TIPI CARTA e
+		tenere a mente il numero tra le parentesi quadre […]</p>
+	</ol>
+	<li><p style="margin-bottom: 0in">cliccare sulla rotellina ed
+	inserire i seguenti dati</p>
+	<ol>
+		<li><p style="margin-bottom: 0in">user&nbsp;</p>
+		<li><p style="margin-bottom: 0in">password</p>
+		<li><p style="margin-bottom: 0in">tipo_card (precedentemente
+		visualizzata su MOSTRA TIPI CARTA)</p>
+		<li><p style="margin-bottom: 0in">flaggare
+		DISATTIVA_CREAZIONE_AUTOMATICA</p>
+		<li><p style="margin-bottom: 0in">cliccare su CONFERMA</p>
+	</ol>
+	<li><p>cliccare sotto la colonna ATTIVO per attivare il collegamento</p>
+</ol>
+<hr/>
+
+<p><font size="4" style="font-size: 13pt">per generare la chiave di
+Trentino Guest Card seguire i passaggi:</font></p>
+<p>&nbsp;</p>
+<ol>
+	<li><p style="margin-bottom: 0in">entrare nella prenotazione&nbsp;</p>
+	<li><p style="margin-bottom: 0in">SOFTWARE (in alto a destra)</p>
+	<li><p>+ GENERA CHIAVE → a questo punto partirà un messaggio
+	automatico direttamente da Trentino Guest Card.</p>
+</ol>
+<p><font size="4" style="font-size: 13pt">Collegamento con TTLock:</font></p>
+<p>&nbsp;</p>
+<ul>
+	<li><p style="margin-bottom: 0in">user&nbsp;</p>
+	<li><p>password</p>
+</ul>
+<p>&nbsp;</p>
+<p><strong><font size="4" style="font-size: 15pt">Collegamento con
+Myforecast.</font></strong></p>
+<p>&nbsp;</p>
+<ol>
+	<li><p style="margin-bottom: 0in"><strong>Myforecast ci invia una
+	email con l'HOTEL CODE</strong></p>
+	<li><p style="margin-bottom: 0in">Andare su Impostazioni →
+	Generali → Integrazioni → Nuova Integrazione → Myforecast</p>
+	<li><p style="margin-bottom: 0in"><strong>Inserire l'Hotel code nel
+	campo URL</strong></p>
+	<li><p><strong>Inserire i codici delle fasce di età; </strong>⚠️<strong>lato
+	MyForecast nel formato del messaggio accettato sono possibili 5
+	fasce d’età:</strong></p>
+</ol>
+<p style="margin-bottom: 0in">&nbsp;</p>
+<p style="margin-bottom: 0in"><strong>ADULT</strong></p>
+<p style="margin-bottom: 0in">&nbsp;</p>
+<p style="margin-bottom: 0in"><strong>CHILD</strong></p>
+<p style="margin-bottom: 0in">&nbsp;</p>
+<p style="margin-bottom: 0in"><strong>TEENAGER</strong></p>
+<p style="margin-bottom: 0in">&nbsp;</p>
+<p style="margin-bottom: 0in"><strong>INFANTS</strong></p>
+<p style="margin-bottom: 0in">&nbsp;</p>
+<p style="margin-bottom: 0in"><strong>OTHER</strong></p>
+<p style="margin-bottom: 0in">&nbsp;</p>
+<p style="margin-bottom: 0in"><strong>Dove?: Vai in settaggio come da
+immagine</strong></p>
+<p>&nbsp;</p>
+<p><img src="5-integrazioni_html_52695bdbfc0ba33d.png" name="Image1" align="bottom" width="38%" height="151" border="0"/>
+</p>
+<p><strong>Inserisci le fasce di età [le prime tre vengono inserite
+in automatico ma se ci sono altre le devi inserire te]</strong></p>
+<p><strong>Dove prendi l'ID da inserire?→ in Fasce Età Clienti di
+Scidoo trovi la colonna ID</strong></p>
+<p>&nbsp;</p>
+<p><strong>&nbsp; &nbsp; &nbsp; 5. Cliccare su “Esegui Mappatura”</strong></p>
+<p><strong>&nbsp; &nbsp; &nbsp; 6. Rispondere alla loro email dicendo
+che è stata eseguita la mappatura da parte nostra</strong></p>
+<p><strong>&nbsp; &nbsp; &nbsp; 7. Invia anche le API KEY create in
+Scidoo ed attendere loro riscontro prima di mettere flag su ATTIVA</strong></p>
+<p>&nbsp;</p>
+<p>Integrazione terminata.</p>
+<p><font size="4" style="font-size: 13pt">Collegamento </font><strong><font color="#000000"><font size="4" style="font-size: 13pt"><span style="background: #b2cef7">Omnitec</span></font></font></strong></p>
+<p>&nbsp;</p>
+<p><strong>Dati necessari:</strong></p>
+<ul>
+	<li><p style="margin-bottom: 0in"><strong>client id</strong></p>
+	<li><p style="margin-bottom: 0in"><strong>client secret</strong></p>
+	<li><p style="margin-bottom: 0in"><strong>utente&nbsp;</strong></p>
+	<li><p><strong>password</strong></p>
+</ul>
+<p><strong>Utente e password non sono gli stessi usati per accedere
+all'app “Rent &amp; Pass”</strong></p>
+<p><strong>Per ottenere le credenziali, bisogna entrare nell'app e
+selezionare “il mio account”</strong></p>
+<p>&nbsp;</p>
+<p><br/>
+<br/>
+
+</p>
+<p>&nbsp;</p>
+<p><strong><font color="#000000"><font size="4" style="font-size: 15pt">Domotica
+Scidoo</font></font></strong></p>
+<p><font color="#202124"><font size="3" style="font-size: 12pt"><span style="background: #ffffff">Registrazione:</span></font></font><br/>
+https://www.accommodationsmart.cloud/index.php<br/>
+<font color="#202124"><font size="3" style="font-size: 12pt"><span style="background: #ffffff">-&gt;
+Registrati</span></font></font><br/>
+<font color="#202124"><font size="3" style="font-size: 12pt"><span style="background: #ffffff">-
+Inserire email e matricola</span></font></font><br/>
+<br/>
+<br/>
+<br/>
+<font color="#202124"><font size="3" style="font-size: 12pt"><span style="background: #ffffff">-
+trovo devic sulla wifi e mi collego (PW: DevIcWiFi)</span></font></font><br/>
+<font color="#202124"><font size="3" style="font-size: 12pt"><span style="background: #ffffff">-
+Poi si va in http://10.10.10.1/</span></font></font><br/>
+<font color="#202124"><font size="3" style="font-size: 12pt"><span style="background: #ffffff">-
+Da
+(</span></font></font>https://www.accommodationsmart.cloud/adddevices.php?indexn=devicemanager<font color="#202124"><font size="3" style="font-size: 12pt"><span style="background: #ffffff">)</span></font></font><br/>
+<font color="#202124"><font size="3" style="font-size: 12pt"><span style="background: #ffffff">-
+Gestione Gateway</span></font></font><br/>
+<font color="#202124"><font size="3" style="font-size: 12pt"><span style="background: #ffffff">-
+Aggiungi Gateway</span></font></font><br/>
+<font color="#202124"><font size="3" style="font-size: 12pt"><span style="background: #ffffff">-
+La matricola è scritta sul devic nero</span></font></font><br/>
+<font color="#202124"><font size="3" style="font-size: 12pt"><span style="background: #ffffff">-
+Config. Generale&nbsp;</span></font></font><br/>
+<font color="#202124"><font size="3" style="font-size: 12pt"><span style="background: #ffffff">-
+Crea nuovo impianto</span></font></font><br/>
+<font color="#202124"><font size="3" style="font-size: 12pt"><span style="background: #ffffff">-
+mettere la descrizione e mettere la spunta sul gateway associato</span></font></font><br/>
+<font color="#202124"><font size="3" style="font-size: 12pt"><span style="background: #ffffff">-
+poi clicco sul pulsante verde su kit ingresso base</span></font></font><br/>
+&nbsp;</p>
+<p><strong><font color="#000000"><font size="4" style="font-size: 13pt">REVOLUTION</font></font></strong></p>
+<p><font face="Verdana, sans-serif">invierà i prezzi a massima
+occupazione.</font></p>
+<p><font face="Verdana, sans-serif">IMPOSTAZIONI – GENERALI –
+INTEGRAZIONI – NUOVA INTEGRAZIONE – selezionare Revolution
+(Franco Grasso) – inserire le credenziali fornite da Revolution:</font></p>
+<ul>
+	<li><p style="margin-bottom: 0in"><font color="#000000"><font face="Arial, sans-serif"><font size="2" style="font-size: 10pt"><span style="background: #ffffff">user:&nbsp;</span></font></font></font></p>
+	<li><p style="margin-bottom: 0in"><font color="#000000"><font face="Arial, sans-serif"><font size="2" style="font-size: 10pt"><span style="background: #ffffff">password:
+	&nbsp;</span></font></font></font></p>
+	<li><p style="margin-bottom: 0in"><font color="#000000"><font face="Arial, sans-serif"><font size="2" style="font-size: 10pt"><span style="background: #ffffff">id
+	generico (loro lo chiamano PID):</span></font></font></font></p>
+	<li><p lang="sv-SE"><font color="#000000"><font face="Arial, sans-serif"><font size="2" style="font-size: 10pt"><span style="background: #ffffff">url:&nbsp;</span></font></font></font></p>
+</ul>
+<p style="margin-bottom: 0in">&nbsp;</p>
+<p><font face="Verdana, sans-serif">successivamente cliccare sulla
+rotellina ed inserire la data di inizio sincronizzazione oppure
+cliccare su prima configurazione. In fine fleggare su ATTIVA per
+attivare il collegamento</font></p>
+<p><font size="4" style="font-size: 15pt">Qualitando</font></p>
+<p>&nbsp;</p>
+<p>Per collegare Qualitando abbiamo bisogno dei seguenti dati :</p>
+<ul>
+	<li><p style="margin-bottom: 0in">USER (Client Key)</p>
+	<li><p>PASSWORD (Authentication Token)</p>
+</ul>
+<p>&nbsp;</p>
+<p>da inserire all'interno di
+IMPOSTAZIONI-GENERALI-INTEGRAZIONI-NUOVA INTEGRAZIONE-selezionare
+QUALITANDO</p>
+<p>Per collegare il POS a Scidoo abbiamo bisogno:</p>
+<ol>
+	<li><p style="margin-bottom: 0in">che il POS abbia il Protocollo
+	ECR17</p>
+	<li><p style="margin-bottom: 0in">Indirizzo IP Statico</p>
+	<li><p>Porta</p>
+</ol>
+<p>Per collegare il POS seguire la procedura:</p>
+<ul>
+	<li><p style="margin-bottom: 0in">IMPOSTAZIONI</p>
+	<li><p style="margin-bottom: 0in">GENERALI</p>
+	<li><p style="margin-bottom: 0in">DISPOSITIVI</p>
+	<li><p style="margin-bottom: 0in">+ DISPOSITIVO → selezionare POS</p>
+	<li><p style="margin-bottom: 0in">cliccare su CONFIGURAZIONE</p>
+	<ul>
+		<li><p style="margin-bottom: 0in">inserire l'INDIRIZZO IP Statico</p>
+		<li><p style="margin-bottom: 0in">inserire la PORTA</p>
+		<li><p style="margin-bottom: 0in">selezionare la POSTAZIONE</p>
+	</ul>
+	<li><p>cliccare su + TOKEN</p>
+</ul>
+<p><strong>Per creare la configurazione è necessario andare su:</strong></p>
+<p>Generali → Integrazioni → Teamsystem</p>
+<p>&nbsp;</p>
+<p>Da Ricordare:&nbsp;</p>
+<ul>
+	<li><p style="margin-bottom: 0in">Codici IVA (Popolare il “Codice
+	Integrazione”)</p>
+	<li><p style="margin-bottom: 0in">Codice Integrazione su ogni metodo
+	di pagamento</p>
+	<li><p style="margin-bottom: 0in">Sulle impostazioni
+	dell'integrazione (mettere l'ID della numerazione fiscale)</p>
+	<li><p style="margin-bottom: 0in">Inserire i CONTI RICAVO su
+	Impostazioni → Fiscalità</p>
+	<li><p style="margin-bottom: 0in">Associrare eventualmente ad ogni
+	Prodotto/servizio o cartella il rispettivo “Conto ricavo”</p>
+	<li><p>Inserire su Impostazioni → Fiscalità → Impostazioni
+	Fatture → Modifica “Codice Ditta” → mettere il codice di
+	Teamsystem</p>
+</ul>
+<p><strong><font size="4" style="font-size: 13pt">Per il collegamento
+con Google Sheet (Finalizzato alla sincronizzazione di dati e prezzi)</font></strong></p>
+<ol>
+	<li><p style="margin-bottom: 0in">Andare in impostazioni →
+	Generali → Integrazione → Aggiungere Google Sheet</p>
+	<li><p style="margin-bottom: 0in">Il cliente, all'interno della sua
+	licenza e con Google loggato all'interno del proprio account deve
+	cliccare su “Collega” e fornire i vari permessi a Scidoo per
+	poter creare il foglio all'interno dell'account del cliente.</p>
+	<li><p style="margin-bottom: 0in">La struttura deve creare un file
+	dentro Google Sheet e salvarlo. Una volta aperto dall'url estrare la
+	parte alfanumerica che indica l'ID del foglio (Esempio:
+	<a href="https://docs.google.com/spreadsheets/d/1WkZ6bWFek8Hl2wKFbXAYDTdmXdwhfiwIGKHDpau1CW0/edit?gid=0#gid=0" target="_blank">https://docs.google.com/spreadsheets/d/1WkZ6bWFek8Hl2wKFbXAYDTdmXdwhfiwIGKHDpau1CW0/edit?gid=0#gid=0</a>
+	in questo caso è: <a href="https://docs.google.com/spreadsheets/d/1WkZ6bWFek8Hl2wKFbXAYDTdmXdwhfiwIGKHDpau1CW0/edit?gid=0#gid=0" target="_blank">1WkZ6bWFek8Hl2wKFbXAYDTdmXdwhfiwIGKHDpau1CW0</a>.</p>
+	<li><p style="margin-bottom: 0in">Copiarlo dentro all'ingranaggio
+	dentro all'integrazione.</p>
+	<li><p>Ogni 20 minuti si sincronizza. Verrano creati automaticamente
+	i fogli ed inseriti automaticamente i dati.</p>
+</ol>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><strong><font size="5" style="font-size: 18pt">Nota Bene:&nbsp;</font></strong></p>
+<ol>
+	<li><p style="margin-bottom: 0in"><strong>Per poter creare le
+	colonne dei prezzi da sincronizzare e portare dentro Scidoo è
+	necessario che su → Vista prezzi generale → All'interno delle
+	varie tariffe e camere → Visualizza Occupazione Servizio → Sia
+	impostata l'occupazione di default e &quot;OCCUPAZIONE DA
+	VISUALIZZARE&quot;</strong></p>
+	<li><p>il foglio Google nella cella in alto a sinistra viene creato
+	con OFF. <strong>Per poter creare le colonne delle tariffe va
+	settato su ON.</strong></p>
+</ol>
+<p><strong><font size="4" style="font-size: 13pt">ViKey è
+un'integrazione per la domotica di apertura porte; per collegare
+ViKey abbiamo bisogno dei seguenti dati:</font></strong></p>
+<p>&nbsp;</p>
+<p>1) la struttura deve chiedere di inviarci le ApiKey di
+collegamento direttamente a ViKey</p>
+<p>2) IMPOSTAZIONI – GENERALI – INTEGRAZIONI – NUOVA
+INTEGRAZIONE (selezionare Vikey) – ROTELLINA ed inserire la stringa
+nella prima riga (<strong>Api_Key</strong>) – creare tutte le
+camere (a sinistra inserire il nome della camera dentro Vikey mentre
+a destra va collegata con le camere dentro Scidoo)</p>
+<p>3) se viene cliccato RICHIEDI_CHECKIN il codice partirà 1 giorno
+prima dell’arrivo solo se il cliente avrà fatto il check-in
+on-line; mentre se non viene selezionato RICHIEDI_CHECKIN il codice
+si dovrà generare manualmente entrando nella prenotazione –
+SOFTWARE - + GENERA CHIAVE. (il codice verrà inviato direttamente da
+Vikey)</p>
+<p><font size="4" style="font-size: 13pt">Collegamento HBenchmark</font></p>
+<p>Per collegare HBenchmark serviranno i seguenti dati [vengono
+inviati da loro per mail]:</p>
+<ul>
+	<li><p style="margin-bottom: 0in">USER</p>
+	<li><p>PASSWORD</p>
+</ul>
+<p>per effettuare il collegamento seguire i passaggi:</p>
+<ul>
+	<li><p style="margin-bottom: 0in">IMPOSTAZIONI</p>
+	<li><p style="margin-bottom: 0in">GENERALI</p>
+	<li><p style="margin-bottom: 0in">INTEGRAZIONI</p>
+	<li><p style="margin-bottom: 0in">NUOVA INTEGRAZIONE e cercare
+	HBenchmark</p>
+	<li><p>inserire le credenziali</p>
+</ul>
+<p>⚠️<strong><font color="#333333"><font size="2" style="font-size: 10pt"><span style="background: #ffffff">NON
+E' NECESSARIO METTERE LA SPUNTA SU “ATTIVO”</span></font></font></strong></p>
+<p>⚠️<strong><font color="#333333"><font size="2" style="font-size: 10pt"><span style="background: #ffffff">INSERIRE
+SEMPRE DATA DI INIZIO [tendenzialmente lo richiedono loro per mail]</span></font></font></strong></p>
+<p>&nbsp;</p>
+<p><strong>❗</strong><strong><font color="#333333"><font size="2" style="font-size: 10pt"><span style="background: #ffffff">ATTENZIONE</span></font></font></strong><strong>❗</strong><strong><font color="#333333"><span style="background: #ffffff">
+</span></font></strong><strong><font color="#333333"><font size="2" style="font-size: 10pt"><span style="background: #ffffff">EFFETTUARE
+SEMPRE LA PRIMA SINCRONIZZAZIONE INSERENDO NEL CALENDARIO LE DATE</span></font></font></strong></p>
+<ul type="circle">
+	<li><p style="margin-bottom: 0in">effettuare la sync</p>
+	<li><p>inviare per mail i codici corrispondenti ai trattamenti in
+	Scidoo ES: Bed&amp;Breakfast CODICE 231227 <strong><i>[se apri la
+	retta in Scidoo nel campo IDSERVIZIO trovi il codice]</i></strong></p>
+</ul>
+<p><font size="4" style="font-size: 13pt">Collegamento SMARTPRICING
+per la trasmissione dei prezzi a Scidoo:</font></p>
+<p>&nbsp;</p>
+<p><strong><font size="4" style="font-size: 15pt">(1)</font></strong></p>
+<ul>
+	<li><p style="margin-bottom: 0in">IMPOSTAZIONI</p>
+	<li><p style="margin-bottom: 0in">GENERALI</p>
+	<li><p style="margin-bottom: 0in">ACCOUNT API KEY</p>
+	<li><p style="margin-bottom: 0in">+ ACCOUNT API KEY</p>
+	<li><p style="margin-bottom: 0in">nel NOME inserire <strong>Smartpricing</strong></p>
+	<li><p>copiare il CODICE API ed inviarlo alla struttura via email</p>
+</ul>
+<p>&nbsp;</p>
+<p>Attendere l'attivazione dell'interfaccia&nbsp;</p>
+<p>&nbsp;</p>
+<p><strong><font size="4" style="font-size: 15pt">(2)</font></strong></p>
+<ul>
+	<li><p style="margin-bottom: 0in">IMPOSTAZIONI</p>
+	<li><p style="margin-bottom: 0in">PREZZI e SERVIZI</p>
+	<li><p style="margin-bottom: 0in">RETTE e TARIFFE</p>
+	<li><p style="margin-bottom: 0in">entrare nella retta base che ci
+	comunicherà Smartpricing</p>
+	<li><p style="margin-bottom: 0in">LISTINO</p>
+	<li><p style="margin-bottom: 0in">cliccare sulla MATITINA ARANCIONE
+	e creare una stagione unica con il nome di SMARTPRICING</p>
+	<li><p style="margin-bottom: 0in">Impostare prezzo di 9999 su 1
+	adulto (listino occupazione)</p>
+	<li><p style="margin-bottom: 0in">aggiungere supplementi richiesti
+	dal cliente</p>
+	<li><p>colorare tutto il calendario con la stagionalità</p>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><strong><font size="4" style="font-size: 15pt">N:B. </font></strong><font size="4" style="font-size: 13pt"><u>nel
+momento in cui Smartpricing sarà collegato i prezzi verranno
+visualizzati in VISTA PREZZI GENERALE con lo sfondo giallo.</u></font></p>
+<h2 class="western"><strong><font size="4" style="font-size: 13pt">Configurazione
+BeSafe</font></strong></h2>
+<h3 class="western"><font size="2" style="font-size: 10pt">1️⃣
+Impostazioni Generali – Creazione Account API Key</font></h3>
+<p><font size="2" style="font-size: 10pt">Accedere a </font><strong><font size="2" style="font-size: 10pt">IMPOSTAZIONI
+→ GENERALI → ACCOUNT API KEY</font></strong><font size="2" style="font-size: 10pt">.</font></p>
+<p><font size="2" style="font-size: 10pt">Cliccare su </font><strong><font size="2" style="font-size: 10pt">➕
+ACCOUNT API KEY</font></strong><font size="2" style="font-size: 10pt">.</font></p>
+<p><font size="2" style="font-size: 10pt">Nella colonna </font><strong><font size="2" style="font-size: 10pt">NOME</font></strong><font size="2" style="font-size: 10pt">,
+inserire </font><strong><font size="2" style="font-size: 10pt">BeSafe</font></strong><font size="2" style="font-size: 10pt">.</font></p>
+<p>📋 <strong><font size="2" style="font-size: 10pt">Copiare</font></strong><font size="2" style="font-size: 10pt">
+la stringa generata (API Key).</font></p>
+<p>📤 <strong><font size="2" style="font-size: 10pt">Inviare</font></strong><font size="2" style="font-size: 10pt">
+la stringa alla struttura, che dovrà inoltrarla a </font><strong><font size="2" style="font-size: 10pt">BeSafe</font></strong><font size="2" style="font-size: 10pt">
+insieme alla tariffa relativa*.</font></p>
+<hr/>
+
+<h3 class="western"><font size="2" style="font-size: 10pt">2️⃣
+Creazione Tariffe BeSafe</font></h3>
+<p><font size="2" style="font-size: 10pt">Accedere a </font><strong><font size="2" style="font-size: 10pt">IMPOSTAZIONI
+→ PREZZI e SERVIZI → RETTE e TARIFFE</font></strong><font size="2" style="font-size: 10pt">.</font></p>
+<p>📂 <font size="2" style="font-size: 10pt">Entrare nella cartella
+corrispondente.</font></p>
+<p>➕ <font size="2" style="font-size: 10pt">Creare la/le retta/e
+</font><strong><font size="2" style="font-size: 10pt">BeSafe</font></strong><font size="2" style="font-size: 10pt">.</font></p>
+<hr/>
+
+<h3 class="western"><font size="2" style="font-size: 10pt">3️⃣
+Creazione Politiche di Deposito e Cancellazione</font></h3>
+<p>💰 <strong><font size="2" style="font-size: 10pt">Politica di
+Deposito</font></strong><font size="2" style="font-size: 10pt">:
+creare una politica specifica per BeSafe in</font><br/>
+<strong><font size="2" style="font-size: 10pt">IMPOSTAZIONI
+→ DEPOSITI e CANCELLAZIONI</font></strong><font size="2" style="font-size: 10pt">.</font></p>
+<p>❌ <strong><font size="2" style="font-size: 10pt">Politica di
+Cancellazione</font></strong><font size="2" style="font-size: 10pt">:
+creare una politica specifica per BeSafe nello stesso percorso.</font></p>
+<hr/>
+
+<h3 class="western">📍 <em><font size="2" style="font-size: 10pt"><i>Come
+trovare l’ID della Tariffa</i></font></em></h3>
+<p><font size="2" style="font-size: 10pt">Accedere a </font><strong><font size="2" style="font-size: 10pt">IMPOSTAZIONI
+→ PREZZI e SERVIZI → RETTE e TARIFFE</font></strong><font size="2" style="font-size: 10pt">.</font></p>
+<p>🔍 <font size="2" style="font-size: 10pt">Entrare nella </font><strong><font size="2" style="font-size: 10pt">Retta
+BeSafe</font></strong><font size="2" style="font-size: 10pt">.</font></p>
+<p>📑 <font size="2" style="font-size: 10pt">Copiare il campo </font><strong><font size="2" style="font-size: 10pt">ID
+SERVIZIO</font></strong><font size="2" style="font-size: 10pt">.</font></p>
+<p>ASSICURAZIONE CARE4YOU</p>
+<ul>
+	<li><p style="margin-bottom: 0in">IMPOSTAZIONI</p>
+	<li><p style="margin-bottom: 0in">GENERALI</p>
+	<li><p style="margin-bottom: 0in">ACCOUNT API KEY&nbsp;</p>
+	<li><p style="margin-bottom: 0in">+ ACCOUNT API KEY → inserire <strong>C4U
+	Hotel</strong> nella colonna NOME e copiare la stringa per poi
+	inviarla direttamente al contatto di Care4You mettendo in copia la
+	struttura</p>
+	<li><p style="margin-bottom: 0in">PREZZI e SERVIZI</p>
+	<li><p style="margin-bottom: 0in">ASSICURAZIONE (in fondo al menù
+	di sinistra)</p>
+	<li><p style="margin-bottom: 0in">+ NUOVA CARTELLA → inserire il
+	nome <strong>C4U Assicurazione</strong></p>
+	<li><p>+ IMPORTA SERVIZIO → in automatico verrà scaricato il
+	servizio con descrizione, foto e % di supplemento</p>
+</ul>
+<p>&nbsp;</p>
+<p><strong>MICRODEVICE</strong></p>
+<p>L'integrazione con Microdevise ha un protocollo FIAS, bisogna
+comunicare a Microdevice che dovranno fare le comunicazioni su LOCAL
+HOST sulla porta 8050.</p>
+<p>Per collegare Microdevice seguire i passaggi:</p>
+<p><font face="Wingdings">è </font>IMPOSTAZIONI</p>
+<p><font face="Wingdings">è </font>GENERALI</p>
+<p><font face="Wingdings">è </font>scaricare l'APP di Scidoo WINDOWS
+(Beta) sul PC dove è installato il programma di Microdevice</p>
+<p><font face="Wingdings">è </font>INTEGRAZIONI</p>
+<p><font face="Wingdings">è </font>NUOVA INTEGRAZIONE</p>
+<ol>
+	<li><p style="margin-bottom: 0in">selezionare Microdevice dal menù
+	a tendina sotto la colonna SOFTWARE</p>
+	<li><p style="margin-bottom: 0in">inserire la stringa alfanumerica
+	sotto la colonna DATO 1</p>
+	<li><p style="margin-bottom: 0in">cliccare sulla rotellina in blu</p>
+	<ol>
+		<li><p style="margin-bottom: 0in">WORKSTATION_ID → inserire il
+		codice HP…….</p>
+		<li><p style="margin-bottom: 0in">mappare il tutto</p>
+		<li><p style="margin-bottom: 0in">cliccare su CONFERMA</p>
+		<li><p style="margin-bottom: 0in">CHIUDI</p>
+		<li><p>flaggare sotto ATTIVA&nbsp;</p>
+	</ol>
+</ol>
+<p style="line-height: 100%; margin-bottom: 0in"><br/>
+
+</p>
+</body>
+</html>
