@@ -1,10 +1,17 @@
 "use client";
 
-import { Building2, MapPin, Calendar, Bed } from "lucide-react";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "../ui/card";
+import { Bed, Building2, Calendar, MapPin } from "lucide-react";
+import Link from "next/link";
 import { Badge } from "../ui/badge";
 import { Button } from "../ui/button";
-import Link from "next/link";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "../ui/card";
 
 export interface PropertyCardProps {
   property: {
@@ -31,7 +38,10 @@ const propertyTypeLabels: Record<string, string> = {
   OTHER: "Other",
 };
 
-const statusColors: Record<string, "default" | "success" | "warning" | "destructive"> = {
+const statusColors: Record<
+  string,
+  "default" | "success" | "warning" | "destructive"
+> = {
   SETUP: "warning",
   ACTIVE: "success",
   INACTIVE: "default",
@@ -40,7 +50,7 @@ const statusColors: Record<string, "default" | "success" | "warning" | "destruct
 
 export function PropertyCard({ property }: PropertyCardProps) {
   return (
-    <Card className="hover:shadow-md transition-shadow">
+    <Card className="transition-shadow hover:shadow-md">
       <CardHeader>
         <div className="flex items-start justify-between">
           <div className="flex-1">
@@ -55,13 +65,13 @@ export function PropertyCard({ property }: PropertyCardProps) {
           </Badge>
         </div>
       </CardHeader>
-      
+
       <CardContent>
-        <div className="flex items-center gap-2 text-sm text-muted-foreground mb-4">
+        <div className="mb-4 flex items-center gap-2 text-muted-foreground text-sm">
           <Building2 className="h-4 w-4" />
           {propertyTypeLabels[property.type] || property.type}
         </div>
-        
+
         <div className="grid grid-cols-2 gap-4 text-sm">
           <div className="flex items-center gap-2">
             <Calendar className="h-4 w-4 text-muted-foreground" />
@@ -72,7 +82,7 @@ export function PropertyCard({ property }: PropertyCardProps) {
               <p className="text-muted-foreground text-xs">Categories</p>
             </div>
           </div>
-          
+
           <div className="flex items-center gap-2">
             <Bed className="h-4 w-4 text-muted-foreground" />
             <div>
@@ -82,10 +92,10 @@ export function PropertyCard({ property }: PropertyCardProps) {
           </div>
         </div>
       </CardContent>
-      
+
       <CardFooter className="gap-2">
-        <Link href={`/properties/${property.id}`} className="flex-1">
-          <Button variant="outline" className="w-full">
+        <Link className="flex-1" href={`/properties/${property.id}`}>
+          <Button className="w-full" variant="outline">
             View Details
           </Button>
         </Link>
@@ -96,4 +106,3 @@ export function PropertyCard({ property }: PropertyCardProps) {
     </Card>
   );
 }
-

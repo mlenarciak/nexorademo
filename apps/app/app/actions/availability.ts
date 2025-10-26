@@ -344,4 +344,3 @@ export async function getOccupancyStats(
     return { success: false, error: "Failed to fetch occupancy statistics" };
   }
 }
-

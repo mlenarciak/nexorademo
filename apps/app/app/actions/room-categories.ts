@@ -35,7 +35,10 @@ const roomCategorySchema = z.object({
   petsAllowed: z.boolean().default(false),
   maxPets: z.number().int().positive().optional(),
   smokingAllowed: z.boolean().default(false),
-  color: z.string().regex(/^#[0-9A-F]{6}$/i).default("#3B82F6"),
+  color: z
+    .string()
+    .regex(/^#[0-9A-F]{6}$/i)
+    .default("#3B82F6"),
   order: z.number().int().min(0).default(0),
   photos: z.array(z.object({ url: z.string(), alt: z.string() })).default([]),
   videos: z.array(z.string()).optional(),
@@ -373,7 +376,9 @@ export async function assignAmenitiesToCategory(
       })),
     });
 
-    revalidatePath(`/properties/${category.propertyId}/rooms/categories/${categoryId}`);
+    revalidatePath(
+      `/properties/${category.propertyId}/rooms/categories/${categoryId}`
+    );
 
     return { success: true };
   } catch (error) {
@@ -381,4 +386,3 @@ export async function assignAmenitiesToCategory(
     return { success: false, error: "Failed to assign amenities" };
   }
 }
-

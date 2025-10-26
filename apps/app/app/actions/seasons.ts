@@ -13,7 +13,10 @@ const seasonSchema = z.object({
   name: z.string().min(2).max(100),
   startDate: z.date(),
   endDate: z.date(),
-  color: z.string().regex(/^#[0-9A-F]{6}$/i).default("#3B82F6"),
+  color: z
+    .string()
+    .regex(/^#[0-9A-F]{6}$/i)
+    .default("#3B82F6"),
 });
 
 /**
@@ -200,13 +203,22 @@ export async function updateSeason(
           deletedAt: null,
           OR: [
             {
-              AND: [{ startDate: { lte: newStart } }, { endDate: { gte: newStart } }],
+              AND: [
+                { startDate: { lte: newStart } },
+                { endDate: { gte: newStart } },
+              ],
             },
             {
-              AND: [{ startDate: { lte: newEnd } }, { endDate: { gte: newEnd } }],
+              AND: [
+                { startDate: { lte: newEnd } },
+                { endDate: { gte: newEnd } },
+              ],
             },
             {
-              AND: [{ startDate: { gte: newStart } }, { endDate: { lte: newEnd } }],
+              AND: [
+                { startDate: { gte: newStart } },
+                { endDate: { lte: newEnd } },
+              ],
             },
           ],
         },
@@ -290,4 +302,3 @@ export async function deleteSeason(id: string) {
     return { success: false, error: "Failed to delete season" };
   }
 }
-

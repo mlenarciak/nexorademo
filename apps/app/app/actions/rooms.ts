@@ -475,4 +475,3 @@ export async function bulkUpdateRooms(
     return { success: false, error: "Failed to bulk update rooms" };
   }
 }
-

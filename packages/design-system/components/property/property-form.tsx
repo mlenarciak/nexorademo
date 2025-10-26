@@ -1,10 +1,17 @@
 "use client";
 
+import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { Button } from "../ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "../ui/card";
 import {
   Form,
   FormControl,
@@ -22,9 +29,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from "../ui/select";
-import { Textarea } from "../ui/textarea";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "../ui/tabs";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../ui/card";
+import { Textarea } from "../ui/textarea";
 
 const propertyFormSchema = z.object({
   name: z.string().min(3, "Name must be at least 3 characters").max(100),
@@ -98,15 +104,15 @@ export function PropertyForm({
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-        <Tabs value={activeTab} onValueChange={setActiveTab}>
+      <form className="space-y-6" onSubmit={form.handleSubmit(onSubmit)}>
+        <Tabs onValueChange={setActiveTab} value={activeTab}>
           <TabsList className="grid w-full grid-cols-3">
             <TabsTrigger value="basic">Basic Information</TabsTrigger>
             <TabsTrigger value="fiscal">Fiscal Details</TabsTrigger>
             <TabsTrigger value="operations">Operations</TabsTrigger>
           </TabsList>
 
-          <TabsContent value="basic" className="space-y-4">
+          <TabsContent className="space-y-4" value="basic">
             <Card>
               <CardHeader>
                 <CardTitle>Basic Information</CardTitle>
@@ -136,8 +142,8 @@ export function PropertyForm({
                     <FormItem>
                       <FormLabel>Property Type *</FormLabel>
                       <Select
-                        onValueChange={field.onChange}
                         defaultValue={field.value}
+                        onValueChange={field.onChange}
                       >
                         <FormControl>
                           <SelectTrigger>
@@ -152,7 +158,9 @@ export function PropertyForm({
                           <SelectItem value="OPEN_AIR_RESORT">
                             Open Air Resort
                           </SelectItem>
-                          <SelectItem value="SMALL_HOTEL">Small Hotel</SelectItem>
+                          <SelectItem value="SMALL_HOTEL">
+                            Small Hotel
+                          </SelectItem>
                           <SelectItem value="HOSTEL">Hostel</SelectItem>
                           <SelectItem value="VACATION_RENTAL">
                             Vacation Rental
@@ -174,8 +182,8 @@ export function PropertyForm({
                         <FormLabel>Email *</FormLabel>
                         <FormControl>
                           <Input
-                            type="email"
                             placeholder="info@property.com"
+                            type="email"
                             {...field}
                           />
                         </FormControl>
@@ -249,8 +257,8 @@ export function PropertyForm({
                       <FormItem>
                         <FormLabel>Country *</FormLabel>
                         <Select
-                          onValueChange={field.onChange}
                           defaultValue={field.value}
+                          onValueChange={field.onChange}
                         >
                           <FormControl>
                             <SelectTrigger>
@@ -280,8 +288,8 @@ export function PropertyForm({
                       <FormLabel>Website</FormLabel>
                       <FormControl>
                         <Input
-                          type="url"
                           placeholder="https://property.com"
+                          type="url"
                           {...field}
                         />
                       </FormControl>
@@ -293,7 +301,7 @@ export function PropertyForm({
             </Card>
           </TabsContent>
 
-          <TabsContent value="fiscal" className="space-y-4">
+          <TabsContent className="space-y-4" value="fiscal">
             <Card>
               <CardHeader>
                 <CardTitle>Fiscal Information</CardTitle>
@@ -309,9 +317,14 @@ export function PropertyForm({
                       name="cin"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>CIN (Codice Identificativo Nazionale)</FormLabel>
+                          <FormLabel>
+                            CIN (Codice Identificativo Nazionale)
+                          </FormLabel>
                           <FormControl>
-                            <Input placeholder="IT055042A1BC123456" {...field} />
+                            <Input
+                              placeholder="IT055042A1BC123456"
+                              {...field}
+                            />
                           </FormControl>
                           <FormDescription>
                             Required for all Italian hospitality properties
@@ -326,11 +339,18 @@ export function PropertyForm({
                       name="cir"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>CIR (Codice Identificativo Regionale)</FormLabel>
+                          <FormLabel>
+                            CIR (Codice Identificativo Regionale)
+                          </FormLabel>
                           <FormControl>
-                            <Input placeholder="CIR055042-BED-00123" {...field} />
+                            <Input
+                              placeholder="CIR055042-BED-00123"
+                              {...field}
+                            />
                           </FormControl>
-                          <FormDescription>Regional identification code</FormDescription>
+                          <FormDescription>
+                            Regional identification code
+                          </FormDescription>
                           <FormMessage />
                         </FormItem>
                       )}
@@ -345,7 +365,9 @@ export function PropertyForm({
                           <FormControl>
                             <Input placeholder="12345678901" {...field} />
                           </FormControl>
-                          <FormDescription>11-digit Italian VAT number</FormDescription>
+                          <FormDescription>
+                            11-digit Italian VAT number
+                          </FormDescription>
                           <FormMessage />
                         </FormItem>
                       )}
@@ -362,7 +384,10 @@ export function PropertyForm({
                         <FormItem>
                           <FormLabel>CNPJ (Brazilian Tax ID)</FormLabel>
                           <FormControl>
-                            <Input placeholder="12.345.678/0001-90" {...field} />
+                            <Input
+                              placeholder="12.345.678/0001-90"
+                              {...field}
+                            />
                           </FormControl>
                           <FormDescription>
                             Required for Brazilian businesses
@@ -393,7 +418,7 @@ export function PropertyForm({
             </Card>
           </TabsContent>
 
-          <TabsContent value="operations" className="space-y-4">
+          <TabsContent className="space-y-4" value="operations">
             <Card>
               <CardHeader>
                 <CardTitle>Operational Settings</CardTitle>
@@ -440,8 +465,8 @@ export function PropertyForm({
                       <FormItem>
                         <FormLabel>Currency *</FormLabel>
                         <Select
-                          onValueChange={field.onChange}
                           defaultValue={field.value}
+                          onValueChange={field.onChange}
                         >
                           <FormControl>
                             <SelectTrigger>
@@ -467,8 +492,8 @@ export function PropertyForm({
                       <FormItem>
                         <FormLabel>Timezone *</FormLabel>
                         <Select
-                          onValueChange={field.onChange}
                           defaultValue={field.value}
+                          onValueChange={field.onChange}
                         >
                           <FormControl>
                             <SelectTrigger>
@@ -501,15 +526,18 @@ export function PropertyForm({
         </Tabs>
 
         <div className="flex justify-end gap-4">
-          <Button type="button" variant="outline" disabled={isLoading}>
+          <Button disabled={isLoading} type="button" variant="outline">
             Cancel
           </Button>
-          <Button type="submit" disabled={isLoading}>
-            {isLoading ? "Saving..." : initialData ? "Update Property" : "Create Property"}
+          <Button disabled={isLoading} type="submit">
+            {isLoading
+              ? "Saving..."
+              : initialData
+                ? "Update Property"
+                : "Create Property"}
           </Button>
         </div>
       </form>
     </Form>
   );
 }
-

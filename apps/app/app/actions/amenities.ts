@@ -46,9 +46,7 @@ export async function getAmenities() {
 /**
  * Get amenities by category
  */
-export async function getAmenitiesByCategory(
-  category: string
-) {
+export async function getAmenitiesByCategory(category: string) {
   try {
     const amenities = await prisma.amenity.findMany({
       where: { category: category as any },
@@ -270,8 +268,10 @@ export async function getRoomAmenities(roomId: string) {
       ),
       ...propertyAmenities.filter(
         (pa) =>
-          !roomAmenities.find((ra) => ra.id === pa.id) &&
-          !categoryAmenities.find((ca) => ca.id === pa.id)
+          !(
+            roomAmenities.find((ra) => ra.id === pa.id) ||
+            categoryAmenities.find((ca) => ca.id === pa.id)
+          )
       ),
     ];
 
@@ -338,4 +338,3 @@ export async function assignAmenitiesToRoom(
     return { success: false, error: "Failed to assign amenities" };
   }
 }
-
