@@ -85,6 +85,7 @@ Nexora is a cloud-native, multi-tenant hospitality property management system bu
 | **shadcn/ui** | Latest | Component library |
 | **Liveblocks** | Latest | Real-time collaboration |
 | **Languine** | Latest | Internationalization |
+| **Metabase** | Latest | Embedded analytics & BI |
 
 ### Backend
 
@@ -105,6 +106,7 @@ Nexora is a cloud-native, multi-tenant hospitality property management system bu
 | **Vercel Blob** | File storage (images, documents) |
 | **Sentry** | Error tracking and monitoring |
 | **Vercel Analytics** | Performance monitoring |
+| **Metabase** | Self-hosted BI and analytics (Docker) |
 
 ### Development
 
@@ -732,6 +734,311 @@ export async function sendWhatsAppMessage(to: string, message: string) {
   });
 }
 ```
+
+### Metabase (Analytics & BI)
+
+**Purpose**: Embedded analytics and business intelligence for property managers
+
+**Deployment**: Self-hosted Metabase instance via Docker
+
+**Architecture**:
+
+```
+┌─────────────────────────────────────────────────┐
+│          Nexora Application (Next.js)            │
+│  ┌──────────────────────────────────────────┐  │
+│  │  Reports & Analytics Pages               │  │
+│  │  - Embedded iframes (signed URLs)        │  │
+│  │  - React components with Metabase SDK    │  │
+│  └──────────────────────────────────────────┘  │
+│                   │                             │
+│                   │ JWT SSO                     │
+│                   ▼                             │
+│  ┌──────────────────────────────────────────┐  │
+│  │        Metabase Container (Docker)       │  │
+│  │  ┌────────────────────────────────────┐  │  │
+│  │  │  - Dashboard Engine                │  │  │
+│  │  │  - Query Builder                   │  │  │
+│  │  │  - Visualization Engine            │  │  │
+│  │  │  - Embedding API                   │  │  │
+│  │  └────────────────────────────────────┘  │  │
+│  └──────────────────────────────────────────┘  │
+│                   │                             │
+│                   │ Read-Only PostgreSQL        │
+│                   ▼                             │
+│  ┌──────────────────────────────────────────┐  │
+│  │    Neon Database (PostgreSQL)            │  │
+│  │  - Metabase reads data                   │  │
+│  │  - Organization filtering via context    │  │
+│  └──────────────────────────────────────────┘  │
+└─────────────────────────────────────────────────┘
+```
+
+**Setup**:
+
+```yaml
+# docker-compose.yml for Metabase
+version: '3.8'
+services:
+  metabase:
+    image: metabase/metabase:latest
+    container_name: nexora-metabase
+    ports:
+      - "3001:3000"
+    environment:
+      MB_DB_TYPE: postgres
+      MB_DB_DBNAME: metabase
+      MB_DB_PORT: 5432
+      MB_DB_USER: metabase_app
+      MB_DB_PASS: ${METABASE_DB_PASSWORD}
+      MB_DB_HOST: ${METABASE_DB_HOST}
+      MB_EMBEDDING_SECRET_KEY: ${METABASE_EMBEDDING_SECRET}
+      MB_SITE_URL: ${METABASE_SITE_URL}
+      JAVA_OPTS: "-Xmx2g -XX:MaxRAMPercentage=75.0"
+    volumes:
+      - metabase-data:/metabase-data
+    restart: unless-stopped
+
+volumes:
+  metabase-data:
+```
+
+**Authentication & Security**:
+
+```typescript
+// packages/analytics/src/metabase.ts
+import jwt from 'jsonwebtoken';
+
+export interface MetabaseEmbedOptions {
+  resource: { dashboard: number } | { question: number };
+  params?: Record<string, any>;
+  exp?: number; // Expiration (default 10 minutes)
+}
+
+export function generateMetabaseEmbedUrl(
+  options: MetabaseEmbedOptions
+): string {
+  const METABASE_SITE_URL = process.env.METABASE_SITE_URL!;
+  const METABASE_SECRET_KEY = process.env.METABASE_EMBEDDING_SECRET!;
+  
+  const payload = {
+    resource: options.resource,
+    params: options.params || {},
+    exp: Math.round(Date.now() / 1000) + (options.exp || 600), // 10 min default
+  };
+  
+  const token = jwt.sign(payload, METABASE_SECRET_KEY);
+  
+  const resourceType = 'dashboard' in options.resource ? 'dashboard' : 'question';
+  const resourceId = options.resource[resourceType];
+  
+  return `${METABASE_SITE_URL}/embed/${resourceType}/${token}#bordered=false&titled=false`;
+}
+
+// SSO Integration with Clerk
+export async function setupMetabaseSSO(userId: string, userEmail: string) {
+  const ssoToken = jwt.sign(
+    {
+      email: userEmail,
+      first_name: user.firstName,
+      last_name: user.lastName,
+      exp: Math.round(Date.now() / 1000) + 3600, // 1 hour
+    },
+    METABASE_SECRET_KEY
+  );
+  
+  return ssoToken;
+}
+```
+
+**Row-Level Security (Multi-tenancy)**:
+
+```sql
+-- Create Metabase read-only user
+CREATE USER metabase_readonly WITH PASSWORD 'secure_password';
+
+-- Grant read-only access
+GRANT CONNECT ON DATABASE nexora TO metabase_readonly;
+GRANT USAGE ON SCHEMA public TO metabase_readonly;
+GRANT SELECT ON ALL TABLES IN SCHEMA public TO metabase_readonly;
+ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT SELECT ON TABLES TO metabase_readonly;
+
+-- Create views with organization filtering
+CREATE OR REPLACE VIEW metabase_bookings AS
+SELECT 
+  b.*,
+  p.name AS property_name,
+  p.organization_id
+FROM bookings b
+JOIN properties p ON b.property_id = p.id
+WHERE p.organization_id = current_setting('app.current_organization_id', true)::text;
+
+-- Set organization context before queries
+SET app.current_organization_id = 'org_xxx';
+```
+
+**React Component for Embedding**:
+
+```typescript
+// packages/design-system/components/analytics/metabase-dashboard.tsx
+'use client'
+
+import { useEffect, useState } from 'react';
+
+interface MetabaseDashboardProps {
+  dashboardId: number;
+  params?: Record<string, any>;
+  height?: string;
+}
+
+export function MetabaseDashboard({ 
+  dashboardId, 
+  params, 
+  height = '800px' 
+}: MetabaseDashboardProps) {
+  const [embedUrl, setEmbedUrl] = useState<string>('');
+  
+  useEffect(() => {
+    async function fetchEmbedUrl() {
+      const response = await fetch('/api/analytics/embed-url', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          type: 'dashboard',
+          id: dashboardId,
+          params,
+        }),
+      });
+      
+      const data = await response.json();
+      setEmbedUrl(data.url);
+    }
+    
+    fetchEmbedUrl();
+  }, [dashboardId, params]);
+  
+  if (!embedUrl) {
+    return <div>Loading dashboard...</div>;
+  }
+  
+  return (
+    <iframe
+      src={embedUrl}
+      frameBorder="0"
+      width="100%"
+      height={height}
+      allowTransparency
+      className="rounded-lg border"
+    />
+  );
+}
+```
+
+**API Route for Embed URLs**:
+
+```typescript
+// app/api/analytics/embed-url/route.ts
+import { auth } from '@clerk/nextjs';
+import { generateMetabaseEmbedUrl } from '@repo/analytics';
+
+export async function POST(request: Request) {
+  const { userId, orgId } = auth();
+  
+  if (!userId) {
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+  }
+  
+  const { type, id, params } = await request.json();
+  
+  // Add organization filter to params
+  const filteredParams = {
+    ...params,
+    organization_id: orgId,
+  };
+  
+  const url = generateMetabaseEmbedUrl({
+    resource: type === 'dashboard' ? { dashboard: id } : { question: id },
+    params: filteredParams,
+  });
+  
+  return NextResponse.json({ url });
+}
+```
+
+**Pre-built Dashboards**:
+
+1. **Property Performance Dashboard**
+   - Occupancy rate (current, historical, forecast)
+   - Revenue trends
+   - ADR (Average Daily Rate)
+   - RevPAR (Revenue Per Available Room)
+   - Booking source breakdown
+
+2. **Occupancy Analytics**
+   - Room category performance
+   - Seasonal trends
+   - Day-of-week patterns
+   - Booking lead time
+   - Length of stay distribution
+
+3. **Revenue Analytics**
+   - Revenue by source (direct, OTA breakdown)
+   - Rate plan performance
+   - Discount impact analysis
+   - Revenue forecast
+   - Channel manager performance
+
+4. **Guest Insights**
+   - Demographics (nationality, age groups)
+   - Repeat guest rate
+   - Guest satisfaction trends
+   - Booking patterns
+   - Average booking value
+
+5. **Operational Metrics**
+   - Check-in/check-out times
+   - Housekeeping efficiency
+   - Maintenance requests
+   - Staff performance
+   - Response times
+
+**Custom SQL Queries Example**:
+
+```sql
+-- Occupancy Rate Over Time
+SELECT 
+  date_trunc('day', check_in) AS date,
+  COUNT(DISTINCT room_id) AS occupied_rooms,
+  (SELECT COUNT(*) FROM rooms WHERE property_id = {{property_id}}) AS total_rooms,
+  ROUND(
+    COUNT(DISTINCT room_id)::numeric / 
+    (SELECT COUNT(*) FROM rooms WHERE property_id = {{property_id}})::numeric * 100, 
+    2
+  ) AS occupancy_rate
+FROM bookings
+WHERE property_id = {{property_id}}
+  AND check_in >= {{start_date}}
+  AND check_in <= {{end_date}}
+  AND status IN ('CONFIRMED', 'CHECKED_IN', 'CHECKED_OUT')
+GROUP BY date_trunc('day', check_in)
+ORDER BY date;
+```
+
+**Benefits**:
+- ✅ **No custom development**: Leverage Metabase's features
+- ✅ **Self-service**: Users create their own reports
+- ✅ **Professional visualizations**: Publication-quality charts
+- ✅ **Multi-tenancy**: Automatic organization filtering
+- ✅ **Secure embedding**: JWT-signed URLs
+- ✅ **Scalable**: Handles complex queries efficiently
+- ✅ **Cost-effective**: Open-source, no per-seat licensing
+
+**Deployment Notes**:
+- Run Metabase in Docker container
+- Separate database for Metabase metadata (not main Neon DB)
+- Read-only database connection for security
+- Regular backups of Metabase configuration
+- Monitor query performance and optimize slow queries
 
 ---
 

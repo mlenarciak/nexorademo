@@ -258,6 +258,18 @@ pnpm build
 - Verify Clerk dashboard settings
 - Ensure URLs match
 
+### Metabase Setup
+```bash
+# Start Metabase with Docker
+docker-compose up -d metabase
+
+# View Metabase logs
+docker logs -f nexora-metabase
+
+# Access Metabase UI
+open http://localhost:3001
+```
+
 ---
 
 ## 📞 Need Help?

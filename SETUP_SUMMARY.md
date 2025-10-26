@@ -121,6 +121,7 @@
 - ✅ shadcn/ui + Tailwind
 - ✅ Liveblocks (real-time)
 - ✅ Languine (i18n: EN, IT, PT)
+- ✅ Metabase (analytics & BI)
 
 ### Internationalization
 - ✅ IP-based detection (Italy → IT, Brazil → PT, Other → EN)

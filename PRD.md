@@ -529,26 +529,72 @@ To provide hospitality property owners and managers with a powerful, intuitive p
 - [ ] Message template editor (UI only)
 - [ ] Message log table (schema)
 
-### Phase 8: Statistics & Reporting (Scaffolding)
+### Phase 8: Statistics & Reporting with Metabase (Scaffolding)
 
-**Priority**: P2 (Nice to Have, Future)
+**Priority**: P1 (High Priority, Future)
+
+**Technology**: Metabase (Open-source BI and Analytics)
 
 **Placeholder Requirements**:
-- Occupancy reports
-- Revenue reports
-- Guest demographics
-- Source of business analysis
-- Room performance
-- Rate performance
-- Forecast reports
-- Custom report builder
-- Export to Excel/PDF
+- **Embedded Analytics**: Metabase dashboards embedded in Nexora UI
+- **Self-Service BI**: Property managers can create custom reports
+- **Pre-built Dashboards**:
+  - Occupancy reports (daily, weekly, monthly, yearly)
+  - Revenue reports (by room category, rate plan, source)
+  - Guest demographics and behavior
+  - Source of business analysis (direct, OTA breakdown)
+  - Room performance metrics
+  - Rate performance and ADR (Average Daily Rate)
+  - Forecast reports and predictions
+  - Housekeeping efficiency
+  - Channel manager performance
+- **Interactive Visualizations**: Charts, graphs, tables, maps
+- **Drill-down Capabilities**: Click through to detailed data
+- **Scheduled Reports**: Email reports on schedule
+- **Export Options**: Excel, PDF, CSV
+- **Multi-tenancy Support**: Data filtered by organization
+- **Mobile-responsive Dashboards**
+- **Natural Language Queries**: Ask questions in plain language
+
+**Technical Implementation**:
+- **Metabase Deployment**: Self-hosted Metabase instance (Docker)
+- **Database Connection**: Direct connection to Neon PostgreSQL
+- **Authentication**: JWT-based SSO integration with Clerk
+- **Embedding**: 
+  - Signed embedding for secure dashboard access
+  - React SDK for seamless integration
+  - Full-app embedding or individual charts/dashboards
+- **Data Security**: Row-level security via organization context
+- **Custom Styling**: White-label with Nexora branding
 
 **Scaffolding Deliverables**:
-- [ ] Reports dashboard (UI)
-- [ ] Sample reports with mock data
-- [ ] Data aggregation requirements documented
-- [ ] Export functionality placeholder
+- [ ] Metabase Docker setup and configuration
+- [ ] Database permissions for Metabase user (read-only)
+- [ ] JWT SSO integration with Clerk
+- [ ] Embedded dashboard components in React
+- [ ] Pre-built dashboard templates:
+  - [ ] Property performance dashboard
+  - [ ] Occupancy analytics dashboard
+  - [ ] Revenue analytics dashboard
+  - [ ] Guest insights dashboard
+  - [ ] Channel manager dashboard
+- [ ] Custom SQL queries for complex metrics
+- [ ] Data model documentation for Metabase
+- [ ] User permissions mapping
+- [ ] Metabase styling to match Nexora theme
+- [ ] Reports page with embedded dashboards
+- [ ] Individual chart embeds in key pages (e.g., property dashboard)
+- [ ] Export functionality via Metabase API
+- [ ] Scheduled report configuration UI
+
+**Benefits**:
+- **No Custom Development**: Leverage Metabase's robust BI features
+- **Self-Service**: Users can create their own reports without developer help
+- **Fast Time-to-Market**: Pre-built dashboards and queries
+- **Professional Visualizations**: Publication-quality charts and graphs
+- **Scalable**: Metabase handles complex queries efficiently
+- **Open Source**: No per-seat licensing costs
+- **Active Community**: Large ecosystem of examples and support
 
 ### Phase 9: Booking Engine (Scaffolding)
 
@@ -639,6 +685,14 @@ To provide hospitality property owners and managers with a powerful, intuitive p
 │  │   Error    │  │  Business  │  │   Fiscal   │           │
 │  │  Tracking  │  │    API     │  │            │           │
 │  └────────────┘  └────────────┘  └────────────┘           │
+│                                                             │
+│  ┌────────────────────────────────────────────────┐       │
+│  │              Metabase BI                        │       │
+│  │         (Analytics & Reporting)                 │       │
+│  │  - Embedded Dashboards                          │       │
+│  │  - Self-Service BI                              │       │
+│  │  - Direct PostgreSQL Connection                 │       │
+│  └────────────────────────────────────────────────┘       │
 └────────────────────────────────────────────────────────────┘
 ```
 

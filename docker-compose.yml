@@ -1,0 +1,63 @@
+# Nexora - Docker Compose Configuration
+# Metabase Analytics & BI Platform
+
+version: '3.8'
+
+services:
+  metabase:
+    image: metabase/metabase:latest
+    container_name: nexora-metabase
+    ports:
+      - "3001:3000"
+    environment:
+      # Database Configuration (Metabase metadata)
+      MB_DB_TYPE: postgres
+      MB_DB_DBNAME: metabase
+      MB_DB_PORT: 5432
+      MB_DB_USER: metabase_app
+      MB_DB_PASS: ${METABASE_DB_PASSWORD}
+      MB_DB_HOST: ${METABASE_DB_HOST}
+      
+      # Embedding Configuration
+      MB_EMBEDDING_SECRET_KEY: ${METABASE_EMBEDDING_SECRET}
+      MB_SITE_URL: ${METABASE_SITE_URL:-http://localhost:3001}
+      
+      # JWT SSO
+      MB_JWT_ENABLED: true
+      MB_JWT_SHARED_SECRET: ${METABASE_JWT_SECRET}
+      MB_JWT_IDENTITY_PROVIDER_URI: ${CLERK_ISSUER_URL}
+      
+      # Performance
+      JAVA_OPTS: "-Xmx2g -XX:MaxRAMPercentage=75.0"
+      
+      # Optional: Email configuration for scheduled reports
+      MB_EMAIL_SMTP_HOST: ${SMTP_HOST}
+      MB_EMAIL_SMTP_PORT: ${SMTP_PORT}
+      MB_EMAIL_SMTP_USERNAME: ${SMTP_USERNAME}
+      MB_EMAIL_SMTP_PASSWORD: ${SMTP_PASSWORD}
+      MB_EMAIL_FROM_ADDRESS: ${SMTP_FROM_ADDRESS}
+      
+    volumes:
+      - metabase-data:/metabase-data
+      - ./metabase-plugins:/plugins
+    
+    restart: unless-stopped
+    
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+    
+    networks:
+      - nexora-network
+
+networks:
+  nexora-network:
+    driver: bridge
+
+volumes:
+  metabase-data:
+    driver: local
+
