@@ -1,5 +1,5 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
+// Nexora Hospitality Management Platform
+// Prisma Schema for PostgreSQL (Neon DB)
 
 generator client {
   provider = "prisma-client-js"
@@ -12,9 +12,697 @@ datasource db {
   relationMode = "prisma"
 }
 
-// This is a stub model.
-// Delete it and add your own Prisma models.
-model Page {
-  id   Int    @id @default(autoincrement())
-  name String
+// ============================================================================
+// PHASE 1: PROPERTY & ROOM MANAGEMENT
+// ============================================================================
+
+/// Top-level tenant entity representing a company/organization
+model Organization {
+  id        String   @id @default(cuid())
+  name      String
+  slug      String   @unique
+  country   String   // 'IT' | 'BR' - determines fiscal requirements
+  settings  Json     @default("{}") // Organization-level settings
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  deletedAt DateTime? // Soft delete
+
+  properties Property[]
+  users      User[]
+
+  @@index([slug])
+  @@index([deletedAt])
 }
+
+/// User accounts with role-based permissions
+model User {
+  id             String   @id @default(cuid())
+  clerkId        String   @unique // Clerk user ID
+  email          String   @unique
+  name           String?
+  role           UserRole @default(RECEPTIONIST)
+  organizationId String
+  organization   Organization @relation(fields: [organizationId], references: [id])
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+  deletedAt      DateTime?
+
+  propertyAccess PropertyAccess[]
+  auditLogs      AuditLog[]
+
+  @@index([clerkId])
+  @@index([organizationId, deletedAt])
+  @@index([email])
+}
+
+enum UserRole {
+  OWNER           // Full access, billing, user management
+  MANAGER         // Property management, bookings, reports
+  RECEPTIONIST    // Front desk, bookings, check-in/out
+  HOUSEKEEPING    // Room status, cleaning schedules
+  F_AND_B         // Restaurant/bar, guest charges
+  GUEST_SERVICES  // Spa, activities, extra services
+  MAINTENANCE     // Maintenance schedules and tasks
+}
+
+/// Junction table for users who can access specific properties
+model PropertyAccess {
+  id         String   @id @default(cuid())
+  userId     String
+  user       User     @relation(fields: [userId], references: [id])
+  propertyId String
+  property   Property @relation(fields: [propertyId], references: [id])
+  createdAt  DateTime @default(now())
+
+  @@unique([userId, propertyId])
+  @@index([userId])
+  @@index([propertyId])
+}
+
+/// Individual hotel/resort/property
+model Property {
+  id             String       @id @default(cuid())
+  organizationId String
+  organization   Organization @relation(fields: [organizationId], references: [id])
+
+  // Basic Information
+  name         String
+  slug         String  @unique
+  type         PropertyType
+  address      String
+  city         String
+  state        String?
+  postalCode   String
+  country      String
+  phone        String
+  email        String
+  website      String?
+  logoUrl      String? // URL to property logo
+
+  // Fiscal Information
+  vatNumber      String? // Partita IVA (Italy), CNPJ (Brazil)
+  fiscalCode     String? // Codice Fiscale (Italy)
+  cin            String? // Codice Identificativo Nazionale (Italy)
+  cir            String? // Codice Identificativo Regionale (Italy)
+  brazilianTaxId String? // CNPJ (Brazil)
+
+  // Operational Settings
+  checkInTime  String @default("14:00") // HH:MM format
+  checkOutTime String @default("10:00") // HH:MM format
+  currency     String @default("EUR") // ISO 4217 currency code
+  timezone     String @default("Europe/Rome") // IANA timezone
+
+  // Property Status
+  status PropertyStatus @default(SETUP)
+
+  // Settings JSON structure:
+  // {
+  //   "fiscal": { "touristTax": { "enabled": boolean, "rate": number } },
+  //   "booking": { "minAdvanceHours": number, "maxAdvanceDays": number },
+  //   "notifications": { "emailEnabled": boolean, "whatsappEnabled": boolean }
+  // }
+  settings Json @default("{}")
+
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+
+  roomCategories RoomCategory[]
+  rooms          Room[]
+  seasons        Season[]
+  amenities      PropertyAmenity[]
+  propertyAccess PropertyAccess[]
+  bookings       Booking[]
+  auditLogs      AuditLog[]
+
+  @@index([organizationId, deletedAt])
+  @@index([slug])
+  @@index([status, organizationId])
+  @@index([country])
+}
+
+enum PropertyType {
+  BNB              // Bed & Breakfast
+  RESORT_VILLAGGI  // Resort Village
+  OPEN_AIR_RESORT  // Camping, Glamping
+  SMALL_HOTEL      // Small Hotel
+  HOSTEL           // Hostel
+  VACATION_RENTAL  // Vacation Rental
+  OTHER            // Other
+}
+
+enum PropertyStatus {
+  SETUP      // Initial setup, not ready
+  ACTIVE     // Active and bookable
+  INACTIVE   // Temporarily inactive
+  SUSPENDED  // Suspended (e.g., payment issues)
+}
+
+/// Seasonal periods for pricing and calendar management
+model Season {
+  id         String   @id @default(cuid())
+  propertyId String
+  property   Property @relation(fields: [propertyId], references: [id], onDelete: Cascade)
+
+  name      String // e.g., "High Season", "Low Season", "Christmas"
+  startDate DateTime
+  endDate   DateTime
+  color     String   @default("#3B82F6") // Hex color for calendar display
+
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+
+  @@index([propertyId, startDate, endDate, deletedAt])
+  @@index([propertyId, deletedAt])
+}
+
+/// Room category/type (e.g., "Deluxe Double", "Family Suite")
+model RoomCategory {
+  id         String   @id @default(cuid())
+  propertyId String
+  property   Property @relation(fields: [propertyId], references: [id], onDelete: Cascade)
+
+  // Basic Information
+  name        String
+  shortName   String? // For compact calendar display
+  description String? @db.Text
+
+  // Capacity
+  minCapacity        Int   @default(1)
+  maxCapacity        Int
+  extraCapacity      Int   @default(0)
+  // extraCapacityTypes JSON structure:
+  // { "adults": 2, "children": 1, "infants": 1 }
+  extraCapacityTypes Json  @default("{}")
+
+  // Physical Attributes
+  size  Float? // Square meters
+  floor String?
+
+  // Bed Configuration
+  // bedConfigurations JSON structure (array):
+  // [
+  //   { "id": "config1", "name": "2 Twin Beds", "beds": [{ "type": "twin", "count": 2 }] },
+  //   { "id": "config2", "name": "1 King Bed", "beds": [{ "type": "king", "count": 1 }] }
+  // ]
+  bedConfigurations Json @default("[]")
+  // defaultBedConfig: References id from bedConfigurations
+  defaultBedConfig  Json @default("{}")
+
+  // Policies
+  petsAllowed    Boolean @default(false)
+  maxPets        Int?
+  smokingAllowed Boolean @default(false)
+
+  // Display
+  color String @default("#3B82F6") // Hex color for calendar
+  order Int    @default(0)
+
+  // Media (URLs stored in CDN)
+  // photos JSON structure (array): [{ "url": "https://...", "alt": "..." }, ...]
+  photos      Json    @default("[]")
+  videos      Json?   @default("[]") // Array of video URLs
+  virtualTour String? // URL to virtual tour
+
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+
+  rooms     Room[]
+  amenities CategoryAmenity[]
+  ratePlans RatePlan[] // Phase 4: Pricing
+
+  @@index([propertyId, deletedAt])
+  @@index([propertyId, order])
+}
+
+/// Individual room within a category
+model Room {
+  id         String       @id @default(cuid())
+  propertyId String
+  property   Property     @relation(fields: [propertyId], references: [id], onDelete: Cascade)
+  categoryId String
+  category   RoomCategory @relation(fields: [categoryId], references: [id])
+
+  // Identification
+  number String // Room number/name (e.g., "101", "Sunset Villa")
+  floor  String?
+
+  // Availability
+  bookable Boolean    @default(true) // Online bookable
+  status   RoomStatus @default(AVAILABLE)
+
+  // Overrides (if different from category)
+  // overrides JSON structure:
+  // {
+  //   "capacity": { "min": 2, "max": 4 },
+  //   "bedConfig": { "name": "...", "beds": [...] },
+  //   "policies": { "petsAllowed": false }
+  // }
+  overrides   Json?
+  specificCIN String? // If room needs individual CIN
+
+  // Maintenance
+  maintenanceMode Boolean   @default(false)
+  maintenanceFrom DateTime?
+  maintenanceTo   DateTime?
+  maintenanceNote String?
+
+  order Int @default(0)
+
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+
+  amenities        RoomAmenity[]
+  roomAssignments  RoomAssignment[] // Phase 2: Bookings
+  availabilityBlocks AvailabilityBlock[] // Manual blocks
+
+  @@index([propertyId, categoryId, deletedAt])
+  @@index([propertyId, status, deletedAt])
+  @@index([categoryId, order])
+  @@index([status, propertyId])
+}
+
+enum RoomStatus {
+  AVAILABLE   // Available for booking
+  OCCUPIED    // Currently occupied
+  CLEANING    // Being cleaned
+  MAINTENANCE // Under maintenance
+  BLOCKED     // Manually blocked
+}
+
+/// Amenity/facility offered by property, category, or room
+model Amenity {
+  id          String          @id @default(cuid())
+  name        String          // Display name (will use i18n)
+  i18nKey     String          @unique // Translation key (e.g., "amenity.wifi")
+  category    AmenityCategory
+  icon        String?         // Icon name or URL
+  description String?
+
+  isCustom  Boolean @default(false)
+  createdBy String? // User ID who created (if custom)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  propertyAmenities PropertyAmenity[]
+  categoryAmenities CategoryAmenity[]
+  roomAmenities     RoomAmenity[]
+
+  @@index([category])
+  @@index([i18nKey])
+}
+
+enum AmenityCategory {
+  ROOM_FEATURES  // AC, heating, WiFi, etc.
+  BATHROOM       // Shower, tub, hairdryer, etc.
+  ENTERTAINMENT  // TV, streaming, games, etc.
+  KITCHEN        // Mini-fridge, coffee maker, etc.
+  SAFETY         // Safe, smoke detector, etc.
+  ACCESSIBILITY  // Wheelchair accessible, etc.
+  OUTDOOR        // Balcony, terrace, garden, etc.
+  SERVICES       // Room service, laundry, etc.
+  CUSTOM         // Custom amenities
+}
+
+/// Junction table: Property-level amenities
+model PropertyAmenity {
+  propertyId String
+  property   Property @relation(fields: [propertyId], references: [id], onDelete: Cascade)
+  amenityId  String
+  amenity    Amenity  @relation(fields: [amenityId], references: [id])
+
+  @@id([propertyId, amenityId])
+  @@index([propertyId])
+  @@index([amenityId])
+}
+
+/// Junction table: Room category-level amenities
+model CategoryAmenity {
+  categoryId String
+  category   RoomCategory @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  amenityId  String
+  amenity    Amenity      @relation(fields: [amenityId], references: [id])
+
+  @@id([categoryId, amenityId])
+  @@index([categoryId])
+  @@index([amenityId])
+}
+
+/// Junction table: Room-specific amenities
+model RoomAmenity {
+  roomId    String
+  room      Room    @relation(fields: [roomId], references: [id], onDelete: Cascade)
+  amenityId String
+  amenity   Amenity @relation(fields: [amenityId], references: [id])
+
+  @@id([roomId, amenityId])
+  @@index([roomId])
+  @@index([amenityId])
+}
+
+/// Manual availability blocks (maintenance, events, etc.)
+model AvailabilityBlock {
+  id         String    @id @default(cuid())
+  roomId     String
+  room       Room      @relation(fields: [roomId], references: [id], onDelete: Cascade)
+  startDate  DateTime
+  endDate    DateTime
+  reason     String?
+  note       String?
+  createdBy  String // User ID
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+  deletedAt  DateTime?
+
+  @@index([roomId, startDate, endDate, deletedAt])
+  @@index([roomId, deletedAt])
+}
+
+/// Audit log for compliance and debugging
+model AuditLog {
+  id         String   @id @default(cuid())
+  userId     String?
+  user       User?    @relation(fields: [userId], references: [id])
+  propertyId String?
+  property   Property? @relation(fields: [propertyId], references: [id])
+
+  action       String // CREATE, UPDATE, DELETE
+  resourceType String // Property, Room, Booking, etc.
+  resourceId   String
+  oldValues    Json?
+  newValues    Json?
+  ipAddress    String?
+  userAgent    String?
+
+  createdAt DateTime @default(now())
+
+  @@index([userId, createdAt])
+  @@index([propertyId, createdAt])
+  @@index([resourceType, resourceId])
+  @@index([createdAt])
+}
+
+// ============================================================================
+// PHASE 2: BOOKING MANAGEMENT (Schema Only - Not Implemented Yet)
+// ============================================================================
+
+/// Guest information
+model Guest {
+  id          String   @id @default(cuid())
+  email       String
+  firstName   String
+  lastName    String
+  phone       String?
+  country     String?
+  language    String   @default("en")
+  preferences Json     @default("{}") // Dietary, accessibility, etc.
+  notes       String?  @db.Text
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  deletedAt   DateTime?
+
+  bookings Booking[]
+
+  @@unique([email, deletedAt])
+  @@index([email])
+  @@index([lastName, firstName])
+}
+
+/// Booking/reservation
+model Booking {
+  id               String        @id @default(cuid())
+  propertyId       String
+  property         Property      @relation(fields: [propertyId], references: [id])
+  confirmationCode String        @unique
+  
+  // Dates
+  checkIn  DateTime
+  checkOut DateTime
+  nights   Int
+
+  // Guest
+  guestId String
+  guest   Guest  @relation(fields: [guestId], references: [id])
+
+  // Pricing
+  totalAmount Decimal @db.Decimal(10, 2)
+  paidAmount  Decimal @db.Decimal(10, 2) @default(0)
+  currency    String
+
+  // Status & Source
+  status BookingStatus
+  source BookingSource
+
+  // Agency/OTA
+  agencyId String?
+  agency   Agency? @relation(fields: [agencyId], references: [id])
+
+  // Additional Data
+  adults   Int
+  children Int     @default(0)
+  infants  Int     @default(0)
+  notes    String? @db.Text
+
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+
+  roomAssignments RoomAssignment[]
+  payments        Payment[]
+  charges         Charge[]
+
+  @@index([propertyId, checkIn, checkOut, deletedAt])
+  @@index([propertyId, status, deletedAt])
+  @@index([confirmationCode])
+  @@index([guestId])
+  @@index([checkIn, checkOut])
+}
+
+enum BookingStatus {
+  QUOTE       // Quotation only
+  CONFIRMED   // Confirmed reservation
+  CHECKED_IN  // Guest checked in
+  CHECKED_OUT // Guest checked out
+  CANCELLED   // Cancelled
+  NO_SHOW     // No-show
+}
+
+enum BookingSource {
+  DIRECT        // Direct booking
+  PHONE         // Phone booking
+  EMAIL         // Email booking
+  BOOKING_ENGINE // Direct booking engine
+  AIRBNB        // Airbnb
+  BOOKING_COM   // Booking.com
+  EXPEDIA       // Expedia
+  OTHER_OTA     // Other OTA
+  WALK_IN       // Walk-in
+}
+
+/// Room assignment for a booking (supports split bookings)
+model RoomAssignment {
+  id        String   @id @default(cuid())
+  bookingId String
+  booking   Booking  @relation(fields: [bookingId], references: [id], onDelete: Cascade)
+  roomId    String
+  room      Room     @relation(fields: [roomId], references: [id])
+  
+  checkIn   DateTime
+  checkOut  DateTime
+  
+  adults    Int
+  children  Int      @default(0)
+  infants   Int      @default(0)
+  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([bookingId])
+  @@index([roomId, checkIn, checkOut])
+  @@index([checkIn, checkOut])
+}
+
+// ============================================================================
+// PHASE 3: CHANNEL MANAGER (Schema Only - Not Implemented Yet)
+// ============================================================================
+
+/// OTA/Agency configuration
+model Agency {
+  id              String @id @default(cuid())
+  name            String
+  type            AgencyType
+  color           String @default("#3B82F6")
+  commissionRate  Decimal @db.Decimal(5, 2) // Percentage
+  contactEmail    String?
+  contactPhone    String?
+  
+  // Channel manager settings
+  channelEnabled  Boolean @default(false)
+  channelSettings Json    @default("{}")
+  
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  deletedAt       DateTime?
+
+  bookings Booking[]
+
+  @@index([type])
+  @@index([channelEnabled])
+}
+
+enum AgencyType {
+  DIRECT          // Direct booking
+  OTA             // Online travel agency
+  TRAVEL_AGENT    // Traditional travel agent
+  CORPORATE       // Corporate account
+  TOUR_OPERATOR   // Tour operator
+}
+
+// ============================================================================
+// PHASE 4: PAYMENTS & PRICING (Schema Only - Not Implemented Yet)
+// ============================================================================
+
+/// Payment transaction
+model Payment {
+  id        String        @id @default(cuid())
+  bookingId String
+  booking   Booking       @relation(fields: [bookingId], references: [id], onDelete: Cascade)
+
+  amount   Decimal       @db.Decimal(10, 2)
+  currency String
+  type     PaymentType
+  method   PaymentMethod
+  status   PaymentStatus
+
+  // Gateway integration
+  gateway   String? // stripe, nexi, revolut
+  gatewayId String? // External payment ID
+  gatewayMetadata Json? @default("{}")
+
+  processedAt DateTime?
+  refundedAt  DateTime?
+  note        String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([bookingId])
+  @@index([status])
+  @@index([gatewayId])
+}
+
+enum PaymentType {
+  DEPOSIT  // Caparra (deposit)
+  PARTIAL  // Acconto (partial payment)
+  FULL     // Saldo (full payment)
+  REFUND   // Refund
+}
+
+enum PaymentMethod {
+  CREDIT_CARD    // Credit/debit card
+  BANK_TRANSFER  // Bank transfer
+  CASH           // Cash
+  ONLINE         // Online payment
+  POS            // POS terminal
+  OTHER          // Other method
+}
+
+enum PaymentStatus {
+  PENDING    // Awaiting payment
+  PROCESSING // Processing
+  COMPLETED  // Completed successfully
+  FAILED     // Failed
+  REFUNDED   // Refunded
+  CANCELLED  // Cancelled
+}
+
+/// Additional charges (F&B, services, etc.)
+model Charge {
+  id          String   @id @default(cuid())
+  bookingId   String
+  booking     Booking  @relation(fields: [bookingId], references: [id], onDelete: Cascade)
+  
+  description String
+  amount      Decimal  @db.Decimal(10, 2)
+  currency    String
+  quantity    Int      @default(1)
+  taxRate     Decimal? @db.Decimal(5, 2) // Tax percentage
+  
+  category    String // F&B, SPA, PARKING, etc.
+  chargedBy   String // User ID
+  chargedAt   DateTime @default(now())
+  
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([bookingId])
+  @@index([chargedAt])
+}
+
+/// Rate plan for pricing
+model RatePlan {
+  id         String       @id @default(cuid())
+  propertyId String
+  categoryId String?
+  category   RoomCategory? @relation(fields: [categoryId], references: [id])
+  
+  name        String
+  description String?
+  
+  // Pricing model
+  pricingType PricingType
+  basePrice   Decimal     @db.Decimal(10, 2)
+  
+  // Occupancy-based pricing (JSON)
+  // { "1": 100, "2": 150, "3": 180, "4": 200 }
+  occupancyPricing Json? @default("{}")
+  
+  // Age-based pricing (JSON)
+  // { "adult": 50, "child": 25, "infant": 0 }
+  agePricing Json? @default("{}")
+  
+  // Restrictions
+  minStay    Int? // Minimum nights
+  maxStay    Int? // Maximum nights
+  
+  // Availability
+  bookableFrom DateTime?
+  bookableTo   DateTime?
+  
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+
+  @@index([propertyId, deletedAt])
+  @@index([categoryId, deletedAt])
+}
+
+enum PricingType {
+  PER_NIGHT_OCCUPANCY // Per night based on occupancy
+  PER_NIGHT_PERSON    // Per night per person
+  PER_PERSON          // Per person total
+  FIXED               // Fixed price
+}
+
+// ============================================================================
+// PHASE 5+: FUTURE FEATURES (Placeholders)
+// ============================================================================
+
+// - Communication (WhatsApp, Email templates)
+// - Reports & Statistics
+// - Hardware integrations
+// - Fiscal documents (Invoices, Receipts)
+// - Tasks & Maintenance scheduling
+// - Inventory management
+// - Employee management
+// - POS integration
+// - Guest portal
+// - Mobile app support
+
+// ============================================================================
+// END OF SCHEMA
+// ============================================================================

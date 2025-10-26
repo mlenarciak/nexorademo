@@ -9,7 +9,7 @@
   ],
   "scripts": {
     "build": "turbo build",
-    "dev": "turbo dev",
+    "dev": "NODE_OPTIONS='--max-http-header-size=32768' turbo dev",
     "check": "npx ultracite@latest check",
     "fix": "npx ultracite@latest fix",
     "test": "turbo test",
@@ -39,6 +39,7 @@
   "packageManager": "pnpm@10.18.1",
   "dependencies": {
     "@clack/prompts": "^0.11.0",
+    "basehub": "^9.5.0",
     "commander": "^14.0.1"
   },
   "type": "module"
