@@ -1,0 +1,311 @@
+---
+title: 'Installation Guide'
+description: 'Complete setup instructions for Nexora hospitality management platform'
+---
+
+## System Requirements
+
+<Check>**Node.js** 20.0.0 or higher</Check>
+<Check>**pnpm** 9.0.0 or higher</Check>
+<Check>**PostgreSQL** database (Neon recommended)</Check>
+<Check>**Git** for version control</Check>
+
+## Step-by-Step Installation
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/mlenarciak/nexorademo.git nexora
+cd nexora
+```
+
+<Note>
+This creates a local copy of the Nexora repository in a folder called `nexora`.
+</Note>
+
+### 2. Install Dependencies
+
+```bash
+pnpm install
+```
+
+This installs all dependencies across the monorepo using pnpm workspaces. The installation includes:
+- Next.js and React
+- Prisma and database packages
+- UI components (shadcn/ui)
+- Authentication (Clerk)
+- Real-time collaboration (Liveblocks)
+
+<Tip>
+If you encounter peer dependency warnings, they can usually be safely ignored during development.
+</Tip>
+
+### 3. Database Setup
+
+#### Create Neon Database
+
+1. Go to [neon.tech](https://neon.tech) and create a free account
+2. Click "Create Project"
+3. Choose a region close to your users
+4. Copy the connection string
+
+#### Configure Database Connection
+
+Create `.env` file in the project root:
+
+```bash .env
+DATABASE_URL="postgresql://user:password@ep-xxx.neon.tech/nexora?sslmode=require"
+DATABASE_URL_UNPOOLED="postgresql://user:password@ep-xxx.neon.tech/nexora?sslmode=require"
+```
+
+<Warning>
+Keep your database credentials secure. Never commit `.env` files to version control.
+</Warning>
+
+#### Run Migrations
+
+```bash
+cd packages/database
+
+# Generate Prisma Client
+pnpm db:generate
+
+# Push schema to database
+pnpm db:push
+
+# Seed with test data
+pnpm db:seed
+```
+
+**Expected Output:**
+```
+🌱 Starting database seed...
+🧹 Cleaning existing data...
+✅ Data cleaned
+
+🏢 Creating organizations...
+✅ Created 2 organizations
+
+👤 Creating users...
+✅ Created 3 users
+
+🏨 Creating properties...
+✅ Created 3 properties
+
+📅 Creating seasons...
+✅ Created seasons
+
+🎯 Creating amenities...
+✅ Created 22 amenities
+
+🛏️  Creating room categories...
+✅ Created 3 room categories
+
+🚪 Creating individual rooms...
+✅ Created 10 rooms
+
+✅ Database seed completed successfully!
+```
+
+### 4. Clerk Authentication Setup
+
+#### Create Clerk Application
+
+1. Go to [clerk.com](https://clerk.com) and sign up
+2. Create a new application
+3. Choose authentication methods (Email, Google, etc.)
+4. Copy your API keys
+
+#### Configure Clerk
+
+Add to your `.env.local`:
+
+```bash .env.local
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY="pk_test_..."
+CLERK_SECRET_KEY="sk_test_..."
+CLERK_WEBHOOK_SECRET="whsec_..." # Optional for webhooks
+```
+
+<Info>
+Clerk handles all user authentication, including OAuth, MFA, and session management.
+</Info>
+
+### 5. Additional Configuration (Optional)
+
+#### Liveblocks (Real-time Collaboration)
+
+```bash .env.local
+LIVEBLOCKS_SECRET_KEY="sk_..."
+```
+
+#### Vercel Blob (File Storage)
+
+```bash .env.local
+BLOB_READ_WRITE_TOKEN="vercel_blob_..."
+```
+
+#### Metabase (Analytics)
+
+```bash .env.local
+METABASE_SITE_URL="http://localhost:3001"
+METABASE_EMBEDDING_SECRET="your-secret-key"
+METABASE_JWT_SECRET="your-jwt-secret"
+```
+
+### 6. Start Development Server
+
+```bash
+# From project root
+pnpm dev
+```
+
+This starts:
+- **Main App**: http://localhost:3000
+- **API**: http://localhost:3001 (if using separate API app)
+- **Docs**: http://localhost:3002
+- **Storybook**: http://localhost:6006
+
+<Success>
+Your Nexora installation is complete! Visit http://localhost:3000 to see your app.
+</Success>
+
+## Verify Installation
+
+### Database Check
+
+Open Prisma Studio:
+
+```bash
+cd packages/database
+pnpm db:studio
+```
+
+Visit http://localhost:5555 and verify you see seeded data.
+
+### App Check
+
+1. Visit http://localhost:3000
+2. Sign in with Clerk
+3. You should see the dashboard
+
+## Optional: Metabase Setup
+
+For analytics and reporting:
+
+```bash
+# Start Metabase with Docker
+docker-compose up -d metabase
+
+# Access Metabase UI
+open http://localhost:3001
+```
+
+**First-time Setup:**
+1. Create admin account
+2. Connect to Neon database (read-only user)
+3. Create dashboards
+
+## Development Workflow
+
+### Database Management
+
+```bash
+# Generate Prisma Client
+pnpm db:generate
+
+# Create migration
+pnpm db:migrate
+
+# Reset database
+pnpm db:reset
+
+# Open Prisma Studio
+pnpm db:studio
+```
+
+### Code Quality
+
+```bash
+# Lint code
+pnpm lint
+
+# Format code
+pnpm format
+
+# Type check
+pnpm type-check
+
+# Run tests
+pnpm test
+```
+
+## Project Structure
+
+```
+nexora/
+├── apps/
+│   ├── app/          # Main SaaS application
+│   ├── web/          # Marketing website
+│   ├── docs/         # This documentation
+│   └── api/          # Optional standalone API
+├── packages/
+│   ├── database/     # Prisma schema & migrations
+│   ├── auth/         # Clerk integration
+│   ├── design-system/# UI components
+│   ├── analytics/    # Metabase integration
+│   └── ...           # Other shared packages
+└── openspec/         # Specifications
+```
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Architecture" icon="sitemap" href="/architecture/overview">
+    Understand the system architecture
+  </Card>
+  <Card title="Property Management" icon="building" href="/features/property-management">
+    Start managing properties
+  </Card>
+  <Card title="API Reference" icon="code" href="/api-reference/introduction">
+    Explore the API
+  </Card>
+  <Card title="Contributing" icon="code-pull-request" href="/contributing">
+    Contribute to Nexora
+  </Card>
+</CardGroup>
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Port already in use">
+    ```bash
+    # Kill process on port 3000
+    lsof -ti:3000 | xargs kill -9
+    
+    # Or use a different port
+    PORT=3001 pnpm dev
+    ```
+  </Accordion>
+  
+  <Accordion title="Prisma errors">
+    ```bash
+    # Clear Prisma cache
+    rm -rf node_modules/.prisma
+    
+    # Regenerate
+    pnpm db:generate
+    ```
+  </Accordion>
+  
+  <Accordion title="Missing environment variables">
+    Check that all required environment variables are set in `.env.local`. Use `.env.example` as a template.
+  </Accordion>
+</AccordionGroup>
+
+## Need Help?
+
+- 📖 Check the [full documentation](/architecture/overview)
+- 🐛 [Report a bug](https://github.com/mlenarciak/nexorademo/issues)
+- 💬 Join our [community](https://community.nexora.com)
+- 📧 Email [support@nexora.com](mailto:support@nexora.com)
+

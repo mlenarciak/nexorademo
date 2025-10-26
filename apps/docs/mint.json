@@ -1,31 +1,43 @@
 {
   "$schema": "https://mintlify.com/schema.json",
-  "name": "Starter Kit",
+  "name": "Nexora",
   "logo": {
     "dark": "/logo/dark.svg",
     "light": "/logo/light.svg"
   },
   "favicon": "/favicon.svg",
   "colors": {
-    "primary": "#0D9373",
-    "light": "#07C983",
-    "dark": "#0D9373",
+    "primary": "#3B82F6",
+    "light": "#60A5FA",
+    "dark": "#1E40AF",
     "anchors": {
-      "from": "#0D9373",
-      "to": "#07C983"
+      "from": "#3B82F6",
+      "to": "#60A5FA"
     }
   },
   "topbarLinks": [
     {
-      "name": "Support",
-      "url": "mailto:support@mintlify.com"
+      "name": "GitHub",
+      "url": "https://github.com/mlenarciak/nexorademo"
     }
   ],
   "topbarCtaButton": {
-    "name": "Dashboard",
-    "url": "https://dashboard.mintlify.com"
+    "name": "Launch App",
+    "url": "https://app.nexora.com"
   },
   "tabs": [
+    {
+      "name": "Getting Started",
+      "url": "getting-started"
+    },
+    {
+      "name": "Architecture",
+      "url": "architecture"
+    },
+    {
+      "name": "Features",
+      "url": "features"
+    },
     {
       "name": "API Reference",
       "url": "api-reference"
@@ -35,51 +47,73 @@
     {
       "name": "Documentation",
       "icon": "book-open-cover",
-      "url": "https://mintlify.com/docs"
+      "url": "https://docs.nexora.com"
     },
     {
       "name": "Community",
       "icon": "slack",
-      "url": "https://mintlify.com/community"
-    },
-    {
-      "name": "Blog",
-      "icon": "newspaper",
-      "url": "https://mintlify.com/blog"
+      "url": "https://community.nexora.com"
     }
   ],
   "navigation": [
     {
-      "group": "Get Started",
-      "pages": ["introduction", "quickstart", "development"]
-    },
-    {
-      "group": "Essentials",
+      "group": "Overview",
       "pages": [
-        "essentials/markdown",
-        "essentials/code",
-        "essentials/images",
-        "essentials/settings",
-        "essentials/navigation",
-        "essentials/reusable-snippets"
+        "getting-started/introduction",
+        "getting-started/quickstart",
+        "getting-started/installation"
       ]
     },
     {
-      "group": "API Documentation",
-      "pages": ["api-reference/introduction"]
+      "group": "Architecture",
+      "pages": [
+        "architecture/overview",
+        "architecture/tech-stack",
+        "architecture/database",
+        "architecture/multi-tenancy",
+        "architecture/security"
+      ]
     },
     {
-      "group": "Endpoint Examples",
+      "group": "Phase 1: Property & Room Management",
       "pages": [
-        "api-reference/endpoint/get",
-        "api-reference/endpoint/create",
-        "api-reference/endpoint/delete"
+        "features/property-management",
+        "features/room-categories",
+        "features/rooms",
+        "features/amenities",
+        "features/availability"
+      ]
+    },
+    {
+      "group": "Phase 2+: Future Features",
+      "pages": [
+        "features/bookings",
+        "features/channel-manager",
+        "features/payments",
+        "features/fiscal",
+        "features/analytics"
+      ]
+    },
+    {
+      "group": "API Endpoints",
+      "pages": [
+        "api-reference/introduction",
+        "api-reference/authentication"
+      ]
+    },
+    {
+      "group": "Properties",
+      "pages": [
+        "api-reference/properties/list",
+        "api-reference/properties/get",
+        "api-reference/properties/create",
+        "api-reference/properties/update",
+        "api-reference/properties/delete"
       ]
     }
   ],
   "footerSocials": {
-    "x": "https://x.com/mintlify",
-    "github": "https://github.com/mintlify",
-    "linkedin": "https://www.linkedin.com/company/mintlify"
+    "github": "https://github.com/mlenarciak/nexorademo",
+    "linkedin": "https://www.linkedin.com/company/nexora"
   }
 }

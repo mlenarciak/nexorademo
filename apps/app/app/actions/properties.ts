@@ -1,16 +1,24 @@
-'use server'
+"use server";
 
-import { auth } from '@clerk/nextjs';
-import { revalidatePath } from 'next/cache';
-import { PrismaClient } from '@repo/database';
-import { z } from 'zod';
+import { auth } from "@clerk/nextjs";
+import { PrismaClient } from "@repo/database";
+import { revalidatePath } from "next/cache";
+import { z } from "zod";
 
 const prisma = new PrismaClient();
 
 // Validation Schemas
 const propertySchema = z.object({
-  name: z.string().min(3, 'Name must be at least 3 characters').max(100),
-  type: z.enum(['BNB', 'RESORT_VILLAGGI', 'OPEN_AIR_RESORT', 'SMALL_HOTEL', 'HOSTEL', 'VACATION_RENTAL', 'OTHER']),
+  name: z.string().min(3, "Name must be at least 3 characters").max(100),
+  type: z.enum([
+    "BNB",
+    "RESORT_VILLAGGI",
+    "OPEN_AIR_RESORT",
+    "SMALL_HOTEL",
+    "HOSTEL",
+    "VACATION_RENTAL",
+    "OTHER",
+  ]),
   address: z.string().min(5),
   city: z.string().min(2),
   state: z.string().optional(),
@@ -18,8 +26,8 @@ const propertySchema = z.object({
   country: z.string().length(2),
   phone: z.string().min(10),
   email: z.string().email(),
-  website: z.string().url().optional().or(z.literal('')),
-  logoUrl: z.string().url().optional().or(z.literal('')),
+  website: z.string().url().optional().or(z.literal("")),
+  logoUrl: z.string().url().optional().or(z.literal("")),
   // Fiscal
   vatNumber: z.string().optional(),
   fiscalCode: z.string().optional(),
@@ -27,11 +35,15 @@ const propertySchema = z.object({
   cir: z.string().optional(),
   brazilianTaxId: z.string().optional(),
   // Operational
-  checkInTime: z.string().regex(/^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$/, 'Invalid time format (HH:MM)'),
-  checkOutTime: z.string().regex(/^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$/, 'Invalid time format (HH:MM)'),
+  checkInTime: z
+    .string()
+    .regex(/^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$/, "Invalid time format (HH:MM)"),
+  checkOutTime: z
+    .string()
+    .regex(/^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$/, "Invalid time format (HH:MM)"),
   currency: z.string().length(3),
   timezone: z.string(),
-  status: z.enum(['SETUP', 'ACTIVE', 'INACTIVE', 'SUSPENDED']).optional(),
+  status: z.enum(["SETUP", "ACTIVE", "INACTIVE", "SUSPENDED"]).optional(),
   settings: z.record(z.any()).optional(),
 });
 
@@ -40,9 +52,9 @@ const propertySchema = z.object({
  */
 export async function getProperties() {
   const { userId, orgId } = auth();
-  
-  if (!userId || !orgId) {
-    throw new Error('Unauthorized');
+
+  if (!(userId && orgId)) {
+    throw new Error("Unauthorized");
   }
 
   try {
@@ -68,14 +80,14 @@ export async function getProperties() {
         },
       },
       orderBy: {
-        createdAt: 'desc',
+        createdAt: "desc",
       },
     });
 
     return { success: true, data: properties };
   } catch (error) {
-    console.error('Error fetching properties:', error);
-    return { success: false, error: 'Failed to fetch properties' };
+    console.error("Error fetching properties:", error);
+    return { success: false, error: "Failed to fetch properties" };
   }
 }
 
@@ -84,9 +96,9 @@ export async function getProperties() {
  */
 export async function getProperty(id: string) {
   const { userId, orgId } = auth();
-  
-  if (!userId || !orgId) {
-    throw new Error('Unauthorized');
+
+  if (!(userId && orgId)) {
+    throw new Error("Unauthorized");
   }
 
   try {
@@ -117,13 +129,13 @@ export async function getProperty(id: string) {
     });
 
     if (!property) {
-      return { success: false, error: 'Property not found' };
+      return { success: false, error: "Property not found" };
     }
 
     return { success: true, data: property };
   } catch (error) {
-    console.error('Error fetching property:', error);
-    return { success: false, error: 'Failed to fetch property' };
+    console.error("Error fetching property:", error);
+    return { success: false, error: "Failed to fetch property" };
   }
 }
 
@@ -132,9 +144,9 @@ export async function getProperty(id: string) {
  */
 export async function createProperty(data: z.infer<typeof propertySchema>) {
   const { userId, orgId } = auth();
-  
-  if (!userId || !orgId) {
-    throw new Error('Unauthorized');
+
+  if (!(userId && orgId)) {
+    throw new Error("Unauthorized");
   }
 
   try {
@@ -144,8 +156,8 @@ export async function createProperty(data: z.infer<typeof propertySchema>) {
     // Generate slug from name
     const slug = validatedData.name
       .toLowerCase()
-      .replace(/[^a-z0-9]+/g, '-')
-      .replace(/(^-|-$)/g, '');
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/(^-|-$)/g, "");
 
     // Create property
     const property = await prisma.property.create({
@@ -153,7 +165,7 @@ export async function createProperty(data: z.infer<typeof propertySchema>) {
         ...validatedData,
         slug: `${slug}-${Date.now()}`, // Ensure uniqueness
         organizationId: orgId,
-        status: validatedData.status || 'SETUP',
+        status: validatedData.status || "SETUP",
         settings: validatedData.settings || {},
       },
     });
@@ -163,34 +175,41 @@ export async function createProperty(data: z.infer<typeof propertySchema>) {
       data: {
         userId: await getUserIdFromClerk(userId),
         propertyId: property.id,
-        action: 'CREATE',
-        resourceType: 'Property',
+        action: "CREATE",
+        resourceType: "Property",
         resourceId: property.id,
         newValues: validatedData,
       },
     });
 
-    revalidatePath('/properties');
-    revalidatePath('/');
+    revalidatePath("/properties");
+    revalidatePath("/");
 
     return { success: true, data: property };
   } catch (error) {
-    console.error('Error creating property:', error);
+    console.error("Error creating property:", error);
     if (error instanceof z.ZodError) {
-      return { success: false, error: 'Validation error', details: error.errors };
+      return {
+        success: false,
+        error: "Validation error",
+        details: error.errors,
+      };
     }
-    return { success: false, error: 'Failed to create property' };
+    return { success: false, error: "Failed to create property" };
   }
 }
 
 /**
  * Update a property
  */
-export async function updateProperty(id: string, data: Partial<z.infer<typeof propertySchema>>) {
+export async function updateProperty(
+  id: string,
+  data: Partial<z.infer<typeof propertySchema>>
+) {
   const { userId, orgId } = auth();
-  
-  if (!userId || !orgId) {
-    throw new Error('Unauthorized');
+
+  if (!(userId && orgId)) {
+    throw new Error("Unauthorized");
   }
 
   try {
@@ -204,7 +223,7 @@ export async function updateProperty(id: string, data: Partial<z.infer<typeof pr
     });
 
     if (!existing) {
-      return { success: false, error: 'Property not found' };
+      return { success: false, error: "Property not found" };
     }
 
     // Validate partial data
@@ -222,24 +241,28 @@ export async function updateProperty(id: string, data: Partial<z.infer<typeof pr
       data: {
         userId: await getUserIdFromClerk(userId),
         propertyId: property.id,
-        action: 'UPDATE',
-        resourceType: 'Property',
+        action: "UPDATE",
+        resourceType: "Property",
         resourceId: property.id,
         oldValues: existing,
         newValues: validatedData,
       },
     });
 
-    revalidatePath('/properties');
+    revalidatePath("/properties");
     revalidatePath(`/properties/${id}`);
 
     return { success: true, data: property };
   } catch (error) {
-    console.error('Error updating property:', error);
+    console.error("Error updating property:", error);
     if (error instanceof z.ZodError) {
-      return { success: false, error: 'Validation error', details: error.errors };
+      return {
+        success: false,
+        error: "Validation error",
+        details: error.errors,
+      };
     }
-    return { success: false, error: 'Failed to update property' };
+    return { success: false, error: "Failed to update property" };
   }
 }
 
@@ -248,9 +271,9 @@ export async function updateProperty(id: string, data: Partial<z.infer<typeof pr
  */
 export async function deleteProperty(id: string) {
   const { userId, orgId } = auth();
-  
-  if (!userId || !orgId) {
-    throw new Error('Unauthorized');
+
+  if (!(userId && orgId)) {
+    throw new Error("Unauthorized");
   }
 
   try {
@@ -264,7 +287,7 @@ export async function deleteProperty(id: string) {
     });
 
     if (!existing) {
-      return { success: false, error: 'Property not found' };
+      return { success: false, error: "Property not found" };
     }
 
     // Soft delete
@@ -280,19 +303,19 @@ export async function deleteProperty(id: string) {
       data: {
         userId: await getUserIdFromClerk(userId),
         propertyId: property.id,
-        action: 'DELETE',
-        resourceType: 'Property',
+        action: "DELETE",
+        resourceType: "Property",
         resourceId: property.id,
         oldValues: existing,
       },
     });
 
-    revalidatePath('/properties');
+    revalidatePath("/properties");
 
     return { success: true, data: property };
   } catch (error) {
-    console.error('Error deleting property:', error);
-    return { success: false, error: 'Failed to delete property' };
+    console.error("Error deleting property:", error);
+    return { success: false, error: "Failed to delete property" };
   }
 }
 
@@ -304,11 +327,10 @@ async function getUserIdFromClerk(clerkId: string): Promise<string> {
     where: { clerkId },
     select: { id: true },
   });
-  
+
   if (!user) {
-    throw new Error('User not found');
+    throw new Error("User not found");
   }
-  
+
   return user.id;
 }
-

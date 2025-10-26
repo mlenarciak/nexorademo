@@ -1,0 +1,315 @@
+---
+title: 'Property Management'
+description: 'Manage multiple hospitality properties in one platform'
+---
+
+## Overview
+
+The Property Management system is the foundation of Nexora, enabling organizations to manage multiple hotels, B&Bs, resorts, and vacation rentals from a single unified platform.
+
+## Key Capabilities
+
+<CardGroup cols={2}>
+  <Card title="Multi-Property" icon="buildings">
+    Manage unlimited properties under one organization
+  </Card>
+  <Card title="Full Configuration" icon="sliders">
+    Configure every aspect of your property
+  </Card>
+  <Card title="Fiscal Compliance" icon="file-invoice">
+    Italian CIN/CIR, Brazilian tax IDs
+  </Card>
+  <Card title="Real-time Updates" icon="bolt">
+    Collaborative editing with Liveblocks
+  </Card>
+</CardGroup>
+
+## Creating a Property
+
+<Steps>
+  <Step title="Navigate to Properties">
+    From the dashboard, click on "Properties" in the sidebar
+  </Step>
+  
+  <Step title="Click Create Property">
+    Click the "+ New Property" button in the top right
+  </Step>
+  
+  <Step title="Fill Basic Information">
+    ```typescript
+    {
+      name: "Villa Bella Vista",
+      type: "BNB",
+      address: "Via Roma 123",
+      city: "Firenze",
+      country: "IT",
+      phone: "+39 055 1234567",
+      email: "info@villa.it"
+    }
+    ```
+  </Step>
+  
+  <Step title="Configure Fiscal Information">
+    For Italian properties:
+    - **CIN** (Codice Identificativo Nazionale)
+    - **CIR** (Codice Identificativo Regionale)
+    - **VAT Number** (Partita IVA)
+    
+    For Brazilian properties:
+    - **CNPJ** (Brazilian Tax ID)
+  </Step>
+  
+  <Step title="Set Operational Details">
+    - Check-in time (e.g., 15:00)
+    - Check-out time (e.g., 11:00)
+    - Currency (EUR, BRL, USD)
+    - Timezone
+  </Step>
+  
+  <Step title="Save">
+    Click "Create Property" to save
+  </Step>
+</Steps>
+
+## Property Configuration
+
+### Basic Information
+
+<ParamField path="name" type="string" required>
+  Property name as it appears to guests
+</ParamField>
+
+<ParamField path="type" type="enum" required>
+  Property type: BNB, RESORT_VILLAGGI, OPEN_AIR_RESORT, SMALL_HOTEL, HOSTEL, VACATION_RENTAL, OTHER
+</ParamField>
+
+<ParamField path="address" type="string" required>
+  Full street address
+</ParamField>
+
+<ParamField path="city" type="string" required>
+  City name
+</ParamField>
+
+<ParamField path="country" type="string" required>
+  ISO 3166-1 alpha-2 country code (IT, BR, US, etc.)
+</ParamField>
+
+### Fiscal Information
+
+#### Italian Properties
+
+<ParamField path="cin" type="string">
+  Codice Identificativo Nazionale - Required for all Italian hospitality properties
+</ParamField>
+
+<ParamField path="cir" type="string">
+  Codice Identificativo Regionale - Regional identification code
+</ParamField>
+
+<ParamField path="vatNumber" type="string">
+  Partita IVA - Italian VAT number (11 digits)
+</ParamField>
+
+#### Brazilian Properties
+
+<ParamField path="brazilianTaxId" type="string">
+  CNPJ - Brazilian tax identification number
+</ParamField>
+
+### Operational Settings
+
+<ParamField path="checkInTime" type="string" default="14:00">
+  Check-in time in HH:MM format
+</ParamField>
+
+<ParamField path="checkOutTime" type="string" default="10:00">
+  Check-out time in HH:MM format
+</ParamField>
+
+<ParamField path="currency" type="string" default="EUR">
+  ISO 4217 currency code
+</ParamField>
+
+<ParamField path="timezone" type="string" default="Europe/Rome">
+  IANA timezone identifier
+</ParamField>
+
+## Property Status
+
+Properties can be in different states:
+
+<Tabs>
+  <Tab title="Setup">
+    **SETUP** - Initial configuration in progress. Property is not yet bookable.
+  </Tab>
+  <Tab title="Active">
+    **ACTIVE** - Property is fully configured and accepting bookings.
+  </Tab>
+  <Tab title="Inactive">
+    **INACTIVE** - Temporarily offline (e.g., seasonal closure).
+  </Tab>
+  <Tab title="Suspended">
+    **SUSPENDED** - Suspended due to issues (payment, compliance, etc.).
+  </Tab>
+</Tabs>
+
+## Seasonal Periods
+
+Define pricing seasons and calendar periods:
+
+```typescript
+{
+  name: "High Season",
+  startDate: "2025-06-01",
+  endDate: "2025-09-15",
+  color: "#F59E0B" // Hex color for calendar
+}
+```
+
+<Tip>
+Seasons are used for dynamic pricing, calendar visualization, and reporting.
+</Tip>
+
+## Property Settings
+
+Advanced configuration stored as JSON:
+
+```json
+{
+  "fiscal": {
+    "touristTax": {
+      "enabled": true,
+      "rate": 3.50,
+      "perNight": true,
+      "maxNights": 5
+    }
+  },
+  "booking": {
+    "minAdvanceHours": 24,
+    "maxAdvanceDays": 365
+  },
+  "notifications": {
+    "emailEnabled": true,
+    "whatsappEnabled": false
+  }
+}
+```
+
+## Server Actions
+
+All property operations are handled via type-safe server actions:
+
+### Get Properties
+
+```typescript
+import { getProperties } from '@/app/actions/properties';
+
+const result = await getProperties();
+
+if (result.success) {
+  const properties = result.data;
+}
+```
+
+### Create Property
+
+```typescript
+import { createProperty } from '@/app/actions/properties';
+
+const result = await createProperty({
+  name: "Villa Bella Vista",
+  type: "BNB",
+  address: "Via Roma 123",
+  city: "Firenze",
+  country: "IT",
+  // ... other fields
+});
+```
+
+### Update Property
+
+```typescript
+import { updateProperty } from '@/app/actions/properties';
+
+const result = await updateProperty(propertyId, {
+  checkInTime: "15:00",
+  checkOutTime: "11:00",
+});
+```
+
+### Delete Property
+
+```typescript
+import { deleteProperty } from '@/app/actions/properties';
+
+const result = await deleteProperty(propertyId);
+```
+
+<Warning>
+Properties are soft-deleted (not permanently removed) for audit compliance.
+</Warning>
+
+## Permissions
+
+Property access is controlled by user roles:
+
+| Role | View | Create | Edit | Delete |
+|------|------|--------|------|--------|
+| **Owner** | ✅ All | ✅ | ✅ | ✅ |
+| **Manager** | ✅ Assigned | ✅ | ✅ Assigned | ❌ |
+| **Receptionist** | ✅ Assigned | ❌ | ❌ | ❌ |
+| **Others** | ✅ Assigned | ❌ | ❌ | ❌ |
+
+## Multi-Property Management
+
+Organizations can manage multiple properties:
+
+```typescript
+// User belongs to organization
+organizationId: "org_abc123"
+
+// Organization has multiple properties
+properties: [
+  { id: "prop_1", name: "Villa Tuscany" },
+  { id: "prop_2", name: "Resort Amalfi" },
+  { id: "prop_3", name: "Beach Hotel Rio" }
+]
+
+// All queries filter by organizationId
+```
+
+## Best Practices
+
+<AccordionGroup>
+  <Accordion title="Complete Setup Before Going Live" icon="list-check">
+    Ensure all property information is complete before changing status to ACTIVE
+  </Accordion>
+  
+  <Accordion title="Use Proper Fiscal Identifiers" icon="file-contract">
+    CIN and CIR are required for Italian properties to comply with regulations
+  </Accordion>
+  
+  <Accordion title="Set Accurate Times" icon="clock">
+    Check-in/check-out times affect availability calculations and guest experience
+  </Accordion>
+  
+  <Accordion title="Define Seasons Early" icon="calendar">
+    Set up seasonal periods before configuring pricing
+  </Accordion>
+</AccordionGroup>
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Room Categories" icon="layer-group" href="/features/room-categories">
+    Create room types and categories
+  </Card>
+  <Card title="Individual Rooms" icon="door-open" href="/features/rooms">
+    Add and configure specific rooms
+  </Card>
+  <Card title="API Reference" icon="code" href="/api-reference/properties/list">
+    Explore property APIs
+  </Card>
+</CardGroup>
+
