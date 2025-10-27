@@ -1,0 +1,279 @@
+---
+title: 'Authentication'
+description: 'How authentication works in Nexora using Clerk'
+---
+
+## Overview
+
+Nexora uses [Clerk](https://clerk.com) for authentication and user management. Clerk provides:
+
+- 🔐 Email/password authentication
+- 🔑 OAuth (Google, Microsoft, etc.)
+- 📱 Multi-factor authentication (MFA)
+- 🎫 Session management
+- 👥 Organization management
+
+## How It Works
+
+<Steps>
+  <Step title="User Visits App">
+    User navigates to the Nexora application
+  </Step>
+  
+  <Step title="Middleware Checks Session">
+    Next.js middleware verifies Clerk session
+  </Step>
+  
+  <Step title="Redirect if Unauthenticated">
+    If no session exists, user is redirected to sign-in page
+  </Step>
+  
+  <Step title="Clerk Universal Login">
+    User signs in via email/password, OAuth, or MFA
+  </Step>
+  
+  <Step title="Session Created">
+    Clerk creates a secure session with JWT token
+  </Step>
+  
+  <Step title="Organization Context">
+    User's organization ID is attached to the session
+  </Step>
+  
+  <Step title="Access Granted">
+    User can now access the application and their organization's data
+  </Step>
+</Steps>
+
+## Authentication Methods
+
+<Tabs>
+  <Tab title="Email & Password">
+    Traditional email and password authentication
+    
+    ```typescript
+    // Clerk handles this automatically
+    // Users can sign up and sign in via email
+    ```
+    
+    Features:
+    - Email verification
+    - Password requirements
+    - Password reset
+  </Tab>
+  
+  <Tab title="OAuth">
+    Social login providers
+    
+    Supported:
+    - Google
+    - Microsoft
+    - GitHub
+    - Apple
+    - Facebook
+    
+    ```typescript
+    // Configured in Clerk Dashboard
+    // Enable desired OAuth providers
+    ```
+  </Tab>
+  
+  <Tab title="Multi-Factor">
+    Additional security layer
+    
+    Options:
+    - SMS verification
+    - Authenticator app (TOTP)
+    - Backup codes
+    
+    ```typescript
+    // Users enable MFA in their profile
+    // Enforced by Clerk
+    ```
+  </Tab>
+</Tabs>
+
+## Session Management
+
+### Session Duration
+
+- **Active Session**: 24 hours
+- **Sliding Window**: Extends with activity
+- **Idle Timeout**: 30 minutes of inactivity
+- **Remember Me**: 30 days (optional)
+
+### Session Storage
+
+```typescript
+// Sessions stored in httpOnly cookies
+// Secure, not accessible via JavaScript
+// Automatic CSRF protection
+```
+
+<Info>
+Clerk handles all session management automatically. You don't need to manage tokens or cookies manually.
+</Info>
+
+## Organization Context
+
+Users belong to organizations, which provide multi-tenancy:
+
+```typescript
+import { auth } from '@clerk/nextjs';
+
+export default async function Page() {
+  const { userId, orgId } = auth();
+  
+  // userId: "user_abc123"
+  // orgId: "org_xyz789"
+  
+  // All data queries filter by orgId
+  const properties = await getProperties(); // Only this org's data
+}
+```
+
+## User Roles
+
+Nexora implements role-based access control:
+
+<CardGroup cols={2}>
+  <Card title="Owner" icon="crown">
+    Full access to all properties and settings
+  </Card>
+  <Card title="Manager" icon="briefcase">
+    Manage assigned properties, bookings, reports
+  </Card>
+  <Card title="Receptionist" icon="user">
+    Front desk operations, bookings, check-in/out
+  </Card>
+  <Card title="Housekeeping" icon="broom">
+    Room status and cleaning schedules
+  </Card>
+  <Card title="F&B" icon="utensils">
+    Restaurant/bar charges and reservations
+  </Card>
+  <Card title="Guest Services" icon="concierge-bell">
+    Spa, activities, and extra services
+  </Card>
+</CardGroup>
+
+## Permission Checks
+
+Server actions check permissions automatically:
+
+```typescript
+export async function deleteProperty(id: string) {
+  const { userId } = auth();
+  
+  // Get user role
+  const user = await prisma.user.findUnique({
+    where: { clerkId: userId },
+    select: { role: true }
+  });
+  
+  // Only OWNER can delete properties
+  if (user.role !== 'OWNER') {
+    return { success: false, error: 'Forbidden' };
+  }
+  
+  // Proceed with deletion
+}
+```
+
+## API Keys (Future)
+
+<Note>
+API keys for programmatic access are planned for Phase 9. Currently, all access requires user authentication through Clerk.
+</Note>
+
+## Webhooks
+
+Clerk webhooks keep user data in sync:
+
+```typescript
+// app/api/webhooks/clerk/route.ts
+export async function POST(request: Request) {
+  const payload = await request.json();
+  
+  switch (payload.type) {
+    case 'user.created':
+      await createUserInDatabase(payload.data);
+      break;
+    case 'user.updated':
+      await updateUserInDatabase(payload.data);
+      break;
+    case 'user.deleted':
+      await deleteUserInDatabase(payload.data);
+      break;
+  }
+  
+  return Response.json({ success: true });
+}
+```
+
+## Security
+
+<AccordionGroup>
+  <Accordion title="Secure by Default" icon="shield">
+    - HTTPS only
+    - httpOnly cookies
+    - CSRF protection
+    - XSS prevention
+  </Accordion>
+  
+  <Accordion title="Session Security" icon="lock">
+    - JWT tokens
+    - Automatic rotation
+    - Secure storage
+    - Idle timeout
+  </Accordion>
+  
+  <Accordion title="Password Security" icon="key">
+    - bcrypt hashing
+    - Minimum requirements
+    - Breach detection
+    - Password history
+  </Accordion>
+  
+  <Accordion title="MFA Support" icon="mobile">
+    - SMS verification
+    - TOTP (Google Authenticator, etc.)
+    - Backup codes
+    - Optional enforcement
+  </Accordion>
+</AccordionGroup>
+
+## Testing Authentication
+
+Mock Clerk auth in tests:
+
+```typescript
+import { vi } from 'vitest';
+
+vi.mock('@clerk/nextjs', () => ({
+  auth: vi.fn(() => ({
+    userId: 'user_test123',
+    orgId: 'org_test123',
+  })),
+}));
+
+// Now your tests will have a mocked authenticated user
+```
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Properties API" href="/api-reference/properties/list">
+    Start making API calls
+  </Card>
+  <Card title="Error Handling" href="/api-reference/errors">
+    Learn about error responses
+  </Card>
+  <Card title="Rate Limits" href="/api-reference/rate-limits">
+    Understand rate limiting
+  </Card>
+  <Card title="Webhooks" href="/api-reference/webhooks">
+    Set up webhooks (Phase 3)
+  </Card>
+</CardGroup>
+

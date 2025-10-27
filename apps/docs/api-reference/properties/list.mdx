@@ -1,0 +1,246 @@
+---
+title: 'List Properties'
+description: 'Get all properties in your organization'
+---
+
+## Server Action
+
+```typescript
+import { getProperties } from '@/app/actions/properties';
+```
+
+## Usage
+
+```typescript
+const result = await getProperties();
+
+if (result.success) {
+  const properties = result.data;
+  
+  properties.forEach(property => {
+    console.log(property.name);
+    console.log(`${property._count.rooms} rooms`);
+  });
+}
+```
+
+## Response
+
+<ResponseField name="success" type="boolean" required>
+  Whether the request was successful
+</ResponseField>
+
+<ResponseField name="data" type="Property[]">
+  Array of property objects (only present if success=true)
+</ResponseField>
+
+<ResponseField name="error" type="string">
+  Error message (only present if success=false)
+</ResponseField>
+
+## Property Object
+
+```typescript
+{
+  id: string;
+  organizationId: string;
+  name: string;
+  slug: string;
+  type: PropertyType;
+  address: string;
+  city: string;
+  state?: string;
+  postalCode: string;
+  country: string;
+  phone: string;
+  email: string;
+  website?: string;
+  logoUrl?: string;
+  
+  // Fiscal
+  vatNumber?: string;
+  fiscalCode?: string;
+  cin?: string;  // Italy
+  cir?: string;  // Italy
+  brazilianTaxId?: string;  // Brazil
+  
+  // Operational
+  checkInTime: string;
+  checkOutTime: string;
+  currency: string;
+  timezone: string;
+  status: PropertyStatus;
+  settings: Json;
+  
+  // Timestamps
+  createdAt: Date;
+  updatedAt: Date;
+  deletedAt?: Date;
+  
+  // Relations
+  roomCategories: RoomCategory[];
+  _count: {
+    rooms: number;
+    roomCategories: number;
+  };
+}
+```
+
+## Enums
+
+<ParamField path="PropertyType" type="enum">
+  - `BNB` - Bed & Breakfast
+  - `RESORT_VILLAGGI` - Resort Village
+  - `OPEN_AIR_RESORT` - Open Air Resort
+  - `SMALL_HOTEL` - Small Hotel
+  - `HOSTEL` - Hostel
+  - `VACATION_RENTAL` - Vacation Rental
+  - `OTHER` - Other type
+</ParamField>
+
+<ParamField path="PropertyStatus" type="enum">
+  - `SETUP` - Initial setup in progress
+  - `ACTIVE` - Active and accepting bookings
+  - `INACTIVE` - Temporarily inactive
+  - `SUSPENDED` - Suspended
+</ParamField>
+
+## Filters
+
+The list is automatically filtered by:
+
+- ✅ **Organization**: Only properties in your organization
+- ✅ **Deleted**: Excludes soft-deleted properties (deletedAt IS NULL)
+
+## Includes
+
+The response includes related data:
+
+<Tabs>
+  <Tab title="Room Categories">
+    All room categories with their rooms
+    
+    ```typescript
+    roomCategories: [
+      {
+        id: "cat_1",
+        name: "Standard Double",
+        rooms: [
+          { id: "room_1", number: "101" },
+          { id: "room_2", number: "102" }
+        ]
+      }
+    ]
+    ```
+  </Tab>
+  
+  <Tab title="Counts">
+    Aggregated counts for quick stats
+    
+    ```typescript
+    _count: {
+      rooms: 25,
+      roomCategories: 5
+    }
+    ```
+  </Tab>
+</Tabs>
+
+## Ordering
+
+Results are ordered by creation date (newest first):
+
+```typescript
+orderBy: {
+  createdAt: 'desc'
+}
+```
+
+## Example Response
+
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "id": "prop_abc123",
+      "organizationId": "org_xyz789",
+      "name": "Villa Bella Vista",
+      "slug": "villa-bella-vista",
+      "type": "BNB",
+      "address": "Via Roma 123",
+      "city": "Firenze",
+      "state": "Toscana",
+      "postalCode": "50100",
+      "country": "IT",
+      "phone": "+39 055 1234567",
+      "email": "info@villa.it",
+      "website": "https://villa.it",
+      "cin": "IT055042A1BC123456",
+      "cir": "CIR055042-BED-00123",
+      "vatNumber": "12345678901",
+      "checkInTime": "15:00",
+      "checkOutTime": "11:00",
+      "currency": "EUR",
+      "timezone": "Europe/Rome",
+      "status": "ACTIVE",
+      "settings": {},
+      "createdAt": "2025-10-26T10:00:00.000Z",
+      "updatedAt": "2025-10-26T10:00:00.000Z",
+      "roomCategories": [],
+      "_count": {
+        "rooms": 10,
+        "roomCategories": 3
+      }
+    }
+  ]
+}
+```
+
+## Error Responses
+
+<ResponseExample>
+```json Unauthorized
+{
+  "success": false,
+  "error": "Unauthorized"
+}
+```
+</ResponseExample>
+
+<ResponseExample>
+```json Database Error
+{
+  "success": false,
+  "error": "Failed to fetch properties"
+}
+```
+</ResponseExample>
+
+## Performance
+
+- **Typical Response**: < 100ms
+- **With Caching**: < 10ms
+- **Query Complexity**: O(n) where n = number of properties
+
+<Tip>
+Use caching strategies to optimize performance. Server Components cache automatically for 60 seconds.
+</Tip>
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Get Property" href="/api-reference/properties/get">
+    Get a single property
+  </Card>
+  <Card title="Create Property" href="/api-reference/properties/create">
+    Create a new property
+  </Card>
+  <Card title="Update Property" href="/api-reference/properties/update">
+    Update property details
+  </Card>
+  <Card title="Delete Property" href="/api-reference/properties/delete">
+    Delete a property
+  </Card>
+</CardGroup>
+

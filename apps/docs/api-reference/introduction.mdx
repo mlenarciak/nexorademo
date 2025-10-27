@@ -1,33 +1,246 @@
 ---
-title: 'Introduction'
-description: 'Example section for showcasing API endpoints'
+title: 'API Introduction'
+description: 'Getting started with the Nexora API using Server Actions'
 ---
 
-<Note>
-  If you're not looking to build API reference documentation, you can delete
-  this section by removing the api-reference folder.
-</Note>
+## Overview
 
-## Welcome
+Nexora uses Next.js Server Actions instead of traditional REST APIs. Server Actions provide:
 
-There are two ways to build API documentation: [OpenAPI](https://mintlify.com/docs/api-playground/openapi/setup) and [MDX components](https://mintlify.com/docs/api-playground/mdx/configuration). For the starter kit, we are using the following OpenAPI specification.
-
-<Card
-  title="Plant Store Endpoints"
-  icon="leaf"
-  href="https://github.com/mintlify/starter/blob/main/api-reference/openapi.json"
->
-  View the OpenAPI specification file
-</Card>
+- ✅ **Type-safe** - Full TypeScript support
+- ✅ **Progressive enhancement** - Works without JavaScript
+- ✅ **Automatic caching** - Built-in Next.js caching
+- ✅ **Security** - Automatic CSRF protection
+- ✅ **Developer experience** - No need to define routes
 
 ## Authentication
 
-All API endpoints are authenticated using Bearer tokens and picked up from the specification file.
+All server actions are automatically authenticated using Clerk:
 
-```json
-"security": [
-  {
-    "bearerAuth": []
+```typescript
+import { auth } from '@clerk/nextjs';
+
+export async function myAction() {
+  const { userId, orgId } = auth();
+  
+  if (!userId || !orgId) {
+    throw new Error('Unauthorized');
   }
-]
+  
+  // Your logic here
+}
 ```
+
+<Info>
+Users must be signed in via Clerk to access any server actions. Multi-tenancy is enforced via `orgId`.
+</Info>
+
+## Response Format
+
+All server actions return a consistent response format:
+
+<Tabs>
+  <Tab title="Success">
+    ```typescript
+    {
+      success: true,
+      data: { /* result data */ }
+    }
+    ```
+  </Tab>
+  
+  <Tab title="Error">
+    ```typescript
+    {
+      success: false,
+      error: "Error message",
+      details?: [ /* validation errors */ ]
+    }
+    ```
+  </Tab>
+</Tabs>
+
+## Validation
+
+Input validation uses Zod schemas:
+
+```typescript
+import { z } from 'zod';
+
+const propertySchema = z.object({
+  name: z.string().min(3).max(100),
+  email: z.string().email(),
+  type: z.enum(['BNB', 'RESORT_VILLAGGI', 'SMALL_HOTEL']),
+});
+
+// Validation happens automatically
+const validated = propertySchema.parse(input);
+```
+
+## Multi-Tenancy
+
+Every query is automatically scoped to your organization:
+
+```typescript
+const properties = await prisma.property.findMany({
+  where: {
+    organizationId: orgId,  // ← Automatic filtering
+    deletedAt: null,        // ← Soft deletes
+  }
+});
+```
+
+<Warning>
+You cannot access data from other organizations. All queries enforce organization-level isolation.
+</Warning>
+
+## Available Actions
+
+### Properties
+
+<CardGroup cols={2}>
+  <Card title="List Properties" href="/api-reference/properties/list">
+    Get all properties in your organization
+  </Card>
+  <Card title="Get Property" href="/api-reference/properties/get">
+    Get a single property by ID
+  </Card>
+  <Card title="Create Property" href="/api-reference/properties/create">
+    Create a new property
+  </Card>
+  <Card title="Update Property" href="/api-reference/properties/update">
+    Update property details
+  </Card>
+</CardGroup>
+
+### Room Categories
+
+<CardGroup cols={2}>
+  <Card title="List Categories" href="/api-reference/room-categories/list">
+    Get all room categories for a property
+  </Card>
+  <Card title="Create Category" href="/api-reference/room-categories/create">
+    Create a new room category
+  </Card>
+</CardGroup>
+
+### Rooms
+
+<CardGroup cols={2}>
+  <Card title="List Rooms" href="/api-reference/rooms/list">
+    Get all rooms for a property
+  </Card>
+  <Card title="Create Room" href="/api-reference/rooms/create">
+    Add a new room
+  </Card>
+  <Card title="Bulk Update" href="/api-reference/rooms/bulk-update">
+    Update multiple rooms at once
+  </Card>
+  <Card title="Set Maintenance" href="/api-reference/rooms/maintenance">
+    Enable/disable maintenance mode
+  </Card>
+</CardGroup>
+
+### Amenities
+
+<CardGroup cols={2}>
+  <Card title="List Amenities" href="/api-reference/amenities/list">
+    Get all amenities
+  </Card>
+  <Card title="Create Amenity" href="/api-reference/amenities/create">
+    Create custom amenity
+  </Card>
+</CardGroup>
+
+### Availability
+
+<CardGroup cols={2}>
+  <Card title="Get Availability" href="/api-reference/availability/get">
+    Check room availability for dates
+  </Card>
+  <Card title="Create Block" href="/api-reference/availability/block">
+    Block rooms manually
+  </Card>
+  <Card title="Get Occupancy" href="/api-reference/availability/stats">
+    Get occupancy statistics
+  </Card>
+</CardGroup>
+
+## Error Handling
+
+Server actions return errors in a consistent format:
+
+```typescript
+const result = await createProperty(data);
+
+if (!result.success) {
+  // Handle error
+  console.error(result.error);
+  
+  if (result.details) {
+    // Validation errors
+    result.details.forEach(error => {
+      console.error(`${error.path}: ${error.message}`);
+    });
+  }
+}
+```
+
+## Rate Limiting
+
+<Note>
+Server actions are rate-limited to prevent abuse. Default limits:
+- **100 requests/minute** per user
+- **1000 requests/hour** per organization
+</Note>
+
+## Caching
+
+Server Actions automatically benefit from Next.js caching:
+
+- **GET operations**: Cached for 60 seconds
+- **Mutations**: Cache invalidated via `revalidatePath()`
+
+```typescript
+export async function updateProperty(id: string, data: any) {
+  const property = await prisma.property.update({...});
+  
+  revalidatePath('/properties');        // Invalidate list
+  revalidatePath(`/properties/${id}`);  // Invalidate detail
+  
+  return { success: true, data: property };
+}
+```
+
+## Testing
+
+All server actions are unit-tested:
+
+```typescript
+import { getProperties } from '@/app/actions/properties';
+
+describe('getProperties', () => {
+  it('should return properties for organization', async () => {
+    const result = await getProperties();
+    expect(result.success).toBe(true);
+    expect(result.data).toBeDefined();
+  });
+});
+```
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Properties API" href="/api-reference/properties/list">
+    Explore property endpoints
+  </Card>
+  <Card title="Rooms API" href="/api-reference/rooms/list">
+    Explore room endpoints
+  </Card>
+  <Card title="Authentication" href="/api-reference/authentication">
+    Learn about Clerk auth
+  </Card>
+  <Card title="Error Codes" href="/api-reference/errors">
+    Common error codes and solutions
+  </Card>
+</CardGroup>
