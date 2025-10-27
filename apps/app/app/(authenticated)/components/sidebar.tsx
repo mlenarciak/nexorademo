@@ -36,20 +36,18 @@ import {
 import { cn } from "@repo/design-system/lib/utils";
 import { NotificationsTrigger } from "@repo/notifications/components/trigger";
 import {
-  AnchorIcon,
   BookOpenIcon,
-  BotIcon,
+  Building2,
+  Bed,
+  Calendar as CalendarIcon,
   ChevronRightIcon,
   FolderIcon,
-  FrameIcon,
+  Home,
   LifeBuoyIcon,
-  MapIcon,
   MoreHorizontalIcon,
-  PieChartIcon,
   SendIcon,
   Settings2Icon,
   ShareIcon,
-  SquareTerminalIcon,
   Trash2Icon,
 } from "lucide-react";
 import Image from "next/image";
@@ -61,71 +59,65 @@ type GlobalSidebarProperties = {
   readonly children: ReactNode;
 };
 
+import { Building2, Bed, Calendar as CalendarIcon, Users, Home } from "lucide-react";
+
 const data = {
-  user: {
-    name: "shadcn",
-    email: "m@example.com",
-    avatar: "/avatars/shadcn.jpg",
-  },
   navMain: [
     {
-      title: "Playground",
-      url: "#",
-      icon: SquareTerminalIcon,
+      title: "Dashboard",
+      url: "/",
+      icon: Home,
       isActive: true,
+    },
+    {
+      title: "Properties",
+      url: "/properties",
+      icon: Building2,
       items: [
         {
-          title: "History",
+          title: "All Properties",
+          url: "/properties",
+        },
+        {
+          title: "Create Property",
+          url: "/properties/new",
+        },
+      ],
+    },
+    {
+      title: "Rooms",
+      url: "#",
+      icon: Bed,
+      items: [
+        {
+          title: "Room Categories",
           url: "#",
         },
         {
-          title: "Starred",
+          title: "Individual Rooms",
           url: "#",
         },
         {
-          title: "Settings",
+          title: "Amenities",
           url: "#",
         },
       ],
     },
     {
-      title: "Models",
+      title: "Bookings",
       url: "#",
-      icon: BotIcon,
+      icon: CalendarIcon,
       items: [
         {
-          title: "Genesis",
+          title: "Calendar",
           url: "#",
         },
         {
-          title: "Explorer",
+          title: "Reservations",
           url: "#",
         },
         {
-          title: "Quantum",
-          url: "#",
-        },
-      ],
-    },
-    {
-      title: "Documentation",
-      url: "#",
-      icon: BookOpenIcon,
-      items: [
-        {
-          title: "Introduction",
-          url: "#",
-        },
-        {
-          title: "Get Started",
-          url: "#",
-        },
-        {
-          title: "Tutorials",
-          url: "#",
-        },
-        {
-          title: "Changelog",
+          title: "Availability",
           url: "#",
         },
       ],
@@ -136,19 +128,15 @@ const data = {
       icon: Settings2Icon,
       items: [
         {
-          title: "General",
+          title: "Organization",
           url: "#",
         },
         {
-          title: "Team",
+          title: "Users & Roles",
           url: "#",
         },
         {
-          title: "Billing",
-          url: "#",
-        },
-        {
-          title: "Limits",
+          title: "Integrations",
           url: "#",
         },
       ],
@@ -156,9 +144,9 @@ const data = {
   ],
   navSecondary: [
     {
-      title: "Webhooks",
-      url: "/webhooks",
-      icon: AnchorIcon,
+      title: "Documentation",
+      url: "/docs",
+      icon: BookOpenIcon,
     },
     {
       title: "Support",
@@ -169,23 +157,6 @@ const data = {
       title: "Feedback",
       url: "#",
       icon: SendIcon,
-    },
-  ],
-  projects: [
-    {
-      name: "Design Engineering",
-      url: "#",
-      icon: FrameIcon,
-    },
-    {
-      name: "Sales & Marketing",
-      url: "#",
-      icon: PieChartIcon,
-    },
-    {
-      name: "Travel",
-      url: "#",
-      icon: MapIcon,
     },
   ],
 };
@@ -275,54 +246,6 @@ export const GlobalSidebar = ({ children }: GlobalSidebarProperties) => {
                   </SidebarMenuItem>
                 </Collapsible>
               ))}
-            </SidebarMenu>
-          </SidebarGroup>
-          <SidebarGroup className="group-data-[collapsible=icon]:hidden">
-            <SidebarGroupLabel>Projects</SidebarGroupLabel>
-            <SidebarMenu>
-              {data.projects.map((item) => (
-                <SidebarMenuItem key={item.name}>
-                  <SidebarMenuButton asChild>
-                    <Link href={item.url}>
-                      <item.icon />
-                      <span>{item.name}</span>
-                    </Link>
-                  </SidebarMenuButton>
-                  <DropdownMenu>
-                    <DropdownMenuTrigger asChild>
-                      <SidebarMenuAction showOnHover>
-                        <MoreHorizontalIcon />
-                        <span className="sr-only">More</span>
-                      </SidebarMenuAction>
-                    </DropdownMenuTrigger>
-                    <DropdownMenuContent
-                      align="end"
-                      className="w-48"
-                      side="bottom"
-                    >
-                      <DropdownMenuItem>
-                        <FolderIcon className="text-muted-foreground" />
-                        <span>View Project</span>
-                      </DropdownMenuItem>
-                      <DropdownMenuItem>
-                        <ShareIcon className="text-muted-foreground" />
-                        <span>Share Project</span>
-                      </DropdownMenuItem>
-                      <DropdownMenuSeparator />
-                      <DropdownMenuItem>
-                        <Trash2Icon className="text-muted-foreground" />
-                        <span>Delete Project</span>
-                      </DropdownMenuItem>
-                    </DropdownMenuContent>
-                  </DropdownMenu>
-                </SidebarMenuItem>
-              ))}
-              <SidebarMenuItem>
-                <SidebarMenuButton>
-                  <MoreHorizontalIcon />
-                  <span>More</span>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
             </SidebarMenu>
           </SidebarGroup>
           <SidebarGroup className="mt-auto">
