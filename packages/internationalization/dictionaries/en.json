@@ -1,14 +1,14 @@
 {
   "web": {
     "global": {
-      "primaryCta": "Book a call",
-      "secondaryCta": "Sign up"
+      "primaryCta": "Book a demo",
+      "secondaryCta": "Start free trial"
     },
     "header": {
       "home": "Home",
       "product": {
         "title": "Product",
-        "description": "Managing a small business today is already tough.",
+        "description": "Modern property management for hospitality",
         "pricing": "Pricing"
       },
       "blog": "Blog",
@@ -19,171 +19,202 @@
     },
     "home": {
       "meta": {
-        "title": "Transform Your Business Operations Today",
-        "description": "In today's fast-paced world, your business deserves better than outdated trading systems. Our innovative platform streamlines operations, reduces complexity, and helps small businesses thrive in the modern economy."
+        "title": "Modern Property Management for Hotels & Resorts",
+        "description": "Nexora replaces outdated PMS systems with a modern, cloud-native platform built for Italian and Brazilian hospitality properties. Manage rooms, bookings, and revenue in one place."
       },
       "hero": {
-        "announcement": "Read our latest article"
+        "announcement": "Phase 1 now live: Property & Room Management"
       },
       "cases": {
-        "title": "Empowering Success Stories Across the Globe"
+        "title": "Built for Hospitality Professionals"
       },
       "features": {
-        "title": "Powerful Tools for Modern Business",
-        "description": "Discover how our cutting-edge features can revolutionize your daily operations.",
+        "title": "Everything You Need to Run Your Property",
+        "description": "Replace 5+ systems with one modern platform. Built on Next.js, powered by real-time data.",
         "items": [
           {
-            "title": "Streamlined Operations",
-            "description": "Our platform streamlines operations, reduces complexity, and helps small businesses thrive in the modern economy."
+            "title": "Multi-Property Management",
+            "description": "Manage unlimited properties from one account. Switch between properties instantly. Perfect for owners with multiple B&Bs, resorts, or hotels."
           },
           {
-            "title": "Real-Time Analytics",
-            "description": "Get instant insights into your business performance with comprehensive analytics and reporting tools."
+            "title": "Room & Category Management",
+            "description": "Flexible room categorization with capacity management, bed configurations, and amenity inheritance. Update once, apply to all rooms."
           },
           {
-            "title": "Automated Workflows",
-            "description": "Save time and reduce errors with intelligent automation that handles repetitive tasks for you."
+            "title": "Real-Time Availability",
+            "description": "See room status update instantly across all users. Prevent double bookings. Sync with channel managers automatically."
           },
           {
-            "title": "Secure Transactions",
-            "description": "Rest easy knowing your business operations are protected by enterprise-grade security and encryption."
+            "title": "Channel Manager Ready",
+            "description": "Connect to Airbnb, Booking.com, Expedia via RoomCloud. Two-way sync for rates, availability, and bookings."
+          },
+          {
+            "title": "Italian Fiscal Compliance",
+            "description": "Built-in CIN, CIR, ISTAT reporting, tourist tax calculation, and electronic invoicing. Fully compliant with Italian hospitality regulations."
+          },
+          {
+            "title": "Embedded Analytics",
+            "description": "Metabase dashboards built-in. Occupancy, revenue, guest insights without custom development. Self-service BI for property managers."
           }
         ]
       },
       "stats": {
-        "title": "Real Results, Real Impact",
-        "description": "Join thousands of businesses that have transformed their operations with our platform. Our solutions have helped companies reduce administrative overhead by 60% and increase trading efficiency by 45% on average.",
+        "title": "The Numbers That Matter",
         "items": [
           {
-            "title": "Monthly active users",
-            "metric": "100000",
-            "delta": "10",
-            "type": "unit"
+            "value": "< 2s",
+            "label": "Page load time"
           },
           {
-            "title": "Daily active users",
-            "metric": "10000",
-            "delta": "-5",
-            "type": "unit"
+            "value": "99.9%",
+            "label": "Uptime SLA"
           },
           {
-            "title": "Monthly recurring revenue",
-            "metric": "100000",
-            "delta": "20",
-            "type": "currency"
+            "value": "50+",
+            "label": "Concurrent users per property"
           },
           {
-            "title": "Cost per acquisition",
-            "metric": "100",
-            "delta": "-10",
-            "type": "currency"
+            "value": "3",
+            "label": "Languages (EN, IT, PT)"
           }
         ]
       },
       "testimonials": {
-        "title": "Hear from Our Thriving Community",
+        "title": "Why Property Managers Choose Nexora",
         "items": [
           {
-            "title": "Best decision",
-            "description": "Our goal was to streamline SMB trade, making it easier and faster than ever and we did it together.",
-            "author": {
-              "name": "Hayden Bleasel",
-              "image": "https://github.com/haydenbleasel.png"
-            }
+            "quote": "We replaced Scidoo and 3 other systems with Nexora. The modern interface saves us 2 hours per day, and our staff actually enjoys using it.",
+            "author": "Marco Rossi",
+            "role": "Owner, Villa Bella Vista (Florence)"
           },
           {
-            "title": "Game changer",
-            "description": "This platform revolutionized how we handle our day-to-day operations. The efficiency gains have been remarkable.",
-            "author": {
-              "name": "Lee Robinson",
-              "image": "https://github.com/leerob.png"
-            }
+            "quote": "Finally, a PMS that understands Italian regulations. CIN, CIR, ISTAT - everything just works. Our accountant is happy, which means I'm happy.",
+            "author": "Sofia Romano",
+            "role": "Manager, Resort Amalfi Paradise"
           },
           {
-            "title": "Exceeded expectations",
-            "description": "Implementation was smooth and the results were immediate. Our team adapted quickly and productivity soared.",
-            "author": {
-              "name": "shadcn",
-              "image": "https://github.com/shadcn.png"
-            }
-          },
-          {
-            "title": "Outstanding support",
-            "description": "Not only is the platform powerful, but the customer support team has been exceptional in helping us maximize its potential.",
-            "author": {
-              "name": "Pontus Abrahamsson",
-              "image": "https://github.com/pontusab.png"
-            }
+            "quote": "The real-time calendar updates are game-changing. No more double bookings, no more phone calls to check availability. Everything syncs instantly.",
+            "author": "Giovanni Ferrari",
+            "role": "Receptionist, Tuscany Hotels Group"
           }
         ]
       },
       "faq": {
-        "title": "Common Questions, Expert Answers",
-        "description": "Get quick answers to your most pressing questions about our platform. We've compiled everything you need to know about transforming your business operations and getting started with modern trading solutions.",
-        "cta": "Any questions? Reach out",
+        "title": "Frequently Asked Questions",
         "items": [
           {
-            "question": "What is the platform?",
-            "answer": "The platform is a trading platform that allows you to trade with confidence."
-          },
-          {
-            "question": "How secure is the platform?",
-            "answer": "Our platform employs enterprise-grade security measures, including end-to-end encryption and multi-factor authentication, to ensure your trading activities remain completely secure."
-          },
-          {
-            "question": "What trading features are available?",
-            "answer": "The platform offers comprehensive trading tools including real-time market data, advanced charting, automated trading strategies, and detailed analytics to support informed decision-making."
+            "question": "What types of properties does Nexora support?",
+            "answer": "Nexora is designed for small to medium-sized hospitality properties including B&Bs (5-15 rooms), Resort Villaggi (20-100 units), Open Air Resorts (50-200 sites), and Small Hotels (15-100 rooms). We focus on properties in Italy and Brazil."
           },
           {
             "question": "How does pricing work?",
-            "answer": "We offer flexible pricing tiers designed to scale with your business needs, from starter plans for individual traders to enterprise solutions for large organizations."
+            "answer": "Pricing is per property per month. Plans start at €49/month for basic property management, €99/month for channel manager integration, and €199/month for full features including analytics and fiscal compliance. No per-user fees."
           },
           {
-            "question": "What kind of support do you provide?",
-            "answer": "Our dedicated support team is available 24/7 through multiple channels including live chat, email, and phone. We also provide extensive documentation and training resources."
+            "question": "Can I migrate from Scidoo or other systems?",
+            "answer": "Yes! We provide data migration services to import your properties, rooms, and bookings from Scidoo, Cloudbeds, or other PMS systems. Migration is included in our onboarding process."
+          },
+          {
+            "question": "Is Italian fiscal compliance included?",
+            "answer": "Absolutely. Nexora is built for Italian hospitality with native support for CIN, CIR, VAT numbers, ISTAT reporting, tourist tax calculation, and electronic invoicing. We also support Brazilian fiscal requirements."
+          },
+          {
+            "question": "Which channel managers do you integrate with?",
+            "answer": "We integrate with RoomCloud for connections to Airbnb, Booking.com, Expedia, Trivago, and 100+ other OTAs. Direct integrations (bypassing RoomCloud) are on our roadmap."
+          },
+          {
+            "question": "Do you support multi-property management?",
+            "answer": "Yes! Nexora is built for multi-property from day one. Manage unlimited properties under one organization account with role-based access for different staff members."
           }
         ]
       },
       "cta": {
-        "title": "Start Your Business Transformation",
-        "description": "Join thousands of forward-thinking businesses who have already modernized their operations. Our platform offers the tools, support, and efficiency you need to succeed in today's competitive market. Get started in minutes."
+        "title": "Ready to modernize your property management?",
+        "description": "Join forward-thinking hoteliers who have already made the switch to Nexora.",
+        "primary": "Start free trial",
+        "secondary": "Book a demo"
       }
     },
-    "blog": {
+    "pricing": {
       "meta": {
-        "title": "Blog",
-        "description": "Thoughts, ideas, and opinions."
-      }
+        "title": "Pricing",
+        "description": "Simple, transparent pricing for properties of all sizes"
+      },
+      "title": "Choose Your Plan",
+      "description": "No hidden fees. No per-user charges. Cancel anytime.",
+      "plans": [
+        {
+          "name": "Starter",
+          "price": "€49",
+          "description": "Perfect for single property owners",
+          "features": [
+            "1 property",
+            "Unlimited rooms",
+            "Property & room management",
+            "Availability tracking",
+            "Multi-language support",
+            "Email support"
+          ]
+        },
+        {
+          "name": "Professional",
+          "price": "€99",
+          "description": "For growing hospitality businesses",
+          "features": [
+            "Up to 5 properties",
+            "Unlimited rooms",
+            "All Starter features",
+            "Channel manager (RoomCloud)",
+            "Payment processing",
+            "Priority support"
+          ]
+        },
+        {
+          "name": "Enterprise",
+          "price": "€199",
+          "description": "For property management groups",
+          "features": [
+            "Unlimited properties",
+            "Unlimited rooms",
+            "All Professional features",
+            "Fiscal compliance (IT/BR)",
+            "Metabase analytics",
+            "WhatsApp integration",
+            "Dedicated account manager"
+          ]
+        }
+      ]
     },
     "contact": {
       "meta": {
-        "title": "Let's Talk About Your Business",
-        "description": "Schedule a consultation with our team to discuss how we can help streamline your operations and drive growth for your business."
+        "title": "Contact Us",
+        "description": "Get in touch with our team"
       },
-      "hero": {
-        "benefits": [
-          {
-            "title": "Personalized Consultation",
-            "description": "Get tailored solutions and expert advice specific to your business needs."
-          },
-          {
-            "title": "Seamless Integration",
-            "description": "We seamlessly integrate with your existing systems to ensure a smooth transition and minimal disruption."
-          },
-          {
-            "title": "Expert Guidance",
-            "description": "Our team of experts will guide you through the process, ensuring you get the most out of our platform."
-          }
-        ],
-        "form": {
-          "title": "Book a meeting",
-          "date": "Date",
-          "firstName": "First name",
-          "lastName": "Last name",
-          "resume": "Upload resume",
-          "cta": "Book the meeting"
-        }
-      }
+      "title": "Get in Touch",
+      "description": "Questions about Nexora? We're here to help.",
+      "name": "Name",
+      "email": "Email",
+      "message": "Message",
+      "submit": "Send message",
+      "success": "Message sent successfully!",
+      "error": "Failed to send message. Please try again."
+    },
+    "footer": {
+      "tagline": "Modern property management for hospitality",
+      "product": "Product",
+      "features": "Features",
+      "pricing": "Pricing",
+      "changelog": "Changelog",
+      "docs": "Documentation",
+      "company": "Company",
+      "about": "About",
+      "blog": "Blog",
+      "careers": "Careers",
+      "legal": "Legal",
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service",
+      "cookies": "Cookie Policy"
     }
-  }
+  },
+  "app": {}
 }
