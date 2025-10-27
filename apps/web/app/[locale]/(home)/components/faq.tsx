@@ -6,7 +6,7 @@ import {
 } from "@repo/design-system/components/ui/accordion";
 import { Button } from "@repo/design-system/components/ui/button";
 import type { Dictionary } from "@repo/internationalization";
-import { PhoneCall } from "lucide-react";
+import { MessageCircle } from "lucide-react";
 import Link from "next/link";
 
 type FAQProps = {
@@ -17,31 +17,36 @@ export const FAQ = ({ dictionary }: FAQProps) => (
   <div className="w-full py-20 lg:py-40">
     <div className="container mx-auto">
       <div className="grid gap-10 lg:grid-cols-2">
-        <div className="flex flex-col gap-10">
+        {/* Left Side - Title & CTA */}
+        <div className="flex flex-col gap-6">
           <div className="flex flex-col gap-4">
-            <div className="flex flex-col gap-2">
-              <h4 className="max-w-xl text-left font-regular text-3xl tracking-tighter md:text-5xl">
-                {dictionary.web.home.faq.title}
-              </h4>
-              <p className="max-w-xl text-left text-lg text-muted-foreground leading-relaxed tracking-tight lg:max-w-lg">
-                {dictionary.web.home.faq.description}
-              </p>
-            </div>
-            <div className="">
-              <Button asChild className="gap-4" variant="outline">
-                <Link href="/contact">
-                  {dictionary.web.home.faq.cta}{" "}
-                  <PhoneCall className="h-4 w-4" />
-                </Link>
-              </Button>
-            </div>
+            <h2 className="max-w-xl font-bold text-3xl tracking-tight md:text-5xl">
+              {dictionary.web.home.faq.title}
+            </h2>
+            <p className="max-w-lg text-muted-foreground text-lg leading-relaxed">
+              Common questions about Nexora. Can't find what you're looking for?
+            </p>
+          </div>
+          <div>
+            <Button asChild className="gap-2" size="lg" variant="outline">
+              <Link href="/contact">
+                <MessageCircle className="h-4 w-4" />
+                Contact support
+              </Link>
+            </Button>
           </div>
         </div>
+
+        {/* Right Side - FAQ Accordion */}
         <Accordion className="w-full" collapsible type="single">
           {dictionary.web.home.faq.items.map((item, index) => (
-            <AccordionItem key={index} value={`index-${index}`}>
-              <AccordionTrigger>{item.question}</AccordionTrigger>
-              <AccordionContent>{item.answer}</AccordionContent>
+            <AccordionItem key={index} value={`faq-${index}`}>
+              <AccordionTrigger className="text-left">
+                {item.question}
+              </AccordionTrigger>
+              <AccordionContent className="text-muted-foreground">
+                {item.answer}
+              </AccordionContent>
             </AccordionItem>
           ))}
         </Accordion>
