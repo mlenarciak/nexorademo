@@ -1,11 +1,17 @@
 import { auth } from "@repo/auth/server";
+import { Button } from "@repo/design-system/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@repo/design-system/components/ui/card";
+import { Bed, Building2, Calendar, Plus } from "lucide-react";
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
-import { redirect } from "next/navigation";
 import Link from "next/link";
-import { Button } from "@repo/design-system/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@repo/design-system/components/ui/card";
-import { Building2, Bed, Calendar, Plus } from "lucide-react";
+import { redirect } from "next/navigation";
 import { env } from "@/env";
 import { AvatarStack } from "./components/avatar-stack";
 import { Cursors } from "./components/cursors";
@@ -47,7 +53,7 @@ const App = async () => {
         <div className="flex items-center justify-between">
           <h2 className="font-semibold text-2xl">Quick Actions</h2>
         </div>
-        
+
         {/* Action Cards */}
         <div className="grid auto-rows-min gap-4 md:grid-cols-3">
           <Link href="/properties/new">

@@ -36,9 +36,9 @@ import {
 import { cn } from "@repo/design-system/lib/utils";
 import { NotificationsTrigger } from "@repo/notifications/components/trigger";
 import {
+  Bed,
   BookOpenIcon,
   Building2,
-  Bed,
   Calendar as CalendarIcon,
   ChevronRightIcon,
   FolderIcon,
@@ -58,8 +58,6 @@ import { Search } from "./search";
 type GlobalSidebarProperties = {
   readonly children: ReactNode;
 };
-
-import { Building2, Bed, Calendar as CalendarIcon, Users, Home } from "lucide-react";
 
 const data = {
   navMain: [
