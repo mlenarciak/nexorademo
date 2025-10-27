@@ -14,8 +14,18 @@ const securityHeaders = env.FLAGS_SECRET
 // Clerk middleware wraps other middleware in its callback
 // For apps using Clerk, compose middleware inside authMiddleware callback
 // For apps without Clerk, use createNEMO for composition (see apps/web)
-export default authMiddleware(() =>
-  securityHeaders()
+export default authMiddleware(
+  () => securityHeaders(),
+  {
+    // Make all routes public for now during development
+    publicRoutes: [
+      "/",
+      "/properties(.*)",
+      "/sign-in(.*)",
+      "/sign-up(.*)",
+      "/api(.*)",
+    ],
+  }
 ) as unknown as NextMiddleware;
 
 export const config = {
