@@ -203,7 +203,31 @@
       "message": "Message",
       "submit": "Send message",
       "success": "Message sent successfully!",
-      "error": "Failed to send message. Please try again."
+      "error": "Failed to send message. Please try again.",
+      "hero": {
+        "benefits": [
+          {
+            "title": "Personalized Consultation",
+            "description": "Get tailored solutions and expert advice specific to your property’s needs."
+          },
+          {
+            "title": "Seamless Integration",
+            "description": "We integrate with your existing systems for a smooth transition and minimal disruption."
+          },
+          {
+            "title": "Expert Guidance",
+            "description": "Our team will guide you through setup and best practices to get the most from Nexora."
+          }
+        ],
+        "form": {
+          "title": "Book a meeting",
+          "date": "Date",
+          "firstName": "First name",
+          "lastName": "Last name",
+          "resume": "Upload resume",
+          "cta": "Book the meeting"
+        }
+      }
     },
     "footer": {
       "tagline": "Modern property management for hospitality",
