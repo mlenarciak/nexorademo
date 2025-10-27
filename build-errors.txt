@@ -1270,3 +1270,305 @@ app:dev:
 app:dev: You are rendering the Vercel Toolbar in development, but the configuration is missing.
 app:dev: Make sure the plugin is added to the Next.js config and the project has been linked using `vercel link`.
 app:dev: For more details, visit https://vercel.com/docs/workflow-collaboration/vercel-toolbar/in-production-and-localhost/add-to-localhost
+app:dev: ✦Aj WARN Arcjet will use 127.0.0.1 when missing public IP address in development mode
+app:dev:  GET / 307 in 7535ms
+app:dev:  ○ Compiling /properties ...
+app:dev:  ✓ Compiled /properties in 1977ms
+app:dev:  ⨯ ./apps/app/app/actions/properties.ts:3:1
+app:dev: Module not found: Can't resolve '@clerk/nextjs'
+app:dev: [0m [90m 1 |[39m [32m"use server"[39m[33m;[39m
+app:dev:  [90m 2 |[39m
+app:dev: [31m[1m>[22m[39m[90m 3 |[39m [36mimport[39m { auth } [36mfrom[39m [32m"@clerk/nextjs"[39m[33m;[39m
+app:dev:  [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+app:dev:  [90m 4 |[39m [36mimport[39m { [33mPrismaClient[39m } [36mfrom[39m [32m"@repo/database"[39m[33m;[39m
+app:dev:  [90m 5 |[39m [36mimport[39m { revalidatePath } [36mfrom[39m [32m"next/cache"[39m[33m;[39m
+app:dev:  [90m 6 |[39m [36mimport[39m { z } [36mfrom[39m [32m"zod"[39m[33m;[39m[0m
+app:dev: 
+app:dev: 
+app:dev: 
+app:dev: Import trace:
+app:dev:   Server Component:
+app:dev:     ./apps/app/app/actions/properties.ts
+app:dev:     ./apps/app/app/(dashboard)/properties/page.tsx
+app:dev: 
+app:dev: https://nextjs.org/docs/messages/module-not-found
+app:dev: 
+app:dev: 
+app:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.204.0_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
+app:dev: Package require-in-the-middle can't be external
+app:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
+app:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
+app:dev: Make sure to install the same version of the package in both locations.
+app:dev: 
+app:dev: 
+app:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.57.2_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
+app:dev: Package require-in-the-middle can't be external
+app:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
+app:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
+app:dev: Make sure to install the same version of the package in both locations.
+app:dev: 
+app:dev: 
+app:dev:  ⚠ ./packages/database/generated/client/index.js
+app:dev: unexpected export *
+app:dev: export * used with module [project]/packages/database/generated/client/index.js [app-rsc] (ecmascript) which is a CommonJS module with exports only available at runtime
+app:dev: List all export names manually (`export { a, b, c } from "...") or rewrite the module to ESM, to avoid the additional runtime code.`
+app:dev: 
+app:dev: Import trace:
+app:dev:   Server Component:
+app:dev:     ./packages/database/generated/client/index.js
+app:dev:     ./apps/app/app/actions/properties.ts
+app:dev:     ./apps/app/app/(dashboard)/properties/page.tsx
+app:dev: 
+app:dev: 
+app:dev:  ○ Compiling /_error ...
+app:dev:  ✓ Compiled /_error in 3.1s
+app:dev:  GET /properties 500 in 5271ms
+app:dev:  ⚠ ./packages/database/generated/client/index.js
+app:dev: unexpected export *
+app:dev: export * used with module [project]/packages/database/generated/client/index.js [app-rsc] (ecmascript) which is a CommonJS module with exports only available at runtime
+app:dev: List all export names manually (`export { a, b, c } from "...") or rewrite the module to ESM, to avoid the additional runtime code.`
+app:dev: 
+app:dev: Import trace:
+app:dev:   Server Component:
+app:dev:     ./packages/database/generated/client/index.js
+app:dev:     ./apps/app/app/actions/properties.ts
+app:dev:     ./apps/app/app/(dashboard)/properties/page.tsx
+app:dev: 
+app:dev: 
+web:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.204.0_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
+web:dev: Package require-in-the-middle can't be external
+web:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
+web:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
+web:dev: Make sure to install the same version of the package in both locations.
+web:dev: 
+web:dev: 
+web:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.57.2_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
+web:dev: Package require-in-the-middle can't be external
+web:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
+web:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
+web:dev: Make sure to install the same version of the package in both locations.
+web:dev: 
+web:dev: 
+web:dev: You are rendering the Vercel Toolbar in development, but the configuration is missing.
+web:dev: Make sure the plugin is added to the Next.js config and the project has been linked using `vercel link`.
+web:dev: For more details, visit https://vercel.com/docs/workflow-collaboration/vercel-toolbar/in-production-and-localhost/add-to-localhost
+web:dev:  POST / 200 in 2699ms
+web:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.204.0_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
+web:dev: Package require-in-the-middle can't be external
+web:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
+web:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
+web:dev: Make sure to install the same version of the package in both locations.
+web:dev: 
+web:dev: 
+web:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.57.2_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
+web:dev: Package require-in-the-middle can't be external
+web:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
+web:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
+web:dev: Make sure to install the same version of the package in both locations.
+web:dev: 
+web:dev: 
+web:dev:  POST / 200 in 883ms
+web:dev: You are rendering the Vercel Toolbar in development, but the configuration is missing.
+web:dev: Make sure the plugin is added to the Next.js config and the project has been linked using `vercel link`.
+web:dev: For more details, visit https://vercel.com/docs/workflow-collaboration/vercel-toolbar/in-production-and-localhost/add-to-localhost
+app:dev: [33mwarn[0m - Envvars not detected. If this is production please see https://betterstack.com/docs/logs/javascript/nextjs/ for help
+app:dev: [33mwarn[0m - Sending Web Vitals to /dev/null
+app:dev: [33mwarn[0m - Sending logs to console
+app:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.204.0_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
+app:dev: Package require-in-the-middle can't be external
+app:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
+app:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
+app:dev: Make sure to install the same version of the package in both locations.
+app:dev: 
+app:dev: 
+app:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.57.2_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
+app:dev: Package require-in-the-middle can't be external
+app:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
+app:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
+app:dev: Make sure to install the same version of the package in both locations.
+app:dev: 
+app:dev: 
+app:dev: ✦Aj WARN Arcjet will use 127.0.0.1 when missing public IP address in development mode
+app:dev:  ⨯ Error: 
+app:dev:     at async AppLayout (app/(authenticated)/layout.tsx:19:16)
+app:dev:   17 |   }
+app:dev:   18 |
+app:dev: > 19 |   const user = await currentUser();
+app:dev:      |                ^
+app:dev:   20 |   const { redirectToSignIn } = await auth();
+app:dev:   21 |   const betaFeature = await showBetaFeature();
+app:dev:   22 | {
+app:dev:   clerkError: true,
+app:dev:   status: undefined,
+app:dev:   clerkTraceId: '',
+app:dev:   retryAfter: undefined,
+app:dev:   errors: [Array],
+app:dev:   toString: [Function: toString],
+app:dev:   digest: '3672880276'
+app:dev: }
+app:dev:  GET / 500 in 2181ms
+app:dev:  ⚠ ./packages/database/generated/client/index.js
+app:dev: unexpected export *
+app:dev: export * used with module [project]/packages/database/generated/client/index.js [app-rsc] (ecmascript) which is a CommonJS module with exports only available at runtime
+app:dev: List all export names manually (`export { a, b, c } from "...") or rewrite the module to ESM, to avoid the additional runtime code.`
+app:dev: 
+app:dev: Import trace:
+app:dev:   Server Component:
+app:dev:     ./packages/database/generated/client/index.js
+app:dev:     ./apps/app/app/actions/properties.ts
+app:dev:     ./apps/app/app/(dashboard)/properties/page.tsx
+app:dev: 
+app:dev: 
+web:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.204.0_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
+web:dev: Package require-in-the-middle can't be external
+web:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
+web:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
+web:dev: Make sure to install the same version of the package in both locations.
+web:dev: 
+web:dev: 
+web:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.57.2_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
+web:dev: Package require-in-the-middle can't be external
+web:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
+web:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
+web:dev: Make sure to install the same version of the package in both locations.
+web:dev: 
+web:dev: 
+web:dev:  POST / 200 in 988ms
+web:dev: You are rendering the Vercel Toolbar in development, but the configuration is missing.
+web:dev: Make sure the plugin is added to the Next.js config and the project has been linked using `vercel link`.
+web:dev: For more details, visit https://vercel.com/docs/workflow-collaboration/vercel-toolbar/in-production-and-localhost/add-to-localhost
+web:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.204.0_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
+web:dev: Package require-in-the-middle can't be external
+web:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
+web:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
+web:dev: Make sure to install the same version of the package in both locations.
+web:dev: 
+web:dev: 
+web:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.57.2_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
+web:dev: Package require-in-the-middle can't be external
+web:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
+web:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
+web:dev: Make sure to install the same version of the package in both locations.
+web:dev: 
+web:dev: 
+web:dev:  POST / 200 in 504ms
+app:dev:  ✓ Compiled in 389ms
+app:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.204.0_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
+app:dev: Package require-in-the-middle can't be external
+app:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
+app:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
+app:dev: Make sure to install the same version of the package in both locations.
+app:dev: 
+app:dev: 
+app:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.57.2_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
+app:dev: Package require-in-the-middle can't be external
+app:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
+app:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
+app:dev: Make sure to install the same version of the package in both locations.
+app:dev: 
+app:dev: 
+app:dev: ✦Aj WARN Arcjet will use 127.0.0.1 when missing public IP address in development mode
+app:dev: [33mwarn[0m - Envvars not detected. If this is production please see https://betterstack.com/docs/logs/javascript/nextjs/ for help
+app:dev: [33mwarn[0m - Sending Web Vitals to /dev/null
+app:dev: [33mwarn[0m - Sending logs to console
+app:dev:  GET / 307 in 1808ms
+app:dev:  ✓ Compiled /properties in 169ms
+app:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.204.0_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
+app:dev: Package require-in-the-middle can't be external
+app:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
+app:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
+app:dev: Make sure to install the same version of the package in both locations.
+app:dev: 
+app:dev: 
+app:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.57.2_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
+app:dev: Package require-in-the-middle can't be external
+app:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
+app:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
+app:dev: Make sure to install the same version of the package in both locations.
+app:dev: 
+app:dev: 
+app:dev:  ⚠ ./packages/database/generated/client/index.js
+app:dev: unexpected export *
+app:dev: export * used with module [project]/packages/database/generated/client/index.js [app-rsc] (ecmascript) which is a CommonJS module with exports only available at runtime
+app:dev: List all export names manually (`export { a, b, c } from "...") or rewrite the module to ESM, to avoid the additional runtime code.`
+app:dev: 
+app:dev: Import trace:
+app:dev:   Server Component:
+app:dev:     ./packages/database/generated/client/index.js
+app:dev:     ./apps/app/app/actions/properties.ts
+app:dev:     ./apps/app/app/(dashboard)/properties/page.tsx
+app:dev: 
+app:dev: 
+app:dev: You are rendering the Vercel Toolbar in development, but the configuration is missing.
+app:dev: Make sure the plugin is added to the Next.js config and the project has been linked using `vercel link`.
+app:dev: For more details, visit https://vercel.com/docs/workflow-collaboration/vercel-toolbar/in-production-and-localhost/add-to-localhost
+app:dev:  ⨯ Error: Unauthorized
+app:dev:     at getProperties (app/actions/properties.ts:57:11)
+app:dev:     at PropertiesPage (app/(dashboard)/properties/page.tsx:5:37)
+app:dev:   55 |
+app:dev:   56 |   if (!(userId && orgId)) {
+app:dev: > 57 |     throw new Error("Unauthorized");
+app:dev:      |           ^
+app:dev:   58 |   }
+app:dev:   59 |
+app:dev:   60 |   try { {
+app:dev:   digest: '2158679669'
+app:dev: }
+app:dev:  GET /properties 500 in 1505ms
+app:dev:  ⚠ ./packages/database/generated/client/index.js
+app:dev: unexpected export *
+app:dev: export * used with module [project]/packages/database/generated/client/index.js [app-rsc] (ecmascript) which is a CommonJS module with exports only available at runtime
+app:dev: List all export names manually (`export { a, b, c } from "...") or rewrite the module to ESM, to avoid the additional runtime code.`
+app:dev: 
+app:dev: Import trace:
+app:dev:   Server Component:
+app:dev:     ./packages/database/generated/client/index.js
+app:dev:     ./apps/app/app/actions/properties.ts
+app:dev:     ./apps/app/app/(dashboard)/properties/page.tsx
+app:dev: 
+app:dev: 
+web:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.204.0_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
+web:dev: Package require-in-the-middle can't be external
+web:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
+web:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
+web:dev: Make sure to install the same version of the package in both locations.
+web:dev: 
+web:dev: 
+web:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.57.2_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
+web:dev: Package require-in-the-middle can't be external
+web:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
+web:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
+web:dev: Make sure to install the same version of the package in both locations.
+web:dev: 
+web:dev: 
+app:dev: [33mwarn[0m - Envvars not detected. If this is production please see https://betterstack.com/docs/logs/javascript/nextjs/ for help
+app:dev: [33mwarn[0m - Sending Web Vitals to /dev/null
+app:dev: [33mwarn[0m - Sending logs to console
+web:dev:  POST / 200 in 717ms
+web:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.204.0_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
+web:dev: Package require-in-the-middle can't be external
+web:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
+web:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
+web:dev: Make sure to install the same version of the package in both locations.
+web:dev: 
+web:dev: 
+web:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.57.2_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
+web:dev: Package require-in-the-middle can't be external
+web:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
+web:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
+web:dev: Make sure to install the same version of the package in both locations.
+web:dev: 
+web:dev: 
+web:dev: You are rendering the Vercel Toolbar in development, but the configuration is missing.
+web:dev: Make sure the plugin is added to the Next.js config and the project has been linked using `vercel link`.
+web:dev: For more details, visit https://vercel.com/docs/workflow-collaboration/vercel-toolbar/in-production-and-localhost/add-to-localhost
+web:dev:  POST / 200 in 444ms
+app:dev: [33mwarn[0m - Envvars not detected. If this is production please see https://betterstack.com/docs/logs/javascript/nextjs/ for help
+app:dev: [33mwarn[0m - Sending Web Vitals to /dev/null
+app:dev: [33mwarn[0m - Sending logs to console
+app:dev: [33mwarn[0m - Envvars not detected. If this is production please see https://betterstack.com/docs/logs/javascript/nextjs/ for help
+app:dev: [33mwarn[0m - Sending Web Vitals to /dev/null
+app:dev: [33mwarn[0m - Sending logs to console
+app:dev: [33mwarn[0m - Envvars not detected. If this is production please see https://betterstack.com/docs/logs/javascript/nextjs/ for help
+app:dev: [33mwarn[0m - Sending Web Vitals to /dev/null
+app:dev: [33mwarn[0m - Sending logs to console

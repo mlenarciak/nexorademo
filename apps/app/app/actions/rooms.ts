@@ -1,6 +1,6 @@
 "use server";
 
-import { auth } from "@clerk/nextjs";
+import { auth } from "@repo/auth/server";
 import { PrismaClient } from "@repo/database";
 import { revalidatePath } from "next/cache";
 import { z } from "zod";
