@@ -1572,3 +1572,6 @@ app:dev: [33mwarn[0m - Sending logs to console
 app:dev: [33mwarn[0m - Envvars not detected. If this is production please see https://betterstack.com/docs/logs/javascript/nextjs/ for help
 app:dev: [33mwarn[0m - Sending Web Vitals to /dev/null
 app:dev: [33mwarn[0m - Sending logs to console
+app:dev: [33mwarn[0m - Envvars not detected. If this is production please see https://betterstack.com/docs/logs/javascript/nextjs/ for help
+app:dev: [33mwarn[0m - Sending Web Vitals to /dev/null
+app:dev: [33mwarn[0m - Sending logs to console

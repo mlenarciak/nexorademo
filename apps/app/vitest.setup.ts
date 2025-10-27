@@ -6,8 +6,8 @@ vi.mock("next/cache", () => ({
   revalidateTag: vi.fn(),
 }));
 
-// Mock Clerk auth globally
-vi.mock("@clerk/nextjs", () => ({
+// Mock Clerk auth globally (via @repo/auth wrapper)
+vi.mock("@repo/auth/server", () => ({
   auth: vi.fn(() => ({
     userId: "user_test123",
     orgId: "org_test123",
