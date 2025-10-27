@@ -7,42 +7,6 @@ import {
   updateProperty,
 } from "../../app/actions/properties";
 
-// Mock Clerk auth
-vi.mock("@clerk/nextjs", () => ({
-  auth: vi.fn(() => ({
-    userId: "user_test123",
-    orgId: "org_test123",
-  })),
-}));
-
-// Mock Prisma Client
-vi.mock("@repo/database", () => {
-  const mockPrisma = {
-    property: {
-      findMany: vi.fn(),
-      findFirst: vi.fn(),
-      findUnique: vi.fn(),
-      create: vi.fn(),
-      update: vi.fn(),
-    },
-    user: {
-      findUnique: vi.fn(),
-    },
-    auditLog: {
-      create: vi.fn(),
-    },
-  };
-
-  return {
-    PrismaClient: vi.fn(() => mockPrisma),
-  };
-});
-
-// Mock Next.js cache
-vi.mock("next/cache", () => ({
-  revalidatePath: vi.fn(),
-}));
-
 describe("Property Actions", () => {
   beforeEach(() => {
     vi.clearAllMocks();
