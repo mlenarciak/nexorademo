@@ -4,7 +4,7 @@ import { PropertyList } from "@repo/design-system/components/property";
 // Demo page without auth - for development only
 export default async function PropertiesDemoPage() {
   const prisma = new PrismaClient();
-  
+
   try {
     // Get all properties (no org filter for demo)
     const properties = await prisma.property.findMany({
@@ -39,7 +39,8 @@ export default async function PropertiesDemoPage() {
             ⚠️ DEMO MODE - No Authentication Required
           </p>
           <p className="mt-1 text-amber-700 text-sm dark:text-amber-300">
-            This page shows all properties without authentication. For the real app with auth, sign in at http://localhost:3000
+            This page shows all properties without authentication. For the real
+            app with auth, sign in at http://localhost:3000
           </p>
         </div>
         <PropertyList properties={properties} />
@@ -63,4 +64,3 @@ export const metadata = {
   title: "Properties Demo | Nexora",
   description: "Demo view of properties (no auth required)",
 };
-

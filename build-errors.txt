@@ -2046,3 +2046,533 @@ web:dev: The package resolves to a different version when requested from the pro
 web:dev: Make sure to install the same version of the package in both locations.
 web:dev: 
 web:dev: 
+web:dev:  POST / 200 in 1134ms
+web:dev: You are rendering the Vercel Toolbar in development, but the configuration is missing.
+web:dev: Make sure the plugin is added to the Next.js config and the project has been linked using `vercel link`.
+web:dev: For more details, visit https://vercel.com/docs/workflow-collaboration/vercel-toolbar/in-production-and-localhost/add-to-localhost
+web:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.204.0_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
+web:dev: Package require-in-the-middle can't be external
+web:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
+web:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
+web:dev: Make sure to install the same version of the package in both locations.
+web:dev: 
+web:dev: 
+web:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.57.2_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
+web:dev: Package require-in-the-middle can't be external
+web:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
+web:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
+web:dev: Make sure to install the same version of the package in both locations.
+web:dev: 
+web:dev: 
+web:dev:  POST / 200 in 513ms
+web:dev: You are rendering the Vercel Toolbar in development, but the configuration is missing.
+web:dev: Make sure the plugin is added to the Next.js config and the project has been linked using `vercel link`.
+web:dev: For more details, visit https://vercel.com/docs/workflow-collaboration/vercel-toolbar/in-production-and-localhost/add-to-localhost
+app:dev: [33mwarn[0m - Envvars not detected. If this is production please see https://betterstack.com/docs/logs/javascript/nextjs/ for help
+app:dev: [33mwarn[0m - Sending Web Vitals to /dev/null
+app:dev: [33mwarn[0m - Sending logs to console
+web:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.204.0_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
+web:dev: Package require-in-the-middle can't be external
+web:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
+web:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
+web:dev: Make sure to install the same version of the package in both locations.
+web:dev: 
+web:dev: 
+web:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.57.2_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
+web:dev: Package require-in-the-middle can't be external
+web:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
+web:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
+web:dev: Make sure to install the same version of the package in both locations.
+web:dev: 
+web:dev: 
+web:dev:  POST / 200 in 721ms
+web:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.204.0_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
+web:dev: Package require-in-the-middle can't be external
+web:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
+web:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
+web:dev: Make sure to install the same version of the package in both locations.
+web:dev: 
+web:dev: 
+web:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.57.2_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
+web:dev: Package require-in-the-middle can't be external
+web:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
+web:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
+web:dev: Make sure to install the same version of the package in both locations.
+web:dev: 
+web:dev: 
+web:dev: You are rendering the Vercel Toolbar in development, but the configuration is missing.
+web:dev: Make sure the plugin is added to the Next.js config and the project has been linked using `vercel link`.
+web:dev: For more details, visit https://vercel.com/docs/workflow-collaboration/vercel-toolbar/in-production-and-localhost/add-to-localhost
+web:dev:  POST / 200 in 514ms
+web:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.204.0_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
+web:dev: Package require-in-the-middle can't be external
+web:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
+web:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
+web:dev: Make sure to install the same version of the package in both locations.
+web:dev: 
+web:dev: 
+web:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.57.2_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
+web:dev: Package require-in-the-middle can't be external
+web:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
+web:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
+web:dev: Make sure to install the same version of the package in both locations.
+web:dev: 
+web:dev: 
+web:dev:  POST / 200 in 748ms
+web:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.204.0_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
+web:dev: Package require-in-the-middle can't be external
+web:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
+web:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
+web:dev: Make sure to install the same version of the package in both locations.
+web:dev: 
+web:dev: 
+web:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.57.2_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
+web:dev: Package require-in-the-middle can't be external
+web:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
+web:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
+web:dev: Make sure to install the same version of the package in both locations.
+web:dev: 
+web:dev: 
+web:dev: You are rendering the Vercel Toolbar in development, but the configuration is missing.
+web:dev: Make sure the plugin is added to the Next.js config and the project has been linked using `vercel link`.
+web:dev: For more details, visit https://vercel.com/docs/workflow-collaboration/vercel-toolbar/in-production-and-localhost/add-to-localhost
+web:dev:  POST / 200 in 427ms
+web:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.204.0_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
+web:dev: Package require-in-the-middle can't be external
+web:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
+web:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
+web:dev: Make sure to install the same version of the package in both locations.
+web:dev: 
+web:dev: 
+web:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.57.2_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
+web:dev: Package require-in-the-middle can't be external
+web:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
+web:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
+web:dev: Make sure to install the same version of the package in both locations.
+web:dev: 
+web:dev: 
+web:dev:  POST / 200 in 712ms
+web:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.204.0_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
+web:dev: Package require-in-the-middle can't be external
+web:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
+web:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
+web:dev: Make sure to install the same version of the package in both locations.
+web:dev: 
+web:dev: 
+web:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.57.2_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
+web:dev: Package require-in-the-middle can't be external
+web:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
+web:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
+web:dev: Make sure to install the same version of the package in both locations.
+web:dev: 
+web:dev: 
+web:dev: You are rendering the Vercel Toolbar in development, but the configuration is missing.
+web:dev: Make sure the plugin is added to the Next.js config and the project has been linked using `vercel link`.
+web:dev: For more details, visit https://vercel.com/docs/workflow-collaboration/vercel-toolbar/in-production-and-localhost/add-to-localhost
+web:dev:  POST / 200 in 507ms
+web:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.204.0_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
+web:dev: Package require-in-the-middle can't be external
+web:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
+web:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
+web:dev: Make sure to install the same version of the package in both locations.
+web:dev: 
+web:dev: 
+web:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.57.2_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
+web:dev: Package require-in-the-middle can't be external
+web:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
+web:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
+web:dev: Make sure to install the same version of the package in both locations.
+web:dev: 
+web:dev: 
+web:dev: You are rendering the Vercel Toolbar in development, but the configuration is missing.
+web:dev: Make sure the plugin is added to the Next.js config and the project has been linked using `vercel link`.
+web:dev: For more details, visit https://vercel.com/docs/workflow-collaboration/vercel-toolbar/in-production-and-localhost/add-to-localhost
+web:dev:  POST / 200 in 1591ms
+web:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.204.0_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
+web:dev: Package require-in-the-middle can't be external
+web:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
+web:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
+web:dev: Make sure to install the same version of the package in both locations.
+web:dev: 
+web:dev: 
+web:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.57.2_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
+web:dev: Package require-in-the-middle can't be external
+web:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
+web:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
+web:dev: Make sure to install the same version of the package in both locations.
+web:dev: 
+web:dev: 
+web:dev:  POST / 200 in 479ms
+web:dev: You are rendering the Vercel Toolbar in development, but the configuration is missing.
+web:dev: Make sure the plugin is added to the Next.js config and the project has been linked using `vercel link`.
+web:dev: For more details, visit https://vercel.com/docs/workflow-collaboration/vercel-toolbar/in-production-and-localhost/add-to-localhost
+web:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.204.0_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
+web:dev: Package require-in-the-middle can't be external
+web:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
+web:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
+web:dev: Make sure to install the same version of the package in both locations.
+web:dev: 
+web:dev: 
+web:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.57.2_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
+web:dev: Package require-in-the-middle can't be external
+web:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
+web:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
+web:dev: Make sure to install the same version of the package in both locations.
+web:dev: 
+web:dev: 
+web:dev:  POST / 200 in 742ms
+web:dev: You are rendering the Vercel Toolbar in development, but the configuration is missing.
+web:dev: Make sure the plugin is added to the Next.js config and the project has been linked using `vercel link`.
+web:dev: For more details, visit https://vercel.com/docs/workflow-collaboration/vercel-toolbar/in-production-and-localhost/add-to-localhost
+web:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.204.0_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
+web:dev: Package require-in-the-middle can't be external
+web:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
+web:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
+web:dev: Make sure to install the same version of the package in both locations.
+web:dev: 
+web:dev: 
+web:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.57.2_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
+web:dev: Package require-in-the-middle can't be external
+web:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
+web:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
+web:dev: Make sure to install the same version of the package in both locations.
+web:dev: 
+web:dev: 
+web:dev:  POST / 200 in 480ms
+web:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.204.0_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
+web:dev: Package require-in-the-middle can't be external
+web:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
+web:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
+web:dev: Make sure to install the same version of the package in both locations.
+web:dev: 
+web:dev: 
+web:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.57.2_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
+web:dev: Package require-in-the-middle can't be external
+web:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
+web:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
+web:dev: Make sure to install the same version of the package in both locations.
+web:dev: 
+web:dev: 
+web:dev:  POST / 200 in 699ms
+web:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.204.0_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
+web:dev: Package require-in-the-middle can't be external
+web:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
+web:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
+web:dev: Make sure to install the same version of the package in both locations.
+web:dev: 
+web:dev: 
+web:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.57.2_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
+web:dev: Package require-in-the-middle can't be external
+web:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
+web:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
+web:dev: Make sure to install the same version of the package in both locations.
+web:dev: 
+web:dev: 
+web:dev: You are rendering the Vercel Toolbar in development, but the configuration is missing.
+web:dev: Make sure the plugin is added to the Next.js config and the project has been linked using `vercel link`.
+web:dev: For more details, visit https://vercel.com/docs/workflow-collaboration/vercel-toolbar/in-production-and-localhost/add-to-localhost
+web:dev:  POST / 200 in 457ms
+web:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.204.0_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
+web:dev: Package require-in-the-middle can't be external
+web:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
+web:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
+web:dev: Make sure to install the same version of the package in both locations.
+web:dev: 
+web:dev: 
+web:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.57.2_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
+web:dev: Package require-in-the-middle can't be external
+web:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
+web:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
+web:dev: Make sure to install the same version of the package in both locations.
+web:dev: 
+web:dev: 
+web:dev:  POST / 200 in 680ms
+web:dev: You are rendering the Vercel Toolbar in development, but the configuration is missing.
+web:dev: Make sure the plugin is added to the Next.js config and the project has been linked using `vercel link`.
+web:dev: For more details, visit https://vercel.com/docs/workflow-collaboration/vercel-toolbar/in-production-and-localhost/add-to-localhost
+web:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.204.0_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
+web:dev: Package require-in-the-middle can't be external
+web:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
+web:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
+web:dev: Make sure to install the same version of the package in both locations.
+web:dev: 
+web:dev: 
+web:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.57.2_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
+web:dev: Package require-in-the-middle can't be external
+web:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
+web:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
+web:dev: Make sure to install the same version of the package in both locations.
+web:dev: 
+web:dev: 
+web:dev:  POST / 200 in 513ms
+web:dev: You are rendering the Vercel Toolbar in development, but the configuration is missing.
+web:dev: Make sure the plugin is added to the Next.js config and the project has been linked using `vercel link`.
+web:dev: For more details, visit https://vercel.com/docs/workflow-collaboration/vercel-toolbar/in-production-and-localhost/add-to-localhost
+web:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.204.0_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
+web:dev: Package require-in-the-middle can't be external
+web:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
+web:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
+web:dev: Make sure to install the same version of the package in both locations.
+web:dev: 
+web:dev: 
+web:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.57.2_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
+web:dev: Package require-in-the-middle can't be external
+web:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
+web:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
+web:dev: Make sure to install the same version of the package in both locations.
+web:dev: 
+web:dev: 
+web:dev:  POST / 200 in 703ms
+web:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.204.0_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
+web:dev: Package require-in-the-middle can't be external
+web:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
+web:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
+web:dev: Make sure to install the same version of the package in both locations.
+web:dev: 
+web:dev: 
+web:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.57.2_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
+web:dev: Package require-in-the-middle can't be external
+web:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
+web:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
+web:dev: Make sure to install the same version of the package in both locations.
+web:dev: 
+web:dev: 
+web:dev: You are rendering the Vercel Toolbar in development, but the configuration is missing.
+web:dev: Make sure the plugin is added to the Next.js config and the project has been linked using `vercel link`.
+web:dev: For more details, visit https://vercel.com/docs/workflow-collaboration/vercel-toolbar/in-production-and-localhost/add-to-localhost
+web:dev:  POST / 200 in 403ms
+web:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.204.0_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
+web:dev: Package require-in-the-middle can't be external
+web:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
+web:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
+web:dev: Make sure to install the same version of the package in both locations.
+web:dev: 
+web:dev: 
+web:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.57.2_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
+web:dev: Package require-in-the-middle can't be external
+web:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
+web:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
+web:dev: Make sure to install the same version of the package in both locations.
+web:dev: 
+web:dev: 
+web:dev:  POST / 200 in 703ms
+web:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.204.0_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
+web:dev: Package require-in-the-middle can't be external
+web:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
+web:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
+web:dev: Make sure to install the same version of the package in both locations.
+web:dev: 
+web:dev: 
+web:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.57.2_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
+web:dev: Package require-in-the-middle can't be external
+web:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
+web:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
+web:dev: Make sure to install the same version of the package in both locations.
+web:dev: 
+web:dev: 
+web:dev: You are rendering the Vercel Toolbar in development, but the configuration is missing.
+web:dev: Make sure the plugin is added to the Next.js config and the project has been linked using `vercel link`.
+web:dev: For more details, visit https://vercel.com/docs/workflow-collaboration/vercel-toolbar/in-production-and-localhost/add-to-localhost
+web:dev:  POST / 200 in 425ms
+web:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.204.0_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
+web:dev: Package require-in-the-middle can't be external
+web:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
+web:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
+web:dev: Make sure to install the same version of the package in both locations.
+web:dev: 
+web:dev: 
+web:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.57.2_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
+web:dev: Package require-in-the-middle can't be external
+web:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
+web:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
+web:dev: Make sure to install the same version of the package in both locations.
+web:dev: 
+web:dev: 
+web:dev:  POST / 200 in 723ms
+web:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.204.0_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
+web:dev: Package require-in-the-middle can't be external
+web:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
+web:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
+web:dev: Make sure to install the same version of the package in both locations.
+web:dev: 
+web:dev: 
+web:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.57.2_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
+web:dev: Package require-in-the-middle can't be external
+web:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
+web:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
+web:dev: Make sure to install the same version of the package in both locations.
+web:dev: 
+web:dev: 
+web:dev: You are rendering the Vercel Toolbar in development, but the configuration is missing.
+web:dev: Make sure the plugin is added to the Next.js config and the project has been linked using `vercel link`.
+web:dev: For more details, visit https://vercel.com/docs/workflow-collaboration/vercel-toolbar/in-production-and-localhost/add-to-localhost
+web:dev:  POST / 200 in 469ms
+app:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.204.0_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
+app:dev: Package require-in-the-middle can't be external
+app:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
+app:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
+app:dev: Make sure to install the same version of the package in both locations.
+app:dev: 
+app:dev: 
+app:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.57.2_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
+app:dev: Package require-in-the-middle can't be external
+app:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
+app:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
+app:dev: Make sure to install the same version of the package in both locations.
+app:dev: 
+app:dev: 
+app:dev: ✦Aj WARN Arcjet will use 127.0.0.1 when missing public IP address in development mode
+app:dev:  GET / 307 in 2271ms
+app:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.204.0_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
+app:dev: Package require-in-the-middle can't be external
+app:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
+app:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
+app:dev: Make sure to install the same version of the package in both locations.
+app:dev: 
+app:dev: 
+app:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.57.2_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
+app:dev: Package require-in-the-middle can't be external
+app:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
+app:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
+app:dev: Make sure to install the same version of the package in both locations.
+app:dev: 
+app:dev: 
+app:dev:  ⚠ ./packages/database/generated/client/index.js
+app:dev: unexpected export *
+app:dev: export * used with module [project]/packages/database/generated/client/index.js [app-rsc] (ecmascript) which is a CommonJS module with exports only available at runtime
+app:dev: List all export names manually (`export { a, b, c } from "...") or rewrite the module to ESM, to avoid the additional runtime code.`
+app:dev: 
+app:dev: Import trace:
+app:dev:   Server Component:
+app:dev:     ./packages/database/generated/client/index.js
+app:dev:     ./apps/app/app/actions/properties.ts
+app:dev:     ./apps/app/app/(dashboard)/properties/page.tsx
+app:dev: 
+app:dev: 
+app:dev:  ⨯ Error: Unauthorized
+app:dev:     at getProperties (app/actions/properties.ts:57:11)
+app:dev:     at PropertiesPage (app/(dashboard)/properties/page.tsx:5:37)
+app:dev:   55 |
+app:dev:   56 |   if (!(userId && orgId)) {
+app:dev: > 57 |     throw new Error("Unauthorized");
+app:dev:      |           ^
+app:dev:   58 |   }
+app:dev:   59 |
+app:dev:   60 |   try { {
+app:dev:   digest: '2158679669'
+app:dev: }
+app:dev:  GET /properties 500 in 346ms
+app:dev:  ⚠ ./packages/database/generated/client/index.js
+app:dev: unexpected export *
+app:dev: export * used with module [project]/packages/database/generated/client/index.js [app-rsc] (ecmascript) which is a CommonJS module with exports only available at runtime
+app:dev: List all export names manually (`export { a, b, c } from "...") or rewrite the module to ESM, to avoid the additional runtime code.`
+app:dev: 
+app:dev: Import trace:
+app:dev:   Server Component:
+app:dev:     ./packages/database/generated/client/index.js
+app:dev:     ./apps/app/app/actions/properties.ts
+app:dev:     ./apps/app/app/(dashboard)/properties/page.tsx
+app:dev: 
+app:dev: 
+web:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.204.0_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
+web:dev: Package require-in-the-middle can't be external
+web:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
+web:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
+web:dev: Make sure to install the same version of the package in both locations.
+web:dev: 
+web:dev: 
+web:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.57.2_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
+web:dev: Package require-in-the-middle can't be external
+web:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
+web:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
+web:dev: Make sure to install the same version of the package in both locations.
+web:dev: 
+web:dev: 
+web:dev:  POST / 200 in 694ms
+web:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.204.0_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
+web:dev: Package require-in-the-middle can't be external
+web:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
+web:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
+web:dev: Make sure to install the same version of the package in both locations.
+web:dev: 
+web:dev: 
+web:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.57.2_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
+web:dev: Package require-in-the-middle can't be external
+web:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
+web:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
+web:dev: Make sure to install the same version of the package in both locations.
+web:dev: 
+web:dev: 
+web:dev: You are rendering the Vercel Toolbar in development, but the configuration is missing.
+web:dev: Make sure the plugin is added to the Next.js config and the project has been linked using `vercel link`.
+web:dev: For more details, visit https://vercel.com/docs/workflow-collaboration/vercel-toolbar/in-production-and-localhost/add-to-localhost
+web:dev:  POST / 200 in 466ms
+web:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.204.0_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
+web:dev: Package require-in-the-middle can't be external
+web:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
+web:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
+web:dev: Make sure to install the same version of the package in both locations.
+web:dev: 
+web:dev: 
+web:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.57.2_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
+web:dev: Package require-in-the-middle can't be external
+web:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
+web:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
+web:dev: Make sure to install the same version of the package in both locations.
+web:dev: 
+web:dev: 
+web:dev:  POST / 200 in 787ms
+web:dev: You are rendering the Vercel Toolbar in development, but the configuration is missing.
+web:dev: Make sure the plugin is added to the Next.js config and the project has been linked using `vercel link`.
+web:dev: For more details, visit https://vercel.com/docs/workflow-collaboration/vercel-toolbar/in-production-and-localhost/add-to-localhost
+web:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.204.0_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
+web:dev: Package require-in-the-middle can't be external
+web:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
+web:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
+web:dev: Make sure to install the same version of the package in both locations.
+web:dev: 
+web:dev: 
+web:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.57.2_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
+web:dev: Package require-in-the-middle can't be external
+web:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
+web:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
+web:dev: Make sure to install the same version of the package in both locations.
+web:dev: 
+web:dev: 
+web:dev:  POST / 200 in 424ms
+web:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.204.0_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
+web:dev: Package require-in-the-middle can't be external
+web:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
+web:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
+web:dev: Make sure to install the same version of the package in both locations.
+web:dev: 
+web:dev: 
+web:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.57.2_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
+web:dev: Package require-in-the-middle can't be external
+web:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
+web:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
+web:dev: Make sure to install the same version of the package in both locations.
+web:dev: 
+web:dev: 
+web:dev:  POST / 200 in 762ms
+web:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.204.0_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
+web:dev: Package require-in-the-middle can't be external
+web:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
+web:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
+web:dev: Make sure to install the same version of the package in both locations.
+web:dev: 
+web:dev: 
+web:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.57.2_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
+web:dev: Package require-in-the-middle can't be external
+web:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
+web:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
+web:dev: Make sure to install the same version of the package in both locations.
+web:dev: 
+web:dev: 
+web:dev: You are rendering the Vercel Toolbar in development, but the configuration is missing.
+web:dev: Make sure the plugin is added to the Next.js config and the project has been linked using `vercel link`.
+web:dev: For more details, visit https://vercel.com/docs/workflow-collaboration/vercel-toolbar/in-production-and-localhost/add-to-localhost
+web:dev:  POST / 200 in 507ms
+web:dev: [33mwarn[0m - Envvars not detected. If this is production please see https://betterstack.com/docs/logs/javascript/nextjs/ for help
+web:dev: [33mwarn[0m - Sending Web Vitals to /dev/null
+web:dev: [33mwarn[0m - Sending logs to console
