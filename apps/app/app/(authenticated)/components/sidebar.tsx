@@ -52,6 +52,7 @@ import {
   SquareTerminalIcon,
   Trash2Icon,
 } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { Search } from "./search";
@@ -197,6 +198,24 @@ export const GlobalSidebar = ({ children }: GlobalSidebarProperties) => {
       <Sidebar variant="inset">
         <SidebarHeader>
           <SidebarMenu>
+            <SidebarMenuItem>
+              <Link className="flex items-center gap-2 px-2 py-3" href="/">
+                <Image
+                  alt="Nexora"
+                  className="hidden h-6 w-auto dark:block"
+                  height={24}
+                  src="/logos/nexora-white.png"
+                  width={120}
+                />
+                <Image
+                  alt="Nexora"
+                  className="block h-6 w-auto dark:hidden"
+                  height={24}
+                  src="/logos/nexora-black.png"
+                  width={120}
+                />
+              </Link>
+            </SidebarMenuItem>
             <SidebarMenuItem>
               <div
                 className={cn(
