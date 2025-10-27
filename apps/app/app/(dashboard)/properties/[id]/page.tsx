@@ -1,6 +1,3 @@
-import { getProperty } from "@/app/actions/properties";
-import { getRoomCategories } from "@/app/actions/room-categories";
-import { getSeasons } from "@/app/actions/seasons";
 import { RoomCategoryCard } from "@repo/design-system/components/room";
 import { Badge } from "@repo/design-system/components/ui/badge";
 import { Button } from "@repo/design-system/components/ui/button";
@@ -11,7 +8,12 @@ import {
   CardHeader,
   CardTitle,
 } from "@repo/design-system/components/ui/card";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@repo/design-system/components/ui/tabs";
+import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from "@repo/design-system/components/ui/tabs";
 import {
   Building2,
   Calendar,
@@ -23,6 +25,9 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { getProperty } from "@/app/actions/properties";
+import { getRoomCategories } from "@/app/actions/room-categories";
+import { getSeasons } from "@/app/actions/seasons";
 
 export default async function PropertyDetailPage({
   params,
@@ -35,7 +40,7 @@ export default async function PropertyDetailPage({
     getSeasons(params.id),
   ]);
 
-  if (!propertyResult.success || !propertyResult.data) {
+  if (!(propertyResult.success && propertyResult.data)) {
     notFound();
   }
 
@@ -187,7 +192,10 @@ export default async function PropertyDetailPage({
             </Card>
 
             {/* Fiscal Information */}
-            {(property.cin || property.cir || property.vatNumber || property.brazilianTaxId) && (
+            {(property.cin ||
+              property.cir ||
+              property.vatNumber ||
+              property.brazilianTaxId) && (
               <Card>
                 <CardHeader>
                   <CardTitle>Fiscal Information</CardTitle>
@@ -208,7 +216,9 @@ export default async function PropertyDetailPage({
                   {property.vatNumber && (
                     <div>
                       <p className="font-medium">VAT Number</p>
-                      <p className="text-muted-foreground">{property.vatNumber}</p>
+                      <p className="text-muted-foreground">
+                        {property.vatNumber}
+                      </p>
                     </div>
                   )}
                   {property.brazilianTaxId && (
@@ -228,7 +238,8 @@ export default async function PropertyDetailPage({
         <TabsContent className="space-y-4" value="rooms">
           <div className="flex items-center justify-between">
             <p className="text-muted-foreground">
-              {categories.length} room {categories.length === 1 ? "category" : "categories"}
+              {categories.length} room{" "}
+              {categories.length === 1 ? "category" : "categories"}
             </p>
             <Link href={`/properties/${property.id}/rooms/categories/new`}>
               <Button>
@@ -242,7 +253,9 @@ export default async function PropertyDetailPage({
             <Card>
               <CardContent className="py-12 text-center">
                 <Building2 className="mx-auto h-12 w-12 text-muted-foreground" />
-                <h3 className="mt-4 font-semibold text-lg">No room categories yet</h3>
+                <h3 className="mt-4 font-semibold text-lg">
+                  No room categories yet
+                </h3>
                 <p className="mt-2 text-muted-foreground text-sm">
                   Create your first room category to start adding rooms
                 </p>
@@ -273,7 +286,8 @@ export default async function PropertyDetailPage({
         <TabsContent className="space-y-4" value="seasons">
           <div className="flex items-center justify-between">
             <p className="text-muted-foreground">
-              {seasons.length} seasonal {seasons.length === 1 ? "period" : "periods"}
+              {seasons.length} seasonal{" "}
+              {seasons.length === 1 ? "period" : "periods"}
             </p>
           </div>
 
@@ -281,7 +295,9 @@ export default async function PropertyDetailPage({
             <Card>
               <CardContent className="py-12 text-center">
                 <Calendar className="mx-auto h-12 w-12 text-muted-foreground" />
-                <h3 className="mt-4 font-semibold text-lg">No seasons defined</h3>
+                <h3 className="mt-4 font-semibold text-lg">
+                  No seasons defined
+                </h3>
                 <p className="mt-2 text-muted-foreground text-sm">
                   Define seasonal periods for pricing and calendar visualization
                 </p>
@@ -330,4 +346,3 @@ export async function generateMetadata({ params }: { params: { id: string } }) {
     description: `Manage ${result.data.name} property`,
   };
 }
-

@@ -18,11 +18,7 @@ const sourceColors: Record<string, "default" | "secondary" | "outline"> = {
   room: "default",
 };
 
-export function AmenityBadge({
-  amenity,
-  source,
-  variant,
-}: AmenityBadgeProps) {
+export function AmenityBadge({ amenity, source, variant }: AmenityBadgeProps) {
   const badgeVariant = variant || (source ? sourceColors[source] : "default");
 
   return (
@@ -35,4 +31,3 @@ export function AmenityBadge({
     </Badge>
   );
 }
-

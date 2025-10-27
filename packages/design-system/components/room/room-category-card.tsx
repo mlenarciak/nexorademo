@@ -62,7 +62,7 @@ export function RoomCategoryCard({
 
       <CardContent>
         {category.description && (
-          <p className="mb-4 text-muted-foreground text-sm line-clamp-2">
+          <p className="mb-4 line-clamp-2 text-muted-foreground text-sm">
             {category.description}
           </p>
         )}
@@ -92,7 +92,7 @@ export function RoomCategoryCard({
 
         <div className="mt-4 flex gap-2">
           {category.petsAllowed && (
-            <Badge variant="outline" className="text-xs">
+            <Badge className="text-xs" variant="outline">
               Pets Allowed
             </Badge>
           )}
@@ -109,7 +109,9 @@ export function RoomCategoryCard({
             Manage Rooms
           </Button>
         </Link>
-        <Link href={`/properties/${propertyId}/rooms/categories/${category.id}/edit`}>
+        <Link
+          href={`/properties/${propertyId}/rooms/categories/${category.id}/edit`}
+        >
           <Button size="icon" variant="ghost">
             <Edit className="h-4 w-4" />
           </Button>
@@ -127,4 +129,3 @@ export function RoomCategoryCard({
     </Card>
   );
 }
-

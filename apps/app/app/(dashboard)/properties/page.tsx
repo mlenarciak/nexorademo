@@ -1,5 +1,5 @@
-import { getProperties } from "@/app/actions/properties";
 import { PropertyList } from "@repo/design-system/components/property";
+import { getProperties } from "@/app/actions/properties";
 
 export default async function PropertiesPage() {
   const result = await getProperties();
@@ -22,4 +22,3 @@ export const metadata = {
   title: "Properties | Nexora",
   description: "Manage your hospitality properties",
 };
-

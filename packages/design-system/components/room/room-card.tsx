@@ -32,7 +32,10 @@ export interface RoomCardProps {
 
 const statusConfig: Record<
   string,
-  { label: string; variant: "default" | "success" | "warning" | "destructive" | "secondary" }
+  {
+    label: string;
+    variant: "default" | "success" | "warning" | "destructive" | "secondary";
+  }
 > = {
   AVAILABLE: { label: "Available", variant: "success" },
   OCCUPIED: { label: "Occupied", variant: "destructive" },
@@ -99,4 +102,3 @@ export function RoomCard({ room, propertyId, onEdit }: RoomCardProps) {
     </Card>
   );
 }
-

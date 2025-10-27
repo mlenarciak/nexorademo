@@ -43,7 +43,7 @@ export function SeasonManager({
   });
 
   const handleAdd = async () => {
-    if (!newSeason.name || !newSeason.startDate || !newSeason.endDate) {
+    if (!(newSeason.name && newSeason.startDate && newSeason.endDate)) {
       return;
     }
 
@@ -149,10 +149,7 @@ export function SeasonManager({
 
               <div className="flex gap-2">
                 <Button onClick={handleAdd}>Add Season</Button>
-                <Button
-                  onClick={() => setIsAdding(false)}
-                  variant="outline"
-                >
+                <Button onClick={() => setIsAdding(false)} variant="outline">
                   Cancel
                 </Button>
               </div>
@@ -199,4 +196,3 @@ export function SeasonManager({
     </Card>
   );
 }
-

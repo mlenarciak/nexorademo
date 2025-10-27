@@ -2,6 +2,7 @@
 
 import { Check } from "lucide-react";
 import { useState } from "react";
+import { cn } from "../../lib/utils";
 import { Badge } from "../ui/badge";
 import { Button } from "../ui/button";
 import {
@@ -14,7 +15,6 @@ import {
 } from "../ui/command";
 import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
 import { ScrollArea } from "../ui/scroll-area";
-import { cn } from "../../lib/utils";
 
 export interface Amenity {
   id: string;
@@ -51,9 +51,7 @@ export function AmenitySelector({
 }: AmenitySelectorProps) {
   const [open, setOpen] = useState(false);
 
-  const selectedAmenities = amenities.filter((a) =>
-    selectedIds.includes(a.id)
-  );
+  const selectedAmenities = amenities.filter((a) => selectedIds.includes(a.id));
 
   // Group amenities by category
   const amenitiesByCategory = amenities.reduce(
@@ -144,4 +142,3 @@ export function AmenitySelector({
     </div>
   );
 }
-
