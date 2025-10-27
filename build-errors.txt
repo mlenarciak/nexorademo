@@ -7,69 +7,62 @@ turbo 2.5.8
 • Packages in scope: @repo/ai, @repo/analytics, @repo/auth, @repo/cms, @repo/collaboration, @repo/database, @repo/design-system, @repo/email, @repo/feature-flags, @repo/internationalization, @repo/next-config, @repo/notifications, @repo/observability, @repo/payments, @repo/rate-limit, @repo/security, @repo/seo, @repo/storage, @repo/typescript-config, @repo/webhooks, api, app, docs, email, storybook, studio, web
 • Running dev in 27 packages
 • Remote caching disabled
-api:dev: cache bypass, force executing 40d1fe4786d8a056
 @repo/cms:dev: cache bypass, force executing fdfde053cf8dbf1c
-email:dev: cache bypass, force executing c4a8e9ff8d6b7a34
-web:dev: cache bypass, force executing 7b829c6c5d6acee2
-studio:dev: cache bypass, force executing ddb00c95cf2b607e
-storybook:dev: cache bypass, force executing a88b73e9a12dd72e
-app:dev: cache bypass, force executing b29fc4fe73f2321c
+api:dev: cache bypass, force executing 40d1fe4786d8a056
 docs:dev: cache bypass, force executing 52123d89a47491cd
-studio:dev: 
-studio:dev: > studio@0.0.0 dev /home/max/nexora/apps/studio
-studio:dev: > prisma studio --schema ../../packages/database/prisma/schema.prisma --port 3005
-studio:dev: 
-api:dev: 
-api:dev: > api@ dev /home/max/nexora/apps/api
-api:dev: > concurrently "npm:next" "npm:stripe"
-api:dev: 
+web:dev: cache bypass, force executing 6d768d63264e42da
+email:dev: cache bypass, force executing c4a8e9ff8d6b7a34
+studio:dev: cache bypass, force executing ddb00c95cf2b607e
+app:dev: cache bypass, force executing b29fc4fe73f2321c
+storybook:dev: cache bypass, force executing a88b73e9a12dd72e
 @repo/cms:dev: 
 @repo/cms:dev: > @repo/cms@0.0.0 dev /home/max/nexora/packages/cms
 @repo/cms:dev: > basehub dev
 @repo/cms:dev: 
+api:dev: 
+api:dev: > api@ dev /home/max/nexora/apps/api
+api:dev: > concurrently "npm:next" "npm:stripe"
+api:dev: 
+studio:dev: 
+studio:dev: > studio@0.0.0 dev /home/max/nexora/apps/studio
+studio:dev: > prisma studio --schema ../../packages/database/prisma/schema.prisma --port 3005
+studio:dev: 
 storybook:dev: 
 storybook:dev: > storybook@0.1.0 dev /home/max/nexora/apps/storybook
 storybook:dev: > storybook dev -p 6006
 storybook:dev: 
-email:dev: 
-email:dev: > email@0.0.0 dev /home/max/nexora/apps/email
-email:dev: > email dev --port 3003 --dir ../../packages/email/templates
-email:dev: 
-web:dev: 
-web:dev: > web@ dev /home/max/nexora/apps/web
-web:dev: > next dev -p 3001 --turbopack
-web:dev: 
 docs:dev: 
 docs:dev: > docs@ dev /home/max/nexora/apps/docs
 docs:dev: > mintlify dev --port 3004
 docs:dev: 
+web:dev: 
+web:dev: > web@ dev /home/max/nexora/apps/web
+web:dev: > next dev -p 3001 --turbopack
+web:dev: 
+email:dev: 
+email:dev: > email@0.0.0 dev /home/max/nexora/apps/email
+email:dev: > email dev --port 3003 --dir ../../packages/email/templates
+email:dev: 
 app:dev: 
 app:dev: > app@ dev /home/max/nexora/apps/app
 app:dev: > next dev -p 3000 --turbopack
 app:dev: 
-api:dev: [stripe] npm warn Unknown env config "verify-deps-before-run". This will stop working in the next major version of npm.
-api:dev: [stripe] npm warn Unknown env config "_jsr-registry". This will stop working in the next major version of npm.
 api:dev: [next] npm warn Unknown env config "verify-deps-before-run". This will stop working in the next major version of npm.
 api:dev: [next] npm warn Unknown env config "_jsr-registry". This will stop working in the next major version of npm.
-api:dev: [stripe] 
-api:dev: [stripe] > stripe
-api:dev: [stripe] > stripe listen --forward-to localhost:3002/webhooks/payments
-api:dev: [stripe] 
+api:dev: [stripe] npm warn Unknown env config "verify-deps-before-run". This will stop working in the next major version of npm.
+api:dev: [stripe] npm warn Unknown env config "_jsr-registry". This will stop working in the next major version of npm.
 api:dev: [next] 
 api:dev: [next] > next
 api:dev: [next] > next dev -p 3002 --turbopack
 api:dev: [next] 
+api:dev: [stripe] 
+api:dev: [stripe] > stripe
+api:dev: [stripe] > stripe listen --forward-to localhost:3002/webhooks/payments
+api:dev: [stripe] 
 api:dev: [stripe] Checking for new versions...
+@repo/cms:dev: 🪄 Generating...
 api:dev: [stripe] 
 api:dev: [stripe] You have not configured API keys yet. Running `stripe login`...
-@repo/cms:dev: 🪄 Generating...
-storybook:dev: storybook v9.1.10
-storybook:dev: 
-email:dev:     React Email 4.3.0
-email:dev:     Running preview at:          http://localhost:3003
-email:dev: 
-email:dev: - Getting react-email preview server ready...
-email:dev: 
 @repo/cms:dev: ┌─────────────────────────────────────────────────────────────┐
 @repo/cms:dev: │ 🎫 SDK Version: 9.5.0 (API v4)                              │
 @repo/cms:dev: │ 🔗 Endpoint: https://api.basehub.com/graphql                │
@@ -79,16 +72,15 @@ email:dev:
 @repo/cms:dev: └─────────────────────────────────────────────────────────────┘
 @repo/cms:dev: ❯ generating the client in `/home/max/nexora/packages/cms/basehub-types.d.ts`
 @repo/cms:dev: ❯ fetching schema from BaseHub's API
-api:dev: [stripe] Your pairing code is: win-hooray-enjoy-bonny
+storybook:dev: storybook v9.1.10
+storybook:dev: 
+api:dev: [stripe] Your pairing code is: snappy-excel-grace-edify
 api:dev: [stripe] This pairing code verifies your authentication with Stripe.
-email:dev:   [32m✔[39m Ready in 0.6s
+email:dev:     React Email 4.3.0
+email:dev:     Running preview at:          http://localhost:3003
 email:dev: 
-web:dev: (node:2874495) ExperimentalWarning: CommonJS module /home/max/nexora/packages/feature-flags/keys.ts is loading ES Module /home/max/nexora/node_modules/.pnpm/@t3-oss+env-nextjs@0.13.8_arktype@2.1.20_typescript@5.9.3_zod@4.1.12/node_modules/@t3-oss/env-nextjs/dist/index.js using require().
-web:dev: Support for loading ES Module in require() is an experimental feature and might change at any time
-web:dev: (Use `node --trace-warnings ...` to show where the warning was created)
-app:dev: (node:2874514) ExperimentalWarning: CommonJS module /home/max/nexora/packages/feature-flags/keys.ts is loading ES Module /home/max/nexora/node_modules/.pnpm/@t3-oss+env-nextjs@0.13.8_arktype@2.1.20_typescript@5.9.3_zod@4.1.12/node_modules/@t3-oss/env-nextjs/dist/index.js using require().
-app:dev: Support for loading ES Module in require() is an experimental feature and might change at any time
-app:dev: (Use `node --trace-warnings ...` to show where the warning was created)
+email:dev: - Getting react-email preview server ready...
+email:dev: 
 @repo/cms:dev: ✔ fetching schema from BaseHub's API
 @repo/cms:dev: ❯ writing files
 @repo/cms:dev: ❯ processing schema
@@ -97,17 +89,25 @@ app:dev: (Use `node --trace-warnings ...` to show where the warning was created)
 @repo/cms:dev: ✔ processing schema
 @repo/cms:dev: ✔ writing files
 @repo/cms:dev: ✔ generating the client in `/home/max/nexora/packages/cms/basehub-types.d.ts`
-@repo/cms:dev: 🪄 Generated basehub types in 1961ms
+@repo/cms:dev: 🪄 Generated basehub types in 2242ms
 @repo/cms:dev:  
 @repo/cms:dev: ┌────────────────────────────────────────────────────────────────────────────────────────────┐
 @repo/cms:dev: │ 👀 `basehub` experimental --watch mode. Bugs: https://github.com/basehub-ai/basehub/issues │
 @repo/cms:dev: └────────────────────────────────────────────────────────────────────────────────────────────┘
 @repo/cms:dev:  
-api:dev: [stripe] Press Enter to open the browser or visit https://dashboard.stripe.com/stripecli/confirm_auth?t=ZZIJXydihFURBhDyzPQ8hMHL2A0U086w (^C to quit)
-api:dev: [next] (node:2874595) ExperimentalWarning: CommonJS module /home/max/nexora/packages/observability/keys.ts is loading ES Module /home/max/nexora/node_modules/.pnpm/@t3-oss+env-nextjs@0.13.8_arktype@2.1.20_typescript@5.9.3_zod@4.1.12/node_modules/@t3-oss/env-nextjs/dist/index.js using require().
+email:dev:   [32m✔[39m Ready in 1.0s
+email:dev: 
+web:dev: (node:2882604) ExperimentalWarning: CommonJS module /home/max/nexora/packages/feature-flags/keys.ts is loading ES Module /home/max/nexora/node_modules/.pnpm/@t3-oss+env-nextjs@0.13.8_arktype@2.1.20_typescript@5.9.3_zod@4.1.12/node_modules/@t3-oss/env-nextjs/dist/index.js using require().
+web:dev: Support for loading ES Module in require() is an experimental feature and might change at any time
+web:dev: (Use `node --trace-warnings ...` to show where the warning was created)
+app:dev: (node:2882645) ExperimentalWarning: CommonJS module /home/max/nexora/packages/feature-flags/keys.ts is loading ES Module /home/max/nexora/node_modules/.pnpm/@t3-oss+env-nextjs@0.13.8_arktype@2.1.20_typescript@5.9.3_zod@4.1.12/node_modules/@t3-oss/env-nextjs/dist/index.js using require().
+app:dev: Support for loading ES Module in require() is an experimental feature and might change at any time
+app:dev: (Use `node --trace-warnings ...` to show where the warning was created)
+studio:dev: Prisma schema loaded from ../../packages/database/prisma/schema.prisma
+api:dev: [stripe] Press Enter to open the browser or visit https://dashboard.stripe.com/stripecli/confirm_auth?t=MzMECwAonCnexhzCHWayI9aM8avaBAgy (^C to quit)
+api:dev: [next] (node:2882711) ExperimentalWarning: CommonJS module /home/max/nexora/packages/observability/keys.ts is loading ES Module /home/max/nexora/node_modules/.pnpm/@t3-oss+env-nextjs@0.13.8_arktype@2.1.20_typescript@5.9.3_zod@4.1.12/node_modules/@t3-oss/env-nextjs/dist/index.js using require().
 api:dev: [next] Support for loading ES Module in require() is an experimental feature and might change at any time
 api:dev: [next] (Use `node --trace-warnings ...` to show where the warning was created)
-studio:dev: Prisma schema loaded from ../../packages/database/prisma/schema.prisma
 studio:dev: Prisma Studio is up on http://localhost:3005
 studio:dev: Prisma schema loaded from ../../packages/database/prisma/schema.prisma
 storybook:dev: info => Serving static files from /home/max/nexora/node_modules/.pnpm/@chromatic-com+storybook@4.1.1_storybook@9.1.10_@testing-library+dom@10.4.1_bufferutil@_3b8567158998b635ddda883a21952069/node_modules/@chromatic-com/storybook/assets at /addon-visual-tests-assets
@@ -117,71 +117,83 @@ storybook:dev: No story files found for the specified pattern: stories/**/*.mdx
 docs:dev: ⠋ preparing local preview...
 docs:dev: [2K[1A[2K[G⠙ preparing local preview...
 docs:dev: [2K[1A[2K[G⠹ preparing local preview...
-app:dev:    ▲ Next.js 15.5.4 (Turbopack)
-app:dev:    - Local:        http://localhost:3000
-app:dev:    - Network:      http://192.168.1.43:3000
-app:dev:    - Environments: .env.local
-app:dev: 
-app:dev:  ✓ Starting...
 web:dev:    ▲ Next.js 15.5.4 (Turbopack)
 web:dev:    - Local:        http://localhost:3001
 web:dev:    - Network:      http://192.168.1.43:3001
 web:dev:    - Environments: .env.local
 web:dev: 
 web:dev:  ✓ Starting...
+app:dev:    ▲ Next.js 15.5.4 (Turbopack)
+app:dev:    - Local:        http://localhost:3000
+app:dev:    - Network:      http://192.168.1.43:3000
+app:dev:    - Environments: .env.local
+app:dev: 
+app:dev:  ✓ Starting...
+docs:dev: [2K[1A[2K[G⠸ preparing local preview...
+docs:dev: [2K[1A[2K[G⠼ preparing local preview...
+docs:dev: [2K[1A[2K[G⠴ preparing local preview...
+docs:dev: [2K[1A[2K[G⠦ preparing local preview...
 api:dev: [next]    ▲ Next.js 15.5.4 (Turbopack)
 api:dev: [next]    - Local:        http://localhost:3002
 api:dev: [next]    - Network:      http://192.168.1.43:3002
 api:dev: [next]    - Environments: .env.local
 api:dev: [next] 
 api:dev: [next]  ✓ Starting...
-docs:dev: [2K[1A[2K[G⠸ preparing local preview...
-docs:dev: [2K[1A[2K[G⠼ preparing local preview...
-docs:dev: [2K[1A[2K[G⠴ preparing local preview...
-web:dev: (node:2874700) ExperimentalWarning: CommonJS module /home/max/nexora/packages/feature-flags/keys.ts is loading ES Module /home/max/nexora/node_modules/.pnpm/@t3-oss+env-nextjs@0.13.8_arktype@2.1.20_typescript@5.9.3_zod@4.1.12/node_modules/@t3-oss/env-nextjs/dist/index.js using require().
-web:dev: Support for loading ES Module in require() is an experimental feature and might change at any time
-web:dev: (Use `node --trace-warnings ...` to show where the warning was created)
-app:dev: (node:2874701) ExperimentalWarning: CommonJS module /home/max/nexora/packages/feature-flags/keys.ts is loading ES Module /home/max/nexora/node_modules/.pnpm/@t3-oss+env-nextjs@0.13.8_arktype@2.1.20_typescript@5.9.3_zod@4.1.12/node_modules/@t3-oss/env-nextjs/dist/index.js using require().
+app:dev: (node:2882836) ExperimentalWarning: CommonJS module /home/max/nexora/packages/feature-flags/keys.ts is loading ES Module /home/max/nexora/node_modules/.pnpm/@t3-oss+env-nextjs@0.13.8_arktype@2.1.20_typescript@5.9.3_zod@4.1.12/node_modules/@t3-oss/env-nextjs/dist/index.js using require().
 app:dev: Support for loading ES Module in require() is an experimental feature and might change at any time
 app:dev: (Use `node --trace-warnings ...` to show where the warning was created)
-docs:dev: [2K[1A[2K[G⠦ preparing local preview...
-api:dev: [next] (node:2874718) ExperimentalWarning: CommonJS module /home/max/nexora/packages/observability/keys.ts is loading ES Module /home/max/nexora/node_modules/.pnpm/@t3-oss+env-nextjs@0.13.8_arktype@2.1.20_typescript@5.9.3_zod@4.1.12/node_modules/@t3-oss/env-nextjs/dist/index.js using require().
-api:dev: [next] Support for loading ES Module in require() is an experimental feature and might change at any time
-api:dev: [next] (Use `node --trace-warnings ...` to show where the warning was created)
-storybook:dev: info => Starting preview..
 docs:dev: [2K[1A[2K[G⠧ preparing local preview...
+web:dev: (node:2882818) ExperimentalWarning: CommonJS module /home/max/nexora/packages/feature-flags/keys.ts is loading ES Module /home/max/nexora/node_modules/.pnpm/@t3-oss+env-nextjs@0.13.8_arktype@2.1.20_typescript@5.9.3_zod@4.1.12/node_modules/@t3-oss/env-nextjs/dist/index.js using require().
+web:dev: Support for loading ES Module in require() is an experimental feature and might change at any time
+web:dev: (Use `node --trace-warnings ...` to show where the warning was created)
 docs:dev: [2K[1A[2K[G⠇ preparing local preview...
-storybook:dev: info => Using implicit CSS loaders
 docs:dev: [2K[1A[2K[G⠏ preparing local preview...
 docs:dev: [2K[1A[2K[G⠋ preparing local preview...
+storybook:dev: info => Starting preview..
 docs:dev: [2K[1A[2K[G⠙ preparing local preview...
+api:dev: [next] (node:2882843) ExperimentalWarning: CommonJS module /home/max/nexora/packages/observability/keys.ts is loading ES Module /home/max/nexora/node_modules/.pnpm/@t3-oss+env-nextjs@0.13.8_arktype@2.1.20_typescript@5.9.3_zod@4.1.12/node_modules/@t3-oss/env-nextjs/dist/index.js using require().
+api:dev: [next] Support for loading ES Module in require() is an experimental feature and might change at any time
+api:dev: [next] (Use `node --trace-warnings ...` to show where the warning was created)
 docs:dev: [2K[1A[2K[G⠹ preparing local preview...
-storybook:dev: info => Using SWC as compiler
 docs:dev: [2K[1A[2K[G⠸ preparing local preview...
-web:dev:  ○ Compiling instrumentation Node.js ...
-app:dev:  ○ Compiling instrumentation Node.js ...
-api:dev: [next]  ○ Compiling instrumentation Node.js ...
+storybook:dev: info => Using implicit CSS loaders
 docs:dev: [2K[1A[2K[G⠼ preparing local preview...
+docs:dev: [2K[1A[2K[G⠴ preparing local preview...
 app:dev: [33mwarn[0m - Envvars not detected. If this is production please see https://betterstack.com/docs/logs/javascript/nextjs/ for help
 app:dev: [33mwarn[0m - Sending Web Vitals to /dev/null
 app:dev: [33mwarn[0m - Sending logs to console
 web:dev: [33mwarn[0m - Envvars not detected. If this is production please see https://betterstack.com/docs/logs/javascript/nextjs/ for help
 web:dev: [33mwarn[0m - Sending Web Vitals to /dev/null
 web:dev: [33mwarn[0m - Sending logs to console
-docs:dev: [2K[1A[2K[G⠴ preparing local preview...
+docs:dev: [2K[1A[2K[G⠦ preparing local preview...
+web:dev:  ○ Compiling instrumentation Node.js ...
+app:dev:  ○ Compiling instrumentation Node.js ...
+docs:dev: [2K[1A[2K[G⠧ preparing local preview...
+docs:dev: [2K[1A[2K[G⠇ preparing local preview...
+docs:dev: [2K[1A[2K[G⠏ preparing local preview...
 api:dev: [next] [33mwarn[0m - Envvars not detected. If this is production please see https://betterstack.com/docs/logs/javascript/nextjs/ for help
 api:dev: [next] [33mwarn[0m - Sending Web Vitals to /dev/null
 api:dev: [next] [33mwarn[0m - Sending logs to console
+docs:dev: [2K[1A[2K[G⠋ preparing local preview...
+api:dev: [next]  ○ Compiling instrumentation Node.js ...
+storybook:dev: info => Using SWC as compiler
+docs:dev: [2K[1A[2K[G⠙ preparing local preview...
+docs:dev: [2K[1A[2K[G⠹ preparing local preview...
+docs:dev: [2K[1A[2K[G⠸ preparing local preview...
+docs:dev: [2K[1A[2K[G⠼ preparing local preview...
+docs:dev: [2K[1A[2K[G⠴ preparing local preview...
 docs:dev: [2K[1A[2K[G⠦ preparing local preview...
 docs:dev: [2K[1A[2K[G⠧ preparing local preview...
 docs:dev: [2K[1A[2K[G⠇ preparing local preview...
 docs:dev: [2K[1A[2K[G⠏ preparing local preview...
 docs:dev: [2K[1A[2K[G⠋ preparing local preview...
-storybook:dev: info => Using default Webpack5 setup
 docs:dev: [2K[1A[2K[G⠙ preparing local preview...
 docs:dev: [2K[1A[2K[G⠹ preparing local preview...
+storybook:dev: info => Using default Webpack5 setup
 docs:dev: [2K[1A[2K[G⠸ preparing local preview...
 docs:dev: [2K[1A[2K[G⠼ preparing local preview...
+docs:dev: [2K[1A[2K[G⠴ preparing local preview...
+docs:dev: [2K[1A[2K[G⠦ preparing local preview...
 storybook:dev: <i> [webpack-dev-middleware] wait until bundle finished
 storybook:dev: <s> [webpack.Progress] 3% setup watch run
 storybook:dev: <s> [webpack.Progress] 3% setup watch run VirtualModulesPlugin
@@ -189,9 +201,9 @@ storybook:dev: <s> [webpack.Progress] 3% setup watch run storybook-mock-plugin
 storybook:dev: <i> [storybook-mock-plugin] Mock map updated with 0 mocks.
 storybook:dev: <s> [webpack.Progress] 3% setup watch run webpack-dev-middleware
 storybook:dev: <s> [webpack.Progress] 3% setup watch run
-docs:dev: [2K[1A[2K[G⠴ preparing local preview...
 storybook:dev: <s> [webpack.Progress] 4% setup normal module factory
 storybook:dev: <s> [webpack.Progress] 4% setup normal module factory CaseSensitivePathsPlugin
+docs:dev: [2K[1A[2K[G⠧ preparing local preview...
 storybook:dev: <s> [webpack.Progress] 4% setup normal module factory NormalModuleReplacementPlugin
 storybook:dev: <s> [webpack.Progress] 4% setup normal module factory
 storybook:dev: <s> [webpack.Progress] 5% setup context module factory
@@ -216,6 +228,7 @@ storybook:dev: <s> [webpack.Progress] 8% setup compilation RuntimeChunkPlugin
 storybook:dev: <s> [webpack.Progress] 8% setup compilation ResolverCachePlugin
 storybook:dev: <s> [webpack.Progress] 8% setup compilation
 storybook:dev: <s> [webpack.Progress] 9% setup compilation
+docs:dev: [2K[1A[2K[G⠇ preparing local preview...
 storybook:dev: <s> [webpack.Progress] 9% setup compilation DefinePlugin
 storybook:dev: <s> [webpack.Progress] 9% setup compilation HotModuleReplacementPlugin
 storybook:dev: <s> [webpack.Progress] 9% setup compilation ProgressPlugin
@@ -280,40 +293,49 @@ storybook:dev: <s> [webpack.Progress] 9% setup compilation ProgressPlugin
 storybook:dev: <s> [webpack.Progress] 9% setup compilation
 storybook:dev: <s> [webpack.Progress] 10% building
 storybook:dev: <s> [webpack.Progress] 10% building 0/1 entries 0/0 dependencies 0/0 modules
-docs:dev: [2K[1A[2K[G⠦ preparing local preview...
-docs:dev: [2K[1A[2K[G⠧ preparing local preview...
-docs:dev: [2K[1A[2K[G⠇ preparing local preview...
 docs:dev: [2K[1A[2K[G⠏ preparing local preview...
 docs:dev: [2K[1A[2K[G⠋ preparing local preview...
 storybook:dev: <s> [webpack.Progress] 10% building import loader ../../node_modules/.pnpm/@pmmmwh+react-refresh-webpack-plugin@0.5.17_@types+webpack@5.28.5_esbuild@0.25.10__reac_a027cfaf9c2ce9f1c177275234392074/node_modules/@pmmmwh/react-refresh-webpack-plugin/loader/index.js
 docs:dev: [2K[1A[2K[G⠙ preparing local preview...
-docs:dev: [2K[1A[2K[G⠹ preparing local preview...
 storybook:dev: <s> [webpack.Progress] 10% building import loader ../../node_modules/.pnpm/@storybook+preset-react-webpack@9.1.10_esbuild@0.25.10_react-dom@19.2.0_react@19.2.0__r_e4e4e24c26e3911f2ffce81564f307f2/node_modules/@storybook/preset-react-webpack/dist/loaders/react-docgen-loader.js
+docs:dev: [2K[1A[2K[G⠹ preparing local preview...
 docs:dev: [2K[1A[2K[G⠸ preparing local preview...
 docs:dev: [2K[1A[2K[G⠼ preparing local preview...
 docs:dev: [2K[1A[2K[G⠴ preparing local preview...
 docs:dev: [2K[1A[2K[G⠦ preparing local preview...
 docs:dev: [2K[1A[2K[G⠧ preparing local preview...
+storybook:dev: <s> [webpack.Progress] 10% building 0/3 entries 3/3 dependencies 0/3 modules
 docs:dev: [2K[1A[2K[G⠇ preparing local preview...
-storybook:dev: <s> [webpack.Progress] 10% building 0/3 entries 1/3 dependencies 0/1 modules
+storybook:dev: info Using tsconfig paths for react-docgen
 docs:dev: [2K[1A[2K[G⠏ preparing local preview...
 docs:dev: [2K[1A[2K[G⠋ preparing local preview...
-storybook:dev: info Using tsconfig paths for react-docgen
 docs:dev: [2K[1A[2K[G⠙ preparing local preview...
 docs:dev: [2K[1A[2K[G⠹ preparing local preview...
 docs:dev: [2K[1A[2K[G⠸ preparing local preview...
 docs:dev: [2K[1A[2K[G⠼ preparing local preview...
 docs:dev: [2K[1A[2K[G⠴ preparing local preview...
-storybook:dev: <s> [webpack.Progress] 10% building 0/3 entries 13/34 dependencies 4/10 modules
+storybook:dev: <s> [webpack.Progress] 10% building 0/3 entries 21/134 dependencies 5/15 modules
 docs:dev: [2K[1A[2K[G⠦ preparing local preview...
 docs:dev: [2K[1A[2K[G⠧ preparing local preview...
-docs:dev: [2K[1A[2K[G⠇ preparing local preview...
-docs:dev: [2K[1A[2K[G⠏ preparing local preview...
 storybook:dev: <s> [webpack.Progress] 10% building import loader ../../node_modules/.pnpm/@storybook+builder-webpack5@9.1.10_esbuild@0.25.10_storybook@9.1.10_@testing-library+do_a267ce21184e1377c98ae449e660a675/node_modules/@storybook/builder-webpack5/dist/loaders/export-order-loader.js
 storybook:dev: <s> [webpack.Progress] 10% building import loader ../../node_modules/.pnpm/@storybook+nextjs@9.1.10_@types+webpack@5.28.5_esbuild@0.25.10__esbuild@0.25.10_next@15_58b3f23acfd222fa84dace66566be13d/node_modules/@storybook/nextjs/dist/swc/next-swc-loader-patch.js
-storybook:dev: <s> [webpack.Progress] 10% building 0/3 entries 105/129 dependencies 5/58 modules
+docs:dev: [2K[1A[2K[G⠇ preparing local preview...
+storybook:dev: <s> [webpack.Progress] 10% building 0/3 entries 110/134 dependencies 5/61 modules
+docs:dev: [2K[1A[2K[G⠏ preparing local preview...
 docs:dev: [2K[1A[2K[G⠋ preparing local preview...
 docs:dev: [2K[1A[2K[G⠙ preparing local preview...
+docs:dev: [2K[1A[2K[G⠹ preparing local preview...
+docs:dev: [2K[1A[2K[G⠸ preparing local preview...
+docs:dev: [2K[1A[2K[G⠼ preparing local preview...
+storybook:dev: <s> [webpack.Progress] 10% building 0/3 entries 114/200 dependencies 5/65 modules
+docs:dev: [2K[1A[2K[G⠴ preparing local preview...
+docs:dev: [2K[1A[2K[G⠦ preparing local preview...
+docs:dev: [2K[1A[2K[G⠧ preparing local preview...
+docs:dev: [2K[1A[2K[G⠇ preparing local preview...
+docs:dev: [2K[1A[2K[G⠏ preparing local preview...
+docs:dev: [2K[1A[2K[G⠋ preparing local preview...
+docs:dev: [2K[1A[2K[G⠙ preparing local preview...
+storybook:dev: <s> [webpack.Progress] 10% building 0/3 entries 200/357 dependencies 5/69 modules
 docs:dev: [2K[1A[2K[G⠹ preparing local preview...
 docs:dev: [2K[1A[2K[G⠸ preparing local preview...
 docs:dev: [2K[1A[2K[G⠼ preparing local preview...
@@ -324,43 +346,33 @@ docs:dev: [2K[1A[2K[G⠇ preparing local preview...
 docs:dev: [2K[1A[2K[G⠏ preparing local preview...
 docs:dev: [2K[1A[2K[G⠋ preparing local preview...
 docs:dev: [2K[1A[2K[G⠙ preparing local preview...
+storybook:dev: <s> [webpack.Progress] 11% building 0/3 entries 249/357 dependencies 6/84 modules
+storybook:dev: <s> [webpack.Progress] 11% building import loader ../../node_modules/.pnpm/storybook@9.1.10_@testing-library+dom@10.4.1_bufferutil@4.0.9_prettier@3.5.3_vite@6.2.4_d17c1b59d84ac247252da2f42d93cd81/node_modules/storybook/dist/core-server/presets/webpack/loaders/storybook-mock-transform-loader.cjs
+storybook:dev: <s> [webpack.Progress] 11% building 0/3 entries 270/357 dependencies 7/99 modules
 docs:dev: [2K[1A[2K[G⠹ preparing local preview...
 docs:dev: [2K[1A[2K[G⠸ preparing local preview...
-storybook:dev: <s> [webpack.Progress] 10% building 0/3 entries 200/354 dependencies 5/68 modules
 docs:dev: [2K[1A[2K[G⠼ preparing local preview...
-docs:dev: [2K[1A[2K[G⠴ preparing local preview...
-docs:dev: [2K[1A[2K[G⠦ preparing local preview...
-docs:dev: [2K[1A[2K[G⠧ preparing local preview...
-docs:dev: [2K[1A[2K[G⠇ preparing local preview...
-docs:dev: [2K[1A[2K[G⠏ preparing local preview...
-docs:dev: [2K[1A[2K[G⠋ preparing local preview...
-docs:dev: [2K[1A[2K[G⠙ preparing local preview...
-docs:dev: [2K[1A[2K[G⠹ preparing local preview...
-storybook:dev: <s> [webpack.Progress] 10% building import loader ../../node_modules/.pnpm/storybook@9.1.10_@testing-library+dom@10.4.1_bufferutil@4.0.9_prettier@3.5.3_vite@6.2.4_d17c1b59d84ac247252da2f42d93cd81/node_modules/storybook/dist/core-server/presets/webpack/loaders/storybook-mock-transform-loader.cjs
-storybook:dev: <s> [webpack.Progress] 10% building 0/3 entries 264/354 dependencies 5/95 modules
-docs:dev: [2K[1A[2K[G⠸ preparing local preview...
-docs:dev: [2K[1A[2K[G⠼ preparing local preview...
-docs:dev: [2K[1A[2K[G⠴ preparing local preview...
-docs:dev: [2K[1A[2K[G⠦ preparing local preview...
-docs:dev: [2K[1A[2K[G⠧ preparing local preview...
-docs:dev: [2K[1A[2K[G⠇ preparing local preview...
-docs:dev: [2K[1A[2K[G⠏ preparing local preview...
-docs:dev: [2K[1A[2K[G⠋ preparing local preview...
-storybook:dev: <s> [webpack.Progress] 11% building 0/3 entries 286/700 dependencies 7/110 modules
-app:dev:  ✓ Compiled instrumentation Node.js in 6s
 web:dev:  ✓ Compiled instrumentation Node.js in 6s
-docs:dev: [2K[1A[2K[G⠙ preparing local preview...
-api:dev: [next]  ✓ Compiled instrumentation Node.js in 6s
-docs:dev: [2K[1A[2K[G⠹ preparing local preview...
-docs:dev: [2K[1A[2K[G⠸ preparing local preview...
-docs:dev: [2K[1A[2K[G⠼ preparing local preview...
 docs:dev: [2K[1A[2K[G⠴ preparing local preview...
+api:dev: [next]  ✓ Compiled instrumentation Node.js in 5.8s
+app:dev:  ✓ Compiled instrumentation Node.js in 6.1s
 docs:dev: [2K[1A[2K[G⠦ preparing local preview...
 docs:dev: [2K[1A[2K[G⠧ preparing local preview...
+docs:dev: [2K[1A[2K[G⠇ preparing local preview...
+storybook:dev: <s> [webpack.Progress] 11% building 0/3 entries 300/2354 dependencies 9/120 modules
+docs:dev: [2K[1A[2K[G⠏ preparing local preview...
+docs:dev: [2K[1A[2K[G⠋ preparing local preview...
+docs:dev: [2K[1A[2K[G⠙ preparing local preview...
 web:dev:  ○ Compiling instrumentation Edge ...
 app:dev:  ○ Compiling instrumentation Edge ...
 api:dev: [next]  ○ Compiling instrumentation Edge ...
-storybook:dev: <s> [webpack.Progress] 11% building 0/3 entries 380/2332 dependencies 8/200 modules
+docs:dev: [2K[1A[2K[G⠹ preparing local preview...
+docs:dev: [2K[1A[2K[G⠸ preparing local preview...
+docs:dev: [2K[1A[2K[G⠼ preparing local preview...
+docs:dev: [2K[1A[2K[G⠴ preparing local preview...
+docs:dev: [2K[1A[2K[G⠦ preparing local preview...
+docs:dev: [2K[1A[2K[G⠧ preparing local preview...
+storybook:dev: <s> [webpack.Progress] 11% building 0/3 entries 386/2361 dependencies 10/200 modules
 docs:dev: [2K[1A[2K[G⠇ preparing local preview...
 docs:dev: [2K[1A[2K[G⠏ preparing local preview...
 docs:dev: [2K[1A[2K[G⠋ preparing local preview...
@@ -370,200 +382,146 @@ docs:dev: [2K[1A[2K[G⠸ preparing local preview...
 docs:dev: [2K[1A[2K[G⠼ preparing local preview...
 docs:dev: [2K[1A[2K[G⠴ preparing local preview...
 docs:dev: [2K[1A[2K[G⠦ preparing local preview...
-storybook:dev: <s> [webpack.Progress] 11% building 0/3 entries 500/2332 dependencies 8/279 modules
 docs:dev: [2K[1A[2K[G⠧ preparing local preview...
 docs:dev: [2K[1A[2K[G⠇ preparing local preview...
 docs:dev: [2K[1A[2K[G⠏ preparing local preview...
+web:dev:  ✓ Compiled instrumentation Edge in 1952ms
+storybook:dev: <s> [webpack.Progress] 11% building 0/3 entries 500/2361 dependencies 10/272 modules
 docs:dev: [2K[1A[2K[G⠋ preparing local preview...
+api:dev: [next]  ✓ Compiled instrumentation Edge in 2s
+app:dev:  ✓ Compiled instrumentation Edge in 2s
 docs:dev: [2K[1A[2K[G⠙ preparing local preview...
 docs:dev: [2K[1A[2K[G⠹ preparing local preview...
 docs:dev: [2K[1A[2K[G⠸ preparing local preview...
-app:dev:  ✓ Compiled instrumentation Edge in 1826ms
-api:dev: [next]  ✓ Compiled instrumentation Edge in 1812ms
-web:dev:  ✓ Compiled instrumentation Edge in 1850ms
-storybook:dev: <s> [webpack.Progress] 11% building 0/3 entries 600/2332 dependencies 8/374 modules
 docs:dev: [2K[1A[2K[G⠼ preparing local preview...
 docs:dev: [2K[1A[2K[G⠴ preparing local preview...
-docs:dev: [2K[1A[2K[G⠦ preparing local preview...
-docs:dev: [2K[1A[2K[G⠧ preparing local preview...
-docs:dev: [2K[1A[2K[G⠇ preparing local preview...
-docs:dev: [2K[1A[2K[G⠏ preparing local preview...
-app:dev:  ○ Compiling middleware ...
-docs:dev: [2K[1A[2K[G⠋ preparing local preview...
 web:dev:  ○ Compiling middleware ...
-storybook:dev: <s> [webpack.Progress] 10% building 0/3 entries 829/2332 dependencies 8/600 modules
+docs:dev: [2K[1A[2K[G⠦ preparing local preview...
+app:dev:  ○ Compiling middleware ...
+docs:dev: [2K[1A[2K[G⠧ preparing local preview...
+storybook:dev: <s> [webpack.Progress] 11% building 0/3 entries 600/2361 dependencies 10/372 modules
+docs:dev: [2K[1A[2K[G⠇ preparing local preview...
+docs:dev: [2K[1A[2K[G⠏ preparing local preview...
+docs:dev: [2K[1A[2K[G⠋ preparing local preview...
 docs:dev: [2K[1A[2K[G⠙ preparing local preview...
 docs:dev: [2K[1A[2K[G⠹ preparing local preview...
 docs:dev: [2K[1A[2K[G⠸ preparing local preview...
 docs:dev: [2K[1A[2K[G⠼ preparing local preview...
+storybook:dev: <s> [webpack.Progress] 11% building 0/3 entries 734/2361 dependencies 10/500 modules
 docs:dev: [2K[1A[2K[G⠴ preparing local preview...
 docs:dev: [2K[1A[2K[G⠦ preparing local preview...
+api:dev: [next]  ✓ Ready in 12s
 docs:dev: [2K[1A[2K[G⠧ preparing local preview...
-storybook:dev: <s> [webpack.Progress] 10% building 0/3 entries 1130/2332 dependencies 8/900 modules
-docs:dev: [2K[1A[2K[G⠇ preparing local preview...
-docs:dev: [2K[1A[2K[G⠏ preparing local preview...
-api:dev: [next]  ✓ Ready in 11s
 api:dev: [next] [33mwarn[0m - Envvars not detected. If this is production please see https://betterstack.com/docs/logs/javascript/nextjs/ for help
 api:dev: [next] [33mwarn[0m - Sending Web Vitals to /dev/null
 api:dev: [next] [33mwarn[0m - Sending logs to console
-docs:dev: [2K[1A[2K[G⠋ preparing local preview...
-docs:dev: [2K[1A[2K[G⠙ preparing local preview...
-docs:dev: [2K[1A[2K[G⠹ preparing local preview...
-docs:dev: [2K[1A[2K[G⠸ preparing local preview...
-docs:dev: [2K[1A[2K[G⠼ preparing local preview...
-storybook:dev: <s> [webpack.Progress] 10% building 0/3 entries 1430/2332 dependencies 8/1200 modules
-docs:dev: [2K[1A[2K[G⠴ preparing local preview...
-docs:dev: [2K[1A[2K[G⠦ preparing local preview...
-docs:dev: [2K[1A[2K[G⠧ preparing local preview...
-app:dev:  ✓ Compiled middleware in 1935ms
 docs:dev: [2K[1A[2K[G⠇ preparing local preview...
 docs:dev: [2K[1A[2K[G⠏ preparing local preview...
 docs:dev: [2K[1A[2K[G⠋ preparing local preview...
-storybook:dev: <s> [webpack.Progress] 10% building 0/3 entries 1730/2332 dependencies 8/1500 modules
 docs:dev: [2K[1A[2K[G⠙ preparing local preview...
+storybook:dev: <s> [webpack.Progress] 10% building 0/3 entries 1000/2361 dependencies 10/765 modules
 docs:dev: [2K[1A[2K[G⠹ preparing local preview...
 docs:dev: [2K[1A[2K[G⠸ preparing local preview...
 docs:dev: [2K[1A[2K[G⠼ preparing local preview...
+app:dev:  ✓ Compiled middleware in 1925ms
 docs:dev: [2K[1A[2K[G⠴ preparing local preview...
 docs:dev: [2K[1A[2K[G⠦ preparing local preview...
 docs:dev: [2K[1A[2K[G⠧ preparing local preview...
-storybook:dev: <s> [webpack.Progress] 10% building 0/3 entries 2100/2332 dependencies 8/1869 modules
+storybook:dev: <s> [webpack.Progress] 10% building 0/3 entries 1335/2361 dependencies 10/1100 modules
 docs:dev: [2K[1A[2K[G⠇ preparing local preview...
 docs:dev: [2K[1A[2K[G⠏ preparing local preview...
-app:dev:  ✓ Ready in 12.9s
 docs:dev: [2K[1A[2K[G⠋ preparing local preview...
 docs:dev: [2K[1A[2K[G⠙ preparing local preview...
 docs:dev: [2K[1A[2K[G⠹ preparing local preview...
 docs:dev: [2K[1A[2K[G⠸ preparing local preview...
 docs:dev: [2K[1A[2K[G⠼ preparing local preview...
+storybook:dev: <s> [webpack.Progress] 10% building 0/3 entries 1635/2361 dependencies 10/1400 modules
+docs:dev: [2K[1A[2K[G⠴ preparing local preview...
+docs:dev: [2K[1A[2K[G⠦ preparing local preview...
+docs:dev: [2K[1A[2K[G⠧ preparing local preview...
+app:dev:  ✓ Ready in 14.3s
+docs:dev: [2K[1A[2K[G⠇ preparing local preview...
+docs:dev: [2K[1A[2K[G⠏ preparing local preview...
+docs:dev: [2K[1A[2K[G⠋ preparing local preview...
 app:dev: [33mwarn[0m - Envvars not detected. If this is production please see https://betterstack.com/docs/logs/javascript/nextjs/ for help
 app:dev: [33mwarn[0m - Sending Web Vitals to /dev/null
 app:dev: [33mwarn[0m - Sending logs to console
-docs:dev: [2K[1A[2K[G⠴ preparing local preview...
-docs:dev: [2K[1A[2K[G⠦ preparing local preview...
-docs:dev: [2K[1A[2K[G⠧ preparing local preview...
-docs:dev: [2K[1A[2K[G⠇ preparing local preview...
-docs:dev: [2K[1A[2K[G⠏ preparing local preview...
-docs:dev: [2K[1A[2K[G⠋ preparing local preview...
 docs:dev: [2K[1A[2K[G⠙ preparing local preview...
+storybook:dev: <s> [webpack.Progress] 10% building 0/3 entries 2035/2361 dependencies 10/1800 modules
 docs:dev: [2K[1A[2K[G⠹ preparing local preview...
 docs:dev: [2K[1A[2K[G⠸ preparing local preview...
 docs:dev: [2K[1A[2K[G⠼ preparing local preview...
-web:dev:  ✓ Compiled middleware in 4.1s
 docs:dev: [2K[1A[2K[G⠴ preparing local preview...
 docs:dev: [2K[1A[2K[G⠦ preparing local preview...
 docs:dev: [2K[1A[2K[G⠧ preparing local preview...
-docs:dev: [2K[1A[2K[G⠇ preparing local preview...
-docs:dev: [2K[1A[2K[G⠏ preparing local preview...
-docs:dev: [2K[1A[2K[G⠋ preparing local preview...
-docs:dev: [2K[1A[2K[G⠙ preparing local preview...
-docs:dev: [2K[1A[2K[G⠹ preparing local preview...
-web:dev:  ✓ Ready in 14.8s
-docs:dev: [2K[1A[2K[G⠸ preparing local preview...
-docs:dev: [2K[1A[2K[G⠼ preparing local preview...
-storybook:dev: <s> [webpack.Progress] 10% building 0/3 entries 2332/2371 dependencies 12/2102 modules
-docs:dev: [2K[1A[2K[G⠴ preparing local preview...
-docs:dev: [2K[1A[2K[G⠦ preparing local preview...
-docs:dev: [2K[1A[2K[G⠧ preparing local preview...
-docs:dev: [2K[1A[2K[G⠇ preparing local preview...
-docs:dev: [2K[1A[2K[G⠏ preparing local preview...
-docs:dev: [2K[1A[2K[G⠋ preparing local preview...
+web:dev:  ✓ Compiled middleware in 5s
+web:dev:  ✓ Ready in 17.1s
 web:dev: [33mwarn[0m - Envvars not detected. If this is production please see https://betterstack.com/docs/logs/javascript/nextjs/ for help
 web:dev: [33mwarn[0m - Sending Web Vitals to /dev/null
 web:dev: [33mwarn[0m - Sending logs to console
-docs:dev: [2K[1A[2K[G⠙ preparing local preview...
-storybook:dev: <s> [webpack.Progress] 10% building 0/3 entries 2438/2600 dependencies 26/2105 modules
-docs:dev: [2K[1A[2K[G⠹ preparing local preview...
-docs:dev: [2K[1A[2K[G⠸ preparing local preview...
-docs:dev: [2K[1A[2K[G⠼ preparing local preview...
-docs:dev: [2K[1A[2K[G⠴ preparing local preview...
-docs:dev: [2K[1A[2K[G⠦ preparing local preview...
-docs:dev: [2K[1A[2K[G⠧ preparing local preview...
+storybook:dev: <s> [webpack.Progress] 10% building 0/3 entries 2309/2400 dependencies 13/2057 modules
 docs:dev: [2K[1A[2K[G⠇ preparing local preview...
 docs:dev: [2K[1A[2K[G⠏ preparing local preview...
-storybook:dev: <s> [webpack.Progress] 10% building 0/3 entries 2789/2881 dependencies 28/2123 modules
+storybook:dev: <s> [webpack.Progress] 10% building 0/3 entries 2589/2655 dependencies 14/2114 modules
 docs:dev: [2K[1A[2K[G⠋ preparing local preview...
-docs:dev: [2K[1A[2K[G⠙ preparing local preview...
+storybook:dev: <s> [webpack.Progress] 10% building 0/3 entries 2706/2779 dependencies 27/2119 modules
 docs:dev: [2K[1A[2K[G⠹ preparing local preview...
 docs:dev: [2K[1A[2K[G⠸ preparing local preview...
-docs:dev: [2K[1A[2K[G⠼ preparing local preview...
-docs:dev: [2K[1A[2K[G⠴ preparing local preview...
-docs:dev: [2K[1A[2K[G⠦ preparing local preview...
-storybook:dev: <s> [webpack.Progress] 11% building 0/3 entries 3042/3057 dependencies 46/2152 modules
-docs:dev: [2K[1A[2K[G⠧ preparing local preview...
-docs:dev: [2K[1A[2K[G⠇ preparing local preview...
-docs:dev: [2K[1A[2K[G⠏ preparing local preview...
-docs:dev: [2K[1A[2K[G⠋ preparing local preview...
-docs:dev: [2K[1A[2K[G⠙ preparing local preview...
-docs:dev: [2K[1A[2K[G⠹ preparing local preview...
-docs:dev: [2K[1A[2K[G⠸ preparing local preview...
-storybook:dev: <s> [webpack.Progress] 14% building 0/3 entries 3185/3400 dependencies 172/2153 modules
-storybook:dev: <s> [webpack.Progress] 14% building 0/3 entries 3900/5246 dependencies 175/2200 modules
-storybook:dev: <s> [webpack.Progress] 14% building 0/3 entries 4800/5246 dependencies 175/2207 modules
-storybook:dev: <s> [webpack.Progress] 14% building 0/3 entries 5600/5630 dependencies 177/2210 modules
-storybook:dev: <s> [webpack.Progress] 14% building import loader ../../node_modules/.pnpm/style-loader@3.3.4_webpack@5.98.0_esbuild@0.25.10_/node_modules/style-loader/dist/cjs.js
-storybook:dev: <s> [webpack.Progress] 14% building import loader ../../node_modules/.pnpm/css-loader@6.11.0_webpack@5.98.0_esbuild@0.25.10_/node_modules/css-loader/dist/cjs.js
-storybook:dev: <s> [webpack.Progress] 14% building import loader ../../node_modules/.pnpm/postcss-loader@8.2.0_postcss@8.5.6_typescript@5.8.3_webpack@5.98.0_esbuild@0.25.10_/node_modules/postcss-loader/dist/cjs.js
-storybook:dev: <s> [webpack.Progress] 14% building 0/3 entries 5710/5735 dependencies 177/2210 modules
-docs:dev: [2K[1A[2K[G⠼ preparing local preview...
-docs:dev: [2K[1A[2K[G⠴ preparing local preview...
-storybook:dev: <s> [webpack.Progress] 14% building 0/3 entries 6368/6400 dependencies 179/2238 modules
-docs:dev: [2K[1A[2K[G⠦ preparing local preview...
 docs:dev: [2K[1A[2K[Gwarning - "architecture/tech-stack" is referenced in the docs.json navigation but the file does not exist.
-docs:dev: ⠦ preparing local preview...
+docs:dev: ⠸ preparing local preview...
 docs:dev: [2K[1A[2K[Gwarning - "architecture/database" is referenced in the docs.json navigation but the file does not exist.
-docs:dev: ⠦ preparing local preview...
+docs:dev: ⠸ preparing local preview...
 docs:dev: [2K[1A[2K[Gwarning - "architecture/multi-tenancy" is referenced in the docs.json navigation but the file does not exist.
-docs:dev: ⠦ preparing local preview...
+docs:dev: ⠸ preparing local preview...
 docs:dev: [2K[1A[2K[Gwarning - "architecture/security" is referenced in the docs.json navigation but the file does not exist.
-docs:dev: ⠦ preparing local preview...
+docs:dev: ⠸ preparing local preview...
 docs:dev: [2K[1A[2K[Gwarning - "features/bookings" is referenced in the docs.json navigation but the file does not exist.
-docs:dev: ⠦ preparing local preview...
+docs:dev: ⠸ preparing local preview...
 docs:dev: [2K[1A[2K[Gwarning - "features/channel-manager" is referenced in the docs.json navigation but the file does not exist.
-docs:dev: ⠦ preparing local preview...
+docs:dev: ⠸ preparing local preview...
 docs:dev: [2K[1A[2K[Gwarning - "features/payments" is referenced in the docs.json navigation but the file does not exist.
-docs:dev: ⠦ preparing local preview...
+docs:dev: ⠸ preparing local preview...
 docs:dev: [2K[1A[2K[Gwarning - "features/fiscal" is referenced in the docs.json navigation but the file does not exist.
-docs:dev: ⠦ preparing local preview...
+docs:dev: ⠸ preparing local preview...
 docs:dev: [2K[1A[2K[Gwarning - "features/analytics" is referenced in the docs.json navigation but the file does not exist.
-docs:dev: ⠦ preparing local preview...
+docs:dev: ⠸ preparing local preview...
 docs:dev: [2K[1A[2K[Gwarning - "api-reference/properties/get" is referenced in the docs.json navigation but the file does not exist.
-docs:dev: ⠦ preparing local preview...
+docs:dev: ⠸ preparing local preview...
 docs:dev: [2K[1A[2K[Gwarning - "api-reference/properties/create" is referenced in the docs.json navigation but the file does not exist.
-docs:dev: ⠦ preparing local preview...
+docs:dev: ⠸ preparing local preview...
 docs:dev: [2K[1A[2K[Gwarning - "api-reference/properties/update" is referenced in the docs.json navigation but the file does not exist.
-docs:dev: ⠦ preparing local preview...
+docs:dev: ⠸ preparing local preview...
 docs:dev: [2K[1A[2K[Gwarning - "api-reference/properties/delete" is referenced in the docs.json navigation but the file does not exist.
-docs:dev: ⠦ preparing local preview...
+docs:dev: ⠸ preparing local preview...
 docs:dev: [2K[1A[2K[Gwarning - "architecture/tech-stack" is referenced in the mint.json navigation but the file does not exist.
-docs:dev: ⠦ preparing local preview...
+docs:dev: ⠸ preparing local preview...
 docs:dev: [2K[1A[2K[Gwarning - "architecture/database" is referenced in the mint.json navigation but the file does not exist.
-docs:dev: ⠦ preparing local preview...
+docs:dev: ⠸ preparing local preview...
 docs:dev: [2K[1A[2K[Gwarning - "architecture/multi-tenancy" is referenced in the mint.json navigation but the file does not exist.
-docs:dev: ⠦ preparing local preview...
+docs:dev: ⠸ preparing local preview...
 docs:dev: [2K[1A[2K[Gwarning - "architecture/security" is referenced in the mint.json navigation but the file does not exist.
-docs:dev: ⠦ preparing local preview...
+docs:dev: ⠸ preparing local preview...
 docs:dev: [2K[1A[2K[Gwarning - "features/bookings" is referenced in the mint.json navigation but the file does not exist.
-docs:dev: ⠦ preparing local preview...
+docs:dev: ⠸ preparing local preview...
 docs:dev: [2K[1A[2K[Gwarning - "features/channel-manager" is referenced in the mint.json navigation but the file does not exist.
-docs:dev: ⠦ preparing local preview...
+docs:dev: ⠸ preparing local preview...
 docs:dev: [2K[1A[2K[Gwarning - "features/payments" is referenced in the mint.json navigation but the file does not exist.
-docs:dev: ⠦ preparing local preview...
+docs:dev: ⠸ preparing local preview...
 docs:dev: [2K[1A[2K[Gwarning - "features/fiscal" is referenced in the mint.json navigation but the file does not exist.
-docs:dev: ⠦ preparing local preview...
+docs:dev: ⠸ preparing local preview...
 docs:dev: [2K[1A[2K[Gwarning - "features/analytics" is referenced in the mint.json navigation but the file does not exist.
-docs:dev: ⠦ preparing local preview...
+docs:dev: ⠸ preparing local preview...
 docs:dev: [2K[1A[2K[Gwarning - "api-reference/properties/get" is referenced in the mint.json navigation but the file does not exist.
-docs:dev: ⠦ preparing local preview...
+docs:dev: ⠸ preparing local preview...
 docs:dev: [2K[1A[2K[Gwarning - "api-reference/properties/create" is referenced in the mint.json navigation but the file does not exist.
-docs:dev: ⠦ preparing local preview...
+docs:dev: ⠸ preparing local preview...
 docs:dev: [2K[1A[2K[Gwarning - "api-reference/properties/update" is referenced in the mint.json navigation but the file does not exist.
-docs:dev: ⠦ preparing local preview...
+docs:dev: ⠸ preparing local preview...
 docs:dev: [2K[1A[2K[Gwarning - "api-reference/properties/delete" is referenced in the mint.json navigation but the file does not exist.
-docs:dev: ⠦ preparing local preview...
-docs:dev: [2K[1A[2K[G⠧ preparing local preview...
-storybook:dev: <s> [webpack.Progress] 17% building 0/3 entries 6944/7000 dependencies 288/2244 modules
-docs:dev: [2K[1A[2K[G⠇ preparing local preview...
+docs:dev: ⠸ preparing local preview...
+docs:dev: [2K[1A[2K[G⠼ preparing local preview...
+docs:dev: [2K[1A[2K[G⠴ preparing local preview...
+storybook:dev: <s> [webpack.Progress] 10% building 0/3 entries 2852/2900 dependencies 35/2132 modules
 docs:dev: [2K[1A[2K[G✓ preview ready
 docs:dev: 
 docs:dev:   local   → http://localhost:3004
@@ -579,32 +537,37 @@ docs:dev:   network → http://192.168.1.43:3004
 docs:dev: 
 docs:dev: press ctrl+c to exit the preview
 docs:dev: 
-storybook:dev: <s> [webpack.Progress] 18% building 0/3 entries 7300/7397 dependencies 370/2392 modules
-storybook:dev: <s> [webpack.Progress] 55% building 0/3 entries 7633/7700 dependencies 2070/2481 modules
-storybook:dev: <s> [webpack.Progress] 55% building 0/3 entries 7794/7918 dependencies 2100/2543 modules
-storybook:dev: <s> [webpack.Progress] 53% building 0/3 entries 8000/8331 dependencies 2115/2644 modules
-storybook:dev: <s> [webpack.Progress] 53% building 0/3 entries 8254/8400 dependencies 2132/2680 modules
-web:dev:  ○ Compiling /[locale] ...
-storybook:dev: <s> [webpack.Progress] 53% building 0/3 entries 8494/8577 dependencies 2200/2797 modules
-storybook:dev: <s> [webpack.Progress] 53% building 0/3 entries 8775/8944 dependencies 2307/2900 modules
+storybook:dev: <s> [webpack.Progress] 10% building 0/3 entries 3000/3038 dependencies 37/2145 modules
+storybook:dev: <s> [webpack.Progress] 12% building 0/3 entries 3172/3200 dependencies 79/2152 modules
+storybook:dev: <s> [webpack.Progress] 14% building 0/3 entries 3600/4918 dependencies 168/2165 modules
+storybook:dev: <s> [webpack.Progress] 14% building 0/3 entries 4400/4918 dependencies 168/2171 modules
+storybook:dev: <s> [webpack.Progress] 14% building 0/3 entries 5200/5201 dependencies 173/2178 modules
+storybook:dev: <s> [webpack.Progress] 14% building 0/3 entries 5895/5900 dependencies 174/2193 modules
 docs:dev: [2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[1A[2K[G✓ preview ready
 docs:dev: 
-docs:dev: 
 docs:dev:   local   → http://localhost:3004
+docs:dev: 
 docs:dev:   network → http://192.168.1.43:3004
 docs:dev: 
 docs:dev: press ctrl+c to exit the preview
 docs:dev: 
-storybook:dev: <s> [webpack.Progress] 54% building 0/3 entries 9061/9180 dependencies 2400/2995 modules
-storybook:dev: <s> [webpack.Progress] 55% building 0/3 entries 9400/9468 dependencies 2516/3035 modules
-storybook:dev: <s> [webpack.Progress] 57% building 0/3 entries 9673/9765 dependencies 2700/3097 modules
-storybook:dev: <s> [webpack.Progress] 56% building 0/3 entries 9900/9959 dependencies 2756/3243 modules
-storybook:dev: <s> [webpack.Progress] 58% building 0/3 entries 10100/10193 dependencies 2883/3294 modules
-storybook:dev: <s> [webpack.Progress] 59% building 1/3 entries 10226/10413 dependencies 2959/3314 modules
-storybook:dev: <s> [webpack.Progress] 58% building 1/3 entries 10506/10600 dependencies 3064/3453 modules
-storybook:dev: <s> [webpack.Progress] 59% building 1/3 entries 10753/10862 dependencies 3100/3466 modules
-storybook:dev: <s> [webpack.Progress] 61% building 2/3 entries 10968/11033 dependencies 3291/3497 modules
-storybook:dev: <s> [webpack.Progress] 62% building 2/3 entries 11171/11200 dependencies 3427/3571 modules
+storybook:dev: <s> [webpack.Progress] 14% building 0/3 entries 6477/6500 dependencies 175/2194 modules
+storybook:dev: <s> [webpack.Progress] 14% building import loader ../../node_modules/.pnpm/style-loader@3.3.4_webpack@5.98.0_esbuild@0.25.10_/node_modules/style-loader/dist/cjs.js
+storybook:dev: <s> [webpack.Progress] 14% building import loader ../../node_modules/.pnpm/css-loader@6.11.0_webpack@5.98.0_esbuild@0.25.10_/node_modules/css-loader/dist/cjs.js
+storybook:dev: <s> [webpack.Progress] 14% building import loader ../../node_modules/.pnpm/postcss-loader@8.2.0_postcss@8.5.6_typescript@5.8.3_webpack@5.98.0_esbuild@0.25.10_/node_modules/postcss-loader/dist/cjs.js
+storybook:dev: <s> [webpack.Progress] 14% building 0/3 entries 6501/6525 dependencies 192/2194 modules
+storybook:dev: <s> [webpack.Progress] 16% building 0/3 entries 6800/7030 dependencies 246/2242 modules
+storybook:dev: <s> [webpack.Progress] 18% building 0/3 entries 7200/7292 dependencies 353/2379 modules
+storybook:dev: <s> [webpack.Progress] 55% building 0/3 entries 7531/7600 dependencies 2041/2490 modules
+storybook:dev: <s> [webpack.Progress] 53% building 0/3 entries 7795/7900 dependencies 2077/2606 modules
+storybook:dev: <s> [webpack.Progress] 53% building 0/3 entries 8000/8199 dependencies 2094/2623 modules
+storybook:dev: <s> [webpack.Progress] 55% building 0/3 entries 8549/8600 dependencies 2268/2767 modules
+storybook:dev: <s> [webpack.Progress] 54% building 0/3 entries 8925/9000 dependencies 2367/2949 modules
+storybook:dev: <s> [webpack.Progress] 55% building 1/3 entries 9269/9395 dependencies 2493/3012 modules
+storybook:dev: <s> [webpack.Progress] 58% building 1/3 entries 9900/10048 dependencies 2822/3187 modules
+storybook:dev: <s> [webpack.Progress] 57% building 1/3 entries 10600/10657 dependencies 2993/3456 modules
+storybook:dev: <s> [webpack.Progress] 60% building 2/3 entries 10875/10971 dependencies 3213/3484 modules
+storybook:dev: <s> [webpack.Progress] 64% building 2/3 entries 11284/11300 dependencies 3588/3599 modules
 storybook:dev: <s> [webpack.Progress] 65% building 3/3 entries 11386/11386 dependencies 3630/3630 modules
 storybook:dev: <s> [webpack.Progress] 65% building
 storybook:dev: <s> [webpack.Progress] 69% building finish
@@ -731,7 +694,7 @@ storybook:dev:
 storybook:dev: ╭─────────────────────────────────────────────────────────────────────╮
 storybook:dev: │                                                                     │
 storybook:dev: │   [38;2;162;224;94mStorybook 9.1.10 for nextjs started[39m                               │
-storybook:dev: │   944 ms for manager and 30 s for preview                           │
+storybook:dev: │   1.12 s for manager and 28 s for preview                           │
 storybook:dev: │                                                                     │
 storybook:dev: │   Local:            http://localhost:6006/                          │
 storybook:dev: │   On your network:  http://192.168.1.43:6006/                       │
@@ -847,9 +810,8 @@ storybook:dev: <s> [webpack.Progress] 10% building 0/1 entries 0/0 dependencies 
 storybook:dev: <s> [webpack.Progress] 10% building import loader ../../node_modules/.pnpm/css-loader@6.11.0_webpack@5.98.0_esbuild@0.25.10_/node_modules/css-loader/dist/cjs.js
 storybook:dev: <s> [webpack.Progress] 10% building import loader ../../node_modules/.pnpm/postcss-loader@8.2.0_postcss@8.5.6_typescript@5.8.3_webpack@5.98.0_esbuild@0.25.10_/node_modules/postcss-loader/dist/cjs.js
 storybook:dev: <s> [webpack.Progress] 10% building 0/3 entries 40/40 dependencies 82/21 modules
-storybook:dev: <s> [webpack.Progress] 13% building 1/3 entries 188/200 dependencies 226/114 modules
-storybook:dev: <s> [webpack.Progress] 28% building 1/3 entries 279/281 dependencies 2500/122 modules
-storybook:dev: <s> [webpack.Progress] 46% building 2/3 entries 281/281 dependencies 3597/123 modules
+storybook:dev: <s> [webpack.Progress] 13% building 1/3 entries 189/201 dependencies 248/115 modules
+storybook:dev: <s> [webpack.Progress] 46% building 2/3 entries 281/281 dependencies 3568/123 modules
 storybook:dev: <s> [webpack.Progress] 64% building 3/3 entries 281/281 dependencies 3630/123 modules
 storybook:dev: <s> [webpack.Progress] 65% building
 storybook:dev: <s> [webpack.Progress] 69% building finish
@@ -974,7 +936,8 @@ storybook:dev: <s> [webpack.Progress] 99% cache begin idle
 storybook:dev: <s> [webpack.Progress] 99% cache begin idle
 storybook:dev: <s> [webpack.Progress] 100% 
 storybook:dev: 
-web:dev:  ✓ Compiled /[locale] in 12.6s
+web:dev:  ○ Compiling /[locale] ...
+web:dev:  ✓ Compiled /[locale] in 9.2s
 web:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.204.0_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
 web:dev: Package require-in-the-middle can't be external
 web:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
@@ -995,7 +958,7 @@ web:dev: For more details, visit https://vercel.com/docs/workflow-collaboration/
 web:dev: You are rendering the Vercel Toolbar in development, but the configuration is missing.
 web:dev: Make sure the plugin is added to the Next.js config and the project has been linked using `vercel link`.
 web:dev: For more details, visit https://vercel.com/docs/workflow-collaboration/vercel-toolbar/in-production-and-localhost/add-to-localhost
-web:dev:  POST / 200 in 14913ms
+web:dev:  POST / 200 in 11893ms
 web:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.204.0_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
 web:dev: Package require-in-the-middle can't be external
 web:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
@@ -1010,7 +973,7 @@ web:dev: The package resolves to a different version when requested from the pro
 web:dev: Make sure to install the same version of the package in both locations.
 web:dev: 
 web:dev: 
-web:dev:  POST / 200 in 465ms
+web:dev:  POST / 200 in 622ms
 web:dev: You are rendering the Vercel Toolbar in development, but the configuration is missing.
 web:dev: Make sure the plugin is added to the Next.js config and the project has been linked using `vercel link`.
 web:dev: For more details, visit https://vercel.com/docs/workflow-collaboration/vercel-toolbar/in-production-and-localhost/add-to-localhost
@@ -1028,25 +991,10 @@ web:dev: The package resolves to a different version when requested from the pro
 web:dev: Make sure to install the same version of the package in both locations.
 web:dev: 
 web:dev: 
-web:dev:  POST / 200 in 777ms
-web:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.204.0_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
-web:dev: Package require-in-the-middle can't be external
-web:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
-web:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
-web:dev: Make sure to install the same version of the package in both locations.
-web:dev: 
-web:dev: 
-web:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.57.2_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
-web:dev: Package require-in-the-middle can't be external
-web:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
-web:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
-web:dev: Make sure to install the same version of the package in both locations.
-web:dev: 
-web:dev: 
 web:dev: You are rendering the Vercel Toolbar in development, but the configuration is missing.
 web:dev: Make sure the plugin is added to the Next.js config and the project has been linked using `vercel link`.
 web:dev: For more details, visit https://vercel.com/docs/workflow-collaboration/vercel-toolbar/in-production-and-localhost/add-to-localhost
-web:dev:  POST / 200 in 460ms
+web:dev:  POST / 200 in 1289ms
 web:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.204.0_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
 web:dev: Package require-in-the-middle can't be external
 web:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
@@ -1061,205 +1009,7 @@ web:dev: The package resolves to a different version when requested from the pro
 web:dev: Make sure to install the same version of the package in both locations.
 web:dev: 
 web:dev: 
-web:dev:  POST / 200 in 679ms
-web:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.204.0_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
-web:dev: Package require-in-the-middle can't be external
-web:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
-web:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
-web:dev: Make sure to install the same version of the package in both locations.
-web:dev: 
-web:dev: 
-web:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.57.2_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
-web:dev: Package require-in-the-middle can't be external
-web:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
-web:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
-web:dev: Make sure to install the same version of the package in both locations.
-web:dev: 
-web:dev: 
-web:dev: You are rendering the Vercel Toolbar in development, but the configuration is missing.
-web:dev: Make sure the plugin is added to the Next.js config and the project has been linked using `vercel link`.
-web:dev: For more details, visit https://vercel.com/docs/workflow-collaboration/vercel-toolbar/in-production-and-localhost/add-to-localhost
-web:dev:  POST / 200 in 407ms
-web:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.204.0_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
-web:dev: Package require-in-the-middle can't be external
-web:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
-web:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
-web:dev: Make sure to install the same version of the package in both locations.
-web:dev: 
-web:dev: 
-web:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.57.2_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
-web:dev: Package require-in-the-middle can't be external
-web:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
-web:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
-web:dev: Make sure to install the same version of the package in both locations.
-web:dev: 
-web:dev: 
-web:dev: You are rendering the Vercel Toolbar in development, but the configuration is missing.
-web:dev: Make sure the plugin is added to the Next.js config and the project has been linked using `vercel link`.
-web:dev: For more details, visit https://vercel.com/docs/workflow-collaboration/vercel-toolbar/in-production-and-localhost/add-to-localhost
-web:dev: [NEMO] Middleware execution failed: {
-web:dev:   error: RangeError: Incorrect locale information provided
-web:dev:       at Intl.getCanonicalLocales (<anonymous>)
-web:dev:       at resolveLocaleFromRequest (../../packages/internationalization/middleware.ts:18:38)
-web:dev:       at internationalizationMiddleware (../../packages/internationalization/middleware.ts:25:3)
-web:dev:       at <unknown> (middleware.ts:65:36)
-web:dev:     16 |     const acceptedLanguages = negotiator.languages();
-web:dev:     17 |
-web:dev:   > 18 |     const matchedLocale = matchLocale(acceptedLanguages, locales, "en");
-web:dev:        |                                      ^
-web:dev:     19 |
-web:dev:     20 |     return matchedLocale;
-web:dev:     21 |   },,
-web:dev:   metadata: {
-web:dev:     chain: 'before',
-web:dev:     index: 0,
-web:dev:     pathname: '/logos/nexora-white.png',
-web:dev:     routeKey: 'global:before'
-web:dev:   }
-web:dev: }
-web:dev:  ⨯ [Error: Middleware execution failed [before chain at path /logos/nexora-white.png (matched by global:before), index 0]] {
-web:dev:   metadata: [Object],
-web:dev:   originalError: RangeError: Incorrect locale information provided
-web:dev:       at Intl.getCanonicalLocales (<anonymous>)
-web:dev:       at resolveLocaleFromRequest (../../packages/internationalization/middleware.ts:18:38)
-web:dev:       at internationalizationMiddleware (../../packages/internationalization/middleware.ts:25:3)
-web:dev:       at <unknown> (middleware.ts:65:36)
-web:dev:     16 |     const acceptedLanguages = negotiator.languages();
-web:dev:     17 |
-web:dev:   > 18 |     const matchedLocale = matchLocale(acceptedLanguages, locales, "en");
-web:dev:        |                                      ^
-web:dev:     19 |
-web:dev:     20 |     return matchedLocale;
-web:dev:     21 |   },
-web:dev: }
-web:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.204.0_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
-web:dev: Package require-in-the-middle can't be external
-web:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
-web:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
-web:dev: Make sure to install the same version of the package in both locations.
-web:dev: 
-web:dev: 
-web:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.57.2_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
-web:dev: Package require-in-the-middle can't be external
-web:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
-web:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
-web:dev: Make sure to install the same version of the package in both locations.
-web:dev: 
-web:dev: 
-web:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.204.0_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
-web:dev: Package require-in-the-middle can't be external
-web:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
-web:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
-web:dev: Make sure to install the same version of the package in both locations.
-web:dev: 
-web:dev: 
-web:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.57.2_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
-web:dev: Package require-in-the-middle can't be external
-web:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
-web:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
-web:dev: Make sure to install the same version of the package in both locations.
-web:dev: 
-web:dev: 
-web:dev:  GET / 200 in 2332ms
-web:dev:  ○ Compiling /_error ...
-web:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.204.0_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
-web:dev: Package require-in-the-middle can't be external
-web:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
-web:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
-web:dev: Make sure to install the same version of the package in both locations.
-web:dev: 
-web:dev: 
-web:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.57.2_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
-web:dev: Package require-in-the-middle can't be external
-web:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
-web:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
-web:dev: Make sure to install the same version of the package in both locations.
-web:dev: 
-web:dev: 
-web:dev:  POST / 200 in 380ms
-web:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.204.0_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
-web:dev: Package require-in-the-middle can't be external
-web:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
-web:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
-web:dev: Make sure to install the same version of the package in both locations.
-web:dev: 
-web:dev: 
-web:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.57.2_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
-web:dev: Package require-in-the-middle can't be external
-web:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
-web:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
-web:dev: Make sure to install the same version of the package in both locations.
-web:dev: 
-web:dev: 
-web:dev:  POST / 200 in 504ms
-web:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.204.0_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
-web:dev: Package require-in-the-middle can't be external
-web:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
-web:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
-web:dev: Make sure to install the same version of the package in both locations.
-web:dev: 
-web:dev: 
-web:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.57.2_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
-web:dev: Package require-in-the-middle can't be external
-web:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
-web:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
-web:dev: Make sure to install the same version of the package in both locations.
-web:dev: 
-web:dev: 
-web:dev: You are rendering the Vercel Toolbar in development, but the configuration is missing.
-web:dev: Make sure the plugin is added to the Next.js config and the project has been linked using `vercel link`.
-web:dev: For more details, visit https://vercel.com/docs/workflow-collaboration/vercel-toolbar/in-production-and-localhost/add-to-localhost
-web:dev:  POST / 200 in 892ms
-web:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.204.0_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
-web:dev: Package require-in-the-middle can't be external
-web:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
-web:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
-web:dev: Make sure to install the same version of the package in both locations.
-web:dev: 
-web:dev: 
-web:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.57.2_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
-web:dev: Package require-in-the-middle can't be external
-web:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
-web:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
-web:dev: Make sure to install the same version of the package in both locations.
-web:dev: 
-web:dev: 
-web:dev:  POST / 200 in 555ms
-web:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.204.0_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
-web:dev: Package require-in-the-middle can't be external
-web:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
-web:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
-web:dev: Make sure to install the same version of the package in both locations.
-web:dev: 
-web:dev: 
-web:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.57.2_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
-web:dev: Package require-in-the-middle can't be external
-web:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
-web:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
-web:dev: Make sure to install the same version of the package in both locations.
-web:dev: 
-web:dev: 
-web:dev: You are rendering the Vercel Toolbar in development, but the configuration is missing.
-web:dev: Make sure the plugin is added to the Next.js config and the project has been linked using `vercel link`.
-web:dev: For more details, visit https://vercel.com/docs/workflow-collaboration/vercel-toolbar/in-production-and-localhost/add-to-localhost
-web:dev:  GET / 200 in 624ms
-web:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.204.0_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
-web:dev: Package require-in-the-middle can't be external
-web:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
-web:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
-web:dev: Make sure to install the same version of the package in both locations.
-web:dev: 
-web:dev: 
-web:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.57.2_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
-web:dev: Package require-in-the-middle can't be external
-web:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
-web:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
-web:dev: Make sure to install the same version of the package in both locations.
-web:dev: 
-web:dev: 
-web:dev:  POST / 200 in 222ms
-web:dev:  ✓ Compiled /_error in 3.6s
-web:dev:  ⨯ The requested resource isn't a valid image for /logos/nexora-white.png received null
+web:dev:  POST / 200 in 643ms
 web:dev: You are rendering the Vercel Toolbar in development, but the configuration is missing.
 web:dev: Make sure the plugin is added to the Next.js config and the project has been linked using `vercel link`.
 web:dev: For more details, visit https://vercel.com/docs/workflow-collaboration/vercel-toolbar/in-production-and-localhost/add-to-localhost
@@ -1277,7 +1027,41 @@ web:dev: The package resolves to a different version when requested from the pro
 web:dev: Make sure to install the same version of the package in both locations.
 web:dev: 
 web:dev: 
-web:dev:  POST / 200 in 740ms
+web:dev: You are rendering the Vercel Toolbar in development, but the configuration is missing.
+web:dev: Make sure the plugin is added to the Next.js config and the project has been linked using `vercel link`.
+web:dev: For more details, visit https://vercel.com/docs/workflow-collaboration/vercel-toolbar/in-production-and-localhost/add-to-localhost
+app:dev:  ○ Compiling / ...
+web:dev:  GET / 200 in 3774ms
+web:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.204.0_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
+web:dev: Package require-in-the-middle can't be external
+web:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
+web:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
+web:dev: Make sure to install the same version of the package in both locations.
+web:dev: 
+web:dev: 
+web:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.57.2_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
+web:dev: Package require-in-the-middle can't be external
+web:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
+web:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
+web:dev: Make sure to install the same version of the package in both locations.
+web:dev: 
+web:dev: 
+web:dev:  POST / 200 in 326ms
+web:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.204.0_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
+web:dev: Package require-in-the-middle can't be external
+web:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
+web:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
+web:dev: Make sure to install the same version of the package in both locations.
+web:dev: 
+web:dev: 
+web:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.57.2_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
+web:dev: Package require-in-the-middle can't be external
+web:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
+web:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
+web:dev: Make sure to install the same version of the package in both locations.
+web:dev: 
+web:dev: 
+web:dev:  POST / 200 in 173ms
 web:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.204.0_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
 web:dev: Package require-in-the-middle can't be external
 web:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
@@ -1295,4 +1079,194 @@ web:dev:
 web:dev: You are rendering the Vercel Toolbar in development, but the configuration is missing.
 web:dev: Make sure the plugin is added to the Next.js config and the project has been linked using `vercel link`.
 web:dev: For more details, visit https://vercel.com/docs/workflow-collaboration/vercel-toolbar/in-production-and-localhost/add-to-localhost
-web:dev:  POST / 200 in 434ms
+web:dev:  POST / 200 in 1360ms
+web:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.204.0_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
+web:dev: Package require-in-the-middle can't be external
+web:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
+web:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
+web:dev: Make sure to install the same version of the package in both locations.
+web:dev: 
+web:dev: 
+web:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.57.2_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
+web:dev: Package require-in-the-middle can't be external
+web:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
+web:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
+web:dev: Make sure to install the same version of the package in both locations.
+web:dev: 
+web:dev: 
+web:dev:  POST / 200 in 876ms
+web:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.204.0_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
+web:dev: Package require-in-the-middle can't be external
+web:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
+web:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
+web:dev: Make sure to install the same version of the package in both locations.
+web:dev: 
+web:dev: 
+web:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.57.2_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
+web:dev: Package require-in-the-middle can't be external
+web:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
+web:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
+web:dev: Make sure to install the same version of the package in both locations.
+web:dev: 
+web:dev: 
+web:dev: You are rendering the Vercel Toolbar in development, but the configuration is missing.
+web:dev: Make sure the plugin is added to the Next.js config and the project has been linked using `vercel link`.
+web:dev: For more details, visit https://vercel.com/docs/workflow-collaboration/vercel-toolbar/in-production-and-localhost/add-to-localhost
+web:dev:  GET / 200 in 1538ms
+web:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.204.0_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
+web:dev: Package require-in-the-middle can't be external
+web:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
+web:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
+web:dev: Make sure to install the same version of the package in both locations.
+web:dev: 
+web:dev: 
+web:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.57.2_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
+web:dev: Package require-in-the-middle can't be external
+web:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
+web:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
+web:dev: Make sure to install the same version of the package in both locations.
+web:dev: 
+web:dev: 
+web:dev:  POST / 200 in 282ms
+web:dev: You are rendering the Vercel Toolbar in development, but the configuration is missing.
+web:dev: Make sure the plugin is added to the Next.js config and the project has been linked using `vercel link`.
+web:dev: For more details, visit https://vercel.com/docs/workflow-collaboration/vercel-toolbar/in-production-and-localhost/add-to-localhost
+web:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.204.0_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
+web:dev: Package require-in-the-middle can't be external
+web:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
+web:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
+web:dev: Make sure to install the same version of the package in both locations.
+web:dev: 
+web:dev: 
+web:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.57.2_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
+web:dev: Package require-in-the-middle can't be external
+web:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
+web:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
+web:dev: Make sure to install the same version of the package in both locations.
+web:dev: 
+web:dev: 
+web:dev: You are rendering the Vercel Toolbar in development, but the configuration is missing.
+web:dev: Make sure the plugin is added to the Next.js config and the project has been linked using `vercel link`.
+web:dev: For more details, visit https://vercel.com/docs/workflow-collaboration/vercel-toolbar/in-production-and-localhost/add-to-localhost
+app:dev:  ✓ Compiled / in 13.4s
+app:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.204.0_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
+app:dev: Package require-in-the-middle can't be external
+app:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
+app:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
+app:dev: Make sure to install the same version of the package in both locations.
+app:dev: 
+app:dev: 
+app:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.57.2_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
+app:dev: Package require-in-the-middle can't be external
+app:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
+app:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
+app:dev: Make sure to install the same version of the package in both locations.
+app:dev: 
+app:dev: 
+app:dev: You are rendering the Vercel Toolbar in development, but the configuration is missing.
+app:dev: Make sure the plugin is added to the Next.js config and the project has been linked using `vercel link`.
+app:dev: For more details, visit https://vercel.com/docs/workflow-collaboration/vercel-toolbar/in-production-and-localhost/add-to-localhost
+app:dev: ✦Aj WARN Arcjet will use 127.0.0.1 when missing public IP address in development mode
+app:dev:  ⨯ TypeError: Cannot read properties of undefined (reading 'findMany')
+app:dev:     at App (app/(authenticated)/page.tsx:26:37)
+app:dev:   24 |
+app:dev:   25 | const App = async () => {
+app:dev: > 26 |   const pages = await database.page.findMany();
+app:dev:      |                                     ^
+app:dev:   27 |   const { orgId } = await auth();
+app:dev:   28 |
+app:dev:   29 |   if (!orgId) { {
+app:dev:   digest: '3786895549'
+app:dev: }
+web:dev:  POST / 200 in 10919ms
+web:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.204.0_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
+web:dev: Package require-in-the-middle can't be external
+web:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
+web:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
+web:dev: Make sure to install the same version of the package in both locations.
+web:dev: 
+web:dev: 
+web:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.57.2_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
+web:dev: Package require-in-the-middle can't be external
+web:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
+web:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
+web:dev: Make sure to install the same version of the package in both locations.
+web:dev: 
+web:dev: 
+web:dev: You are rendering the Vercel Toolbar in development, but the configuration is missing.
+web:dev: Make sure the plugin is added to the Next.js config and the project has been linked using `vercel link`.
+web:dev: For more details, visit https://vercel.com/docs/workflow-collaboration/vercel-toolbar/in-production-and-localhost/add-to-localhost
+web:dev:  POST / 200 in 3322ms
+app:dev:  GET / 500 in 27865ms
+app:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.204.0_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
+app:dev: Package require-in-the-middle can't be external
+app:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
+app:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
+app:dev: Make sure to install the same version of the package in both locations.
+app:dev: 
+app:dev: 
+app:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.57.2_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
+app:dev: Package require-in-the-middle can't be external
+app:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
+app:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
+app:dev: Make sure to install the same version of the package in both locations.
+app:dev: 
+app:dev: 
+api:dev: [stripe] exceeded max attempts
+api:dev: [stripe] npm run stripe exited with code 1
+web:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.204.0_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
+web:dev: Package require-in-the-middle can't be external
+web:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
+web:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
+web:dev: Make sure to install the same version of the package in both locations.
+web:dev: 
+web:dev: 
+web:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.57.2_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
+web:dev: Package require-in-the-middle can't be external
+web:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
+web:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
+web:dev: Make sure to install the same version of the package in both locations.
+web:dev: 
+web:dev: 
+web:dev:  POST / 200 in 762ms
+web:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.204.0_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
+web:dev: Package require-in-the-middle can't be external
+web:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
+web:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
+web:dev: Make sure to install the same version of the package in both locations.
+web:dev: 
+web:dev: 
+web:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.57.2_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
+web:dev: Package require-in-the-middle can't be external
+web:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
+web:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
+web:dev: Make sure to install the same version of the package in both locations.
+web:dev: 
+web:dev: 
+web:dev: You are rendering the Vercel Toolbar in development, but the configuration is missing.
+web:dev: Make sure the plugin is added to the Next.js config and the project has been linked using `vercel link`.
+web:dev: For more details, visit https://vercel.com/docs/workflow-collaboration/vercel-toolbar/in-production-and-localhost/add-to-localhost
+web:dev:  POST / 200 in 462ms
+app:dev:  ✓ Compiled in 915ms
+app:dev: [33mwarn[0m - Envvars not detected. If this is production please see https://betterstack.com/docs/logs/javascript/nextjs/ for help
+app:dev: [33mwarn[0m - Sending Web Vitals to /dev/null
+app:dev: [33mwarn[0m - Sending logs to console
+app:dev:  ○ Compiling / ...
+app:dev:  ✓ Compiled / in 591ms
+app:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.204.0_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
+app:dev: Package require-in-the-middle can't be external
+app:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
+app:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
+app:dev: Make sure to install the same version of the package in both locations.
+app:dev: 
+app:dev: 
+app:dev:  ⚠ ./node_modules/.pnpm/@opentelemetry+instrumentation@0.57.2_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node
+app:dev: Package require-in-the-middle can't be external
+app:dev: The request require-in-the-middle matches serverExternalPackages (or the default list).
+app:dev: The package resolves to a different version when requested from the project directory (8.0.0) compared to the package requested from the importing module (7.5.2).
+app:dev: Make sure to install the same version of the package in both locations.
+app:dev: 
+app:dev: 
+app:dev: You are rendering the Vercel Toolbar in development, but the configuration is missing.
+app:dev: Make sure the plugin is added to the Next.js config and the project has been linked using `vercel link`.
+app:dev: For more details, visit https://vercel.com/docs/workflow-collaboration/vercel-toolbar/in-production-and-localhost/add-to-localhost
