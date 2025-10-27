@@ -3,7 +3,10 @@ import { withToolbar } from "@repo/feature-flags/lib/toolbar";
 import { config, withAnalyzer } from "@repo/next-config";
 import { withLogging, withSentry } from "@repo/observability/next-config";
 import type { NextConfig } from "next";
-import { env } from "@/env";
+
+// *** Temporary change: avoid importing "@/env" in next.config
+// *** to prevent strict URL validation from running during config
+// *** evaluation on Vercel. Use process.env directly here.
 
 let nextConfig: NextConfig = withToolbar(withLogging(config));
 
@@ -23,12 +26,12 @@ if (process.env.NODE_ENV === "production") {
 
   nextConfig.redirects = redirects;
 }
-
-if (env.VERCEL) {
+// *** Use process.env to avoid early env validation at config load
+if (process.env.VERCEL) {
   nextConfig = withSentry(nextConfig);
 }
 
-if (env.ANALYZE === "true") {
+if (process.env.ANALYZE === "true") {
   nextConfig = withAnalyzer(nextConfig);
 }
 

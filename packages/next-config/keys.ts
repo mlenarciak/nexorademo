@@ -1,6 +1,18 @@
 import { createEnv } from "@t3-oss/env-nextjs";
 import { z } from "zod";
 
+// *** Temporary helpers to normalize URL env vars and provide sane fallbacks
+// *** This is to unblock Vercel builds where values may be missing quotes,
+// *** have whitespace, or rely on VERCEL_URL (which lacks a scheme).
+// *** Revisit once domains are finalized and env management is stable.
+const normalize = (v?: string) => v?.trim().replace(/^['"]|['"]$/g, "");
+const withHttps = (v?: string) => {
+  const s = normalize(v);
+  if (!s) return undefined;
+  if (s.startsWith("http://") || s.startsWith("https://")) return s;
+  return `https://${s}`;
+};
+
 export const keys = () =>
   createEnv({
     server: {
@@ -30,9 +42,13 @@ export const keys = () =>
       VERCEL_URL: process.env.VERCEL_URL,
       VERCEL_REGION: process.env.VERCEL_REGION,
       VERCEL_PROJECT_PRODUCTION_URL: process.env.VERCEL_PROJECT_PRODUCTION_URL,
-      NEXT_PUBLIC_APP_URL: process.env.NEXT_PUBLIC_APP_URL,
-      NEXT_PUBLIC_WEB_URL: process.env.NEXT_PUBLIC_WEB_URL,
-      NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL,
-      NEXT_PUBLIC_DOCS_URL: process.env.NEXT_PUBLIC_DOCS_URL,
+      // *** Fallbacks added to avoid failing builds when public URLs are unset
+      // *** or provided without scheme (using VERCEL_URL domain).
+      NEXT_PUBLIC_APP_URL:
+        withHttps(process.env.NEXT_PUBLIC_APP_URL) ?? withHttps(process.env.VERCEL_URL),
+      NEXT_PUBLIC_WEB_URL:
+        withHttps(process.env.NEXT_PUBLIC_WEB_URL) ?? withHttps(process.env.VERCEL_URL),
+      NEXT_PUBLIC_API_URL: withHttps(process.env.NEXT_PUBLIC_API_URL),
+      NEXT_PUBLIC_DOCS_URL: withHttps(process.env.NEXT_PUBLIC_DOCS_URL),
     },
   });
