@@ -135,6 +135,12 @@
         "secondary": "Book a demo"
       }
     },
+    "blog": {
+      "meta": {
+        "title": "Blog",
+        "description": "Thoughts, ideas, and updates."
+      }
+    },
     "pricing": {
       "meta": {
         "title": "Pricing",
