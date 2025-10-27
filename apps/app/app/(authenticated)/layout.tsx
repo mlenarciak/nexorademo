@@ -19,7 +19,7 @@ const AppLayout = async ({ children }: AppLayoutProperties) => {
   }
 
   const betaFeature = await showBetaFeature();
-  
+
   // Try to get user, but don't require it for development
   let user: ClerkUser = null;
   try {
