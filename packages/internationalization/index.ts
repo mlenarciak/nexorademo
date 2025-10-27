@@ -1,6 +1,8 @@
 import "server-only";
-import type en from "./dictionaries/en.json" with { type: "json" };
-import languine from "./languine.json" with { type: "json" };
+// *** Avoid type-only import with attributes: TS disallows attributes on type-only imports
+// *** Import as value instead; we only use it to derive the Dictionary type.
+import en from "./dictionaries/en.json";
+import languine from "./languine.json";
 
 export const locales = [
   languine.locale.source,
