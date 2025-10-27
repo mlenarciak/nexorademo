@@ -64,7 +64,9 @@ export const Testimonials = ({ dictionary }: TestimonialsProps) => {
                       </Avatar>
                       <div>
                         <p className="font-semibold">{item.author}</p>
-                        <p className="text-muted-foreground text-sm">{item.role}</p>
+                        <p className="text-muted-foreground text-sm">
+                          {item.role}
+                        </p>
                       </div>
                     </div>
                   </div>

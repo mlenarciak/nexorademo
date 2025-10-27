@@ -22,7 +22,8 @@ export const CTA = ({ dictionary }: CTAProps) => (
           <div className="mt-6 flex flex-row gap-4">
             <Button asChild className="gap-2" size="lg">
               <Link href={`${env.NEXT_PUBLIC_APP_URL}/sign-up`}>
-                {dictionary.web.home.cta.primary} <MoveRight className="h-4 w-4" />
+                {dictionary.web.home.cta.primary}{" "}
+                <MoveRight className="h-4 w-4" />
               </Link>
             </Button>
             <Button asChild className="gap-2" size="lg" variant="outline">
@@ -32,15 +33,11 @@ export const CTA = ({ dictionary }: CTAProps) => (
 
           {/* Trust Badges */}
           <div className="mt-8 flex flex-wrap items-center justify-center gap-6 text-muted-foreground text-sm">
-            <div className="flex items-center gap-2">
-              ✓ Free 14-day trial
-            </div>
+            <div className="flex items-center gap-2">✓ Free 14-day trial</div>
             <div className="flex items-center gap-2">
               ✓ No credit card required
             </div>
-            <div className="flex items-center gap-2">
-              ✓ Cancel anytime
-            </div>
+            <div className="flex items-center gap-2">✓ Cancel anytime</div>
           </div>
         </div>
       </div>

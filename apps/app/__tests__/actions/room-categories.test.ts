@@ -3,8 +3,6 @@ import {
   createRoomCategory,
   deleteRoomCategory,
   getRoomCategories,
-  getRoomCategory,
-  updateRoomCategory,
 } from "../../app/actions/room-categories";
 
 describe("Room Category Actions", () => {

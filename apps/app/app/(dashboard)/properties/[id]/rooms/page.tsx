@@ -1,5 +1,3 @@
-import { getRoomCategories } from "@/app/actions/room-categories";
-import { getRooms } from "@/app/actions/rooms";
 import { RoomCard } from "@repo/design-system/components/room";
 import { Badge } from "@repo/design-system/components/ui/badge";
 import { Button } from "@repo/design-system/components/ui/button";
@@ -16,10 +14,17 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@repo/design-system/components/ui/select";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@repo/design-system/components/ui/tabs";
+import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from "@repo/design-system/components/ui/tabs";
 import { Bed, Plus } from "lucide-react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { getRoomCategories } from "@/app/actions/room-categories";
+import { getRooms } from "@/app/actions/rooms";
 
 export default async function RoomsPage({
   params,
@@ -50,7 +55,9 @@ export default async function RoomsPage({
   }
 
   if (searchParams.status) {
-    filteredRooms = filteredRooms.filter((r) => r.status === searchParams.status);
+    filteredRooms = filteredRooms.filter(
+      (r) => r.status === searchParams.status
+    );
   }
 
   // Group by category
@@ -95,7 +102,7 @@ export default async function RoomsPage({
       <div className="grid grid-cols-4 gap-4">
         <Card>
           <CardHeader className="pb-3">
-            <CardTitle className="text-sm font-medium">Total Rooms</CardTitle>
+            <CardTitle className="font-medium text-sm">Total Rooms</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="font-bold text-2xl">{totalRooms}</div>
@@ -104,7 +111,7 @@ export default async function RoomsPage({
 
         <Card>
           <CardHeader className="pb-3">
-            <CardTitle className="text-sm font-medium">Available</CardTitle>
+            <CardTitle className="font-medium text-sm">Available</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="font-bold text-2xl text-green-600">
@@ -115,7 +122,7 @@ export default async function RoomsPage({
 
         <Card>
           <CardHeader className="pb-3">
-            <CardTitle className="text-sm font-medium">Maintenance</CardTitle>
+            <CardTitle className="font-medium text-sm">Maintenance</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="font-bold text-2xl text-amber-600">
@@ -126,7 +133,7 @@ export default async function RoomsPage({
 
         <Card>
           <CardHeader className="pb-3">
-            <CardTitle className="text-sm font-medium">Categories</CardTitle>
+            <CardTitle className="font-medium text-sm">Categories</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="font-bold text-2xl">{categories.length}</div>
@@ -182,7 +189,9 @@ export default async function RoomsPage({
                     style={{ backgroundColor: category.color }}
                   />
                   <h2 className="font-semibold text-xl">{category.name}</h2>
-                  <Badge variant="secondary">{categoryRooms.length} rooms</Badge>
+                  <Badge variant="secondary">
+                    {categoryRooms.length} rooms
+                  </Badge>
                 </div>
                 <Link
                   href={`/properties/${params.id}/rooms/categories/${category.id}/rooms/new`}
@@ -227,4 +236,3 @@ export async function generateMetadata({ params }: { params: { id: string } }) {
     description: "Manage rooms and categories",
   };
 }
-

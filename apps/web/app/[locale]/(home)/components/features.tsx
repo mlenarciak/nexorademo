@@ -1,5 +1,5 @@
 import type { Dictionary } from "@repo/internationalization";
-import { Building2, Bed, Zap, Link2, FileText, BarChart3 } from "lucide-react";
+import { BarChart3, Bed, Building2, FileText, Link2, Zap } from "lucide-react";
 
 type FeaturesProps = {
   dictionary: Dictionary;
@@ -27,7 +27,7 @@ export const Features = ({ dictionary }: FeaturesProps) => {
           {/* Feature Grid - Bento Box Style */}
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {/* Feature 1 - Large */}
-            <div className="flex aspect-square h-full flex-col justify-between rounded-lg bg-gradient-to-br from-blue-50 to-indigo-50 p-8 dark:from-blue-950 dark:to-indigo-950 lg:col-span-2 lg:aspect-auto">
+            <div className="flex aspect-square h-full flex-col justify-between rounded-lg bg-gradient-to-br from-blue-50 to-indigo-50 p-8 lg:col-span-2 lg:aspect-auto dark:from-blue-950 dark:to-indigo-950">
               {features[0] && (
                 <>
                   <Building2 className="h-10 w-10 text-blue-600" />
@@ -78,7 +78,7 @@ export const Features = ({ dictionary }: FeaturesProps) => {
             </div>
 
             {/* Feature 4 - Large */}
-            <div className="flex aspect-square h-full flex-col justify-between rounded-lg bg-gradient-to-br from-violet-50 to-purple-50 p-8 dark:from-violet-950 dark:to-purple-950 lg:col-span-2 lg:aspect-auto">
+            <div className="flex aspect-square h-full flex-col justify-between rounded-lg bg-gradient-to-br from-violet-50 to-purple-50 p-8 lg:col-span-2 lg:aspect-auto dark:from-violet-950 dark:to-purple-950">
               {features[3] && (
                 <>
                   <Link2 className="h-10 w-10 text-violet-600" />

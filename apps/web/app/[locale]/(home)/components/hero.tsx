@@ -1,9 +1,9 @@
-import { Button } from "@repo/design-system/components/ui/button";
 import { Badge } from "@repo/design-system/components/ui/badge";
+import { Button } from "@repo/design-system/components/ui/button";
 import type { Dictionary } from "@repo/internationalization";
 import { MoveRight, Sparkles } from "lucide-react";
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
 import { env } from "@/env";
 
 type HeroProps = {
@@ -39,10 +39,13 @@ export const Hero = async ({ dictionary }: HeroProps) => (
         {/* Problem Statement - YC Style */}
         <div className="mx-auto max-w-3xl rounded-lg border bg-muted/50 p-6 text-center">
           <p className="font-semibold text-lg">
-            <span className="text-red-600">Problem:</span> Scidoo and legacy PMS systems are slow, expensive, and built for the 2010s.
+            <span className="text-red-600">Problem:</span> Scidoo and legacy PMS
+            systems are slow, expensive, and built for the 2010s.
           </p>
           <p className="mt-2 text-muted-foreground">
-            <span className="font-semibold text-green-600">Solution:</span> Nexora is a modern, cloud-native PMS that's 10x faster, actually affordable, and built for today's hospitality needs.
+            <span className="font-semibold text-green-600">Solution:</span>{" "}
+            Nexora is a modern, cloud-native PMS that's 10x faster, actually
+            affordable, and built for today's hospitality needs.
           </p>
         </div>
 
@@ -50,19 +53,20 @@ export const Hero = async ({ dictionary }: HeroProps) => (
         <div className="flex flex-row gap-3">
           <Button asChild className="gap-2" size="lg">
             <Link href={env.NEXT_PUBLIC_APP_URL}>
-              {dictionary.web.global.secondaryCta} <MoveRight className="h-4 w-4" />
+              {dictionary.web.global.secondaryCta}{" "}
+              <MoveRight className="h-4 w-4" />
             </Link>
           </Button>
           <Button asChild className="gap-2" size="lg" variant="outline">
-            <Link href="/contact">
-              {dictionary.web.global.primaryCta}
-            </Link>
+            <Link href="/contact">{dictionary.web.global.primaryCta}</Link>
           </Button>
         </div>
 
         {/* Trust Indicators */}
         <div className="mt-8 flex flex-col items-center gap-4">
-          <p className="text-muted-foreground text-sm">Trusted by property managers across Italy and Brazil</p>
+          <p className="text-muted-foreground text-sm">
+            Trusted by property managers across Italy and Brazil
+          </p>
           <div className="flex gap-4 text-muted-foreground text-xs">
             <div className="flex items-center gap-2">
               <div className="h-2 w-2 rounded-full bg-green-500" />

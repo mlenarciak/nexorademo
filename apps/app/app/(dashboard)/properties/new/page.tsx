@@ -13,7 +13,7 @@ export default function NewPropertyPage() {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleSubmit = async (data: any) => {
+  const handleSubmit = async (data: Record<string, unknown>) => {
     setIsLoading(true);
 
     try {
@@ -25,9 +25,8 @@ export default function NewPropertyPage() {
       } else {
         toast.error(result.error || "Failed to create property");
       }
-    } catch (error) {
+    } catch {
       toast.error("An unexpected error occurred");
-      console.error(error);
     } finally {
       setIsLoading(false);
     }
@@ -54,4 +53,3 @@ export default function NewPropertyPage() {
     </div>
   );
 }
-

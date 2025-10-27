@@ -7,7 +7,7 @@ import {
   CarouselItem,
 } from "@repo/design-system/components/ui/carousel";
 import type { Dictionary } from "@repo/internationalization";
-import { Hotel, Building2, TreePine, Home, Mountain } from "lucide-react";
+import { Building2, Home, Hotel, Mountain, TreePine } from "lucide-react";
 import { useEffect, useState } from "react";
 
 type CasesProps = {
@@ -64,7 +64,9 @@ export const Cases = ({ dictionary }: CasesProps) => {
                       <Icon className="h-12 w-12 text-primary" />
                       <div className="text-center">
                         <p className="font-semibold">{type.name}</p>
-                        <p className="text-muted-foreground text-xs">{type.count}</p>
+                        <p className="text-muted-foreground text-xs">
+                          {type.count}
+                        </p>
                       </div>
                     </div>
                   </CarouselItem>

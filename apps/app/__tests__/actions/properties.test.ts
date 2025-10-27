@@ -3,7 +3,6 @@ import {
   createProperty,
   deleteProperty,
   getProperties,
-  getProperty,
   updateProperty,
 } from "../../app/actions/properties";
 

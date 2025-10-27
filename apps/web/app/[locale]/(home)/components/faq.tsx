@@ -23,7 +23,7 @@ export const FAQ = ({ dictionary }: FAQProps) => (
             <h2 className="max-w-xl font-bold text-3xl tracking-tight md:text-5xl">
               {dictionary.web.home.faq.title}
             </h2>
-            <p className="max-w-lg text-muted-foreground text-lg leading-relaxed">
+            <p className="max-w-lg text-lg text-muted-foreground leading-relaxed">
               Common questions about Nexora. Can't find what you're looking for?
             </p>
           </div>

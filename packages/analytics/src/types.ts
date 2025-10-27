@@ -32,4 +32,3 @@ export interface MetabaseEmbedUrlResult {
   url: string;
   expiresAt: number;
 }
-

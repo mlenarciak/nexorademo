@@ -1,6 +1,6 @@
-'use client'
+"use client";
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 
 export interface MetabaseDashboardProps {
   dashboardId: number;
@@ -13,14 +13,14 @@ export interface MetabaseDashboardProps {
 
 /**
  * Embedded Metabase Dashboard Component
- * 
+ *
  * Securely embeds a Metabase dashboard with JWT-signed URLs
  * Automatically handles organization context and parameter passing
- * 
+ *
  * @example
  * ```tsx
- * <MetabaseDashboard 
- *   dashboardId={1} 
+ * <MetabaseDashboard
+ *   dashboardId={1}
  *   params={{ property_id: '123' }}
  *   height="800px"
  * />
@@ -29,12 +29,12 @@ export interface MetabaseDashboardProps {
 export function MetabaseDashboard({
   dashboardId,
   params,
-  height = '800px',
-  className = '',
+  height = "800px",
+  className = "",
   onLoad,
   onError,
 }: MetabaseDashboardProps) {
-  const [embedUrl, setEmbedUrl] = useState<string>('');
+  const [embedUrl, setEmbedUrl] = useState<string>("");
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<Error | null>(null);
 
@@ -44,25 +44,25 @@ export function MetabaseDashboard({
         setIsLoading(true);
         setError(null);
 
-        const response = await fetch('/api/analytics/embed-url', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
+        const response = await fetch("/api/analytics/embed-url", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
-            type: 'dashboard',
+            type: "dashboard",
             id: dashboardId,
             params,
           }),
         });
 
         if (!response.ok) {
-          throw new Error('Failed to generate embed URL');
+          throw new Error("Failed to generate embed URL");
         }
 
         const data = await response.json();
         setEmbedUrl(data.url);
         setIsLoading(false);
       } catch (err) {
-        const error = err instanceof Error ? err : new Error('Unknown error');
+        const error = err instanceof Error ? err : new Error("Unknown error");
         setError(error);
         setIsLoading(false);
         onError?.(error);
@@ -82,10 +82,13 @@ export function MetabaseDashboard({
 
   if (error) {
     return (
-      <div className={`flex items-center justify-center ${className}`} style={{ height }}>
+      <div
+        className={`flex items-center justify-center ${className}`}
+        style={{ height }}
+      >
         <div className="text-center">
-          <p className="text-red-600 font-semibold">Failed to load dashboard</p>
-          <p className="text-gray-500 text-sm mt-2">{error.message}</p>
+          <p className="font-semibold text-red-600">Failed to load dashboard</p>
+          <p className="mt-2 text-gray-500 text-sm">{error.message}</p>
         </div>
       </div>
     );
@@ -93,10 +96,13 @@ export function MetabaseDashboard({
 
   if (isLoading || !embedUrl) {
     return (
-      <div className={`flex items-center justify-center ${className}`} style={{ height }}>
+      <div
+        className={`flex items-center justify-center ${className}`}
+        style={{ height }}
+      >
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
-          <p className="text-gray-500 mt-4">Loading dashboard...</p>
+          <div className="mx-auto h-12 w-12 animate-spin rounded-full border-blue-600 border-b-2" />
+          <p className="mt-4 text-gray-500">Loading dashboard...</p>
         </div>
       </div>
     );
@@ -104,14 +110,13 @@ export function MetabaseDashboard({
 
   return (
     <iframe
-      src={embedUrl}
-      frameBorder="0"
-      width="100%"
-      height={height}
       allowTransparency
       className={`rounded-lg border ${className}`}
+      frameBorder="0"
+      height={height}
+      src={embedUrl}
       title={`Metabase Dashboard ${dashboardId}`}
+      width="100%"
     />
   );
 }
-

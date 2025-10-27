@@ -1,4 +1,4 @@
-import { auth, currentUser } from "@repo/auth/server";
+import { currentUser } from "@repo/auth/server";
 import { SidebarProvider } from "@repo/design-system/components/ui/sidebar";
 import { showBetaFeature } from "@repo/feature-flags";
 import { secure } from "@repo/security";
@@ -11,19 +11,21 @@ type AppLayoutProperties = {
   readonly children: ReactNode;
 };
 
+type ClerkUser = Awaited<ReturnType<typeof currentUser>>;
+
 const AppLayout = async ({ children }: AppLayoutProperties) => {
   if (env.ARCJET_KEY) {
     await secure(["CATEGORY:PREVIEW"]);
   }
 
   const betaFeature = await showBetaFeature();
-
+  
   // Try to get user, but don't require it for development
-  let user;
+  let user: ClerkUser = null;
   try {
     user = await currentUser();
-  } catch (error) {
-    console.log("Clerk not configured or error getting user:", error);
+  } catch {
+    // Clerk not configured or error - allow development mode
   }
 
   return (

@@ -1,5 +1,5 @@
 import type { Dictionary } from "@repo/internationalization";
-import { Clock, Zap, Users, Globe } from "lucide-react";
+import { Clock, Globe, Users, Zap } from "lucide-react";
 
 type StatsProps = {
   dictionary: Dictionary;

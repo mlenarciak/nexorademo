@@ -1,15 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
-import { toast } from "sonner";
-import { getProperty, updateProperty, deleteProperty } from "@/app/actions/properties";
-import { getSeasons, createSeason, deleteSeason } from "@/app/actions/seasons";
-import { PropertyForm } from "@repo/design-system/components/property";
 import { SeasonManager } from "@repo/design-system/components/calendar";
-import { Button } from "@repo/design-system/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@repo/design-system/components/ui/card";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@repo/design-system/components/ui/tabs";
+import { PropertyForm } from "@repo/design-system/components/property";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -21,8 +13,31 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@repo/design-system/components/ui/alert-dialog";
+import { Button } from "@repo/design-system/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@repo/design-system/components/ui/card";
+import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from "@repo/design-system/components/ui/tabs";
 import { ArrowLeft, Trash2 } from "lucide-react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
+import { toast } from "sonner";
+import {
+  deleteProperty,
+  getProperty,
+  updateProperty,
+} from "@/app/actions/properties";
+import { createSeason, deleteSeason, getSeasons } from "@/app/actions/seasons";
 
 export default function PropertySettingsPage({
   params,
@@ -203,7 +218,9 @@ export default function PropertySettingsPage({
                 </AlertDialogTrigger>
                 <AlertDialogContent>
                   <AlertDialogHeader>
-                    <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+                    <AlertDialogTitle>
+                      Are you absolutely sure?
+                    </AlertDialogTitle>
                     <AlertDialogDescription>
                       This will permanently delete "{property.name}" and all
                       associated data including rooms, categories, and bookings.
@@ -225,4 +242,3 @@ export default function PropertySettingsPage({
     </div>
   );
 }
-
