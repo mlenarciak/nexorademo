@@ -187,6 +187,9 @@ importers:
       require-in-the-middle:
         specifier: ^8.0.0
         version: 8.0.0
+      sonner:
+        specifier: ^2.0.7
+        version: 2.0.7(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       zod:
         specifier: ^4.1.12
         version: 4.1.12
@@ -503,13 +506,13 @@ importers:
     dependencies:
       '@next/third-parties':
         specifier: ^15.5.4
-        version: 15.5.6(next@15.5.4(@opentelemetry/api@1.9.0)(react-dom@19.2.0(react@18.3.1))(react@18.3.1))(react@18.3.1)
+        version: 15.5.6(next@15.5.4(@opentelemetry/api@1.9.0)(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react@19.2.0)
       '@t3-oss/env-nextjs':
         specifier: ^0.13.8
         version: 0.13.8(arktype@2.1.20)(typescript@5.9.3)(zod@4.1.12)
       '@vercel/analytics':
         specifier: ^1.5.0
-        version: 1.5.0(next@15.5.4(@opentelemetry/api@1.9.0)(react-dom@19.2.0(react@18.3.1))(react@18.3.1))(react@18.3.1)
+        version: 1.5.0(next@15.5.4(@opentelemetry/api@1.9.0)(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react@19.2.0)
       jsonwebtoken:
         specifier: ^9.0.2
         version: 9.0.2
@@ -536,11 +539,11 @@ importers:
         specifier: ^20.11.5
         version: 20.19.23
       '@types/react':
-        specifier: ^18.2.48
-        version: 18.3.26
+        specifier: 19.2.1
+        version: 19.2.1
       react:
-        specifier: ^18.2.0
-        version: 18.3.1
+        specifier: 19.2.0
+        version: 19.2.0
       typescript:
         specifier: ^5.3.3
         version: 5.9.3
@@ -801,6 +804,9 @@ importers:
       '@types/react':
         specifier: ^19.2.1
         version: 19.2.1
+      next:
+        specifier: 15.5.4
+        version: 15.5.4(@opentelemetry/api@1.9.0)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       postcss:
         specifier: ^8.5.6
         version: 8.5.6
@@ -5152,9 +5158,6 @@ packages:
   '@types/prismjs@1.26.5':
     resolution: {integrity: sha512-AUZTa7hQ2KY5L7AmtSiqxlhWxb4ina0yd8hNbl4TWuqnv/pFP0nDMb3YrfSBf4hJVGLh2YEIBfKaBW/9UEl6IQ==}
 
-  '@types/prop-types@15.7.15':
-    resolution: {integrity: sha512-F6bEyamV9jKGAFBEmlQnesRPGOQqS2+Uwi0Em15xenOxHaf2hv6L8YCVn3rPdPJOiJfPiCnLIRyvwVaqMY3MIw==}
-
   '@types/react-dom@19.0.4':
     resolution: {integrity: sha512-4fSQ8vWFkg+TGhePfUzVmat3eC14TXYSsiiDSLI0dVLsrm9gZFABjPy/Qu6TKgl1tq1Bu1yDsuQgY3A3DOjCcg==}
     peerDependencies:
@@ -5164,9 +5167,6 @@ packages:
     resolution: {integrity: sha512-brtBs0MnE9SMx7px208g39lRmC5uHZs96caOJfTjFcYSLHNamvaSMfJNagChVNkup2SdtOxKX1FDBkRSJe1ZAg==}
     peerDependencies:
       '@types/react': ^19.2.0
-
-  '@types/react@18.3.26':
-    resolution: {integrity: sha512-RFA/bURkcKzx/X9oumPG9Vp3D3JUgus/d0b67KB0t5S/raciymilkOa66olh78MUI92QLbEJevO7rvqU/kjwKA==}
 
   '@types/react@19.0.10':
     resolution: {integrity: sha512-JuRQ9KXLEjaUNjTWpzuR231Z2WpIwczOkBEIvbHNCzQefFIT0L8IqE6NV6ULLyC1SI/i234JnDoMkfg+RjQj2g==}
@@ -5849,9 +5849,6 @@ packages:
   camelcase@6.3.0:
     resolution: {integrity: sha512-Gmy6FhYlCY7uOElZUSbxo2UCDH8owEk996gkbrpsgGtrJLM3J7jGxl9Ic7Qwwj4ivOE5AWZWRMecDdF7hqGjFA==}
     engines: {node: '>=10'}
-
-  caniuse-lite@1.0.30001702:
-    resolution: {integrity: sha512-LoPe/D7zioC0REI5W73PeR1e1MLCipRGq/VkovJnd6Df+QVqT+vT33OXCp8QUd7kA7RZrHWxb1B36OQKI/0gOA==}
 
   caniuse-lite@1.0.30001750:
     resolution: {integrity: sha512-cuom0g5sdX6rw00qOoLNSFCJ9/mYIsuSOA+yzpDw8eopiFqcVwQvZHqov0vmEighRxX++cfC0Vg1G+1Iy/mSpQ==}
@@ -9445,10 +9442,6 @@ packages:
       react: '>=16.6.0'
       react-dom: '>=16.6.0'
 
-  react@18.3.1:
-    resolution: {integrity: sha512-wS+hAgJShR0KhEvPJArfuPVN1+Hz1t0Y6n5jLrGQbkb4urgPE/0Rve+1kMB1v/oWgHgm4WIcV+i7F2pTVj+2iQ==}
-    engines: {node: '>=0.10.0'}
-
   react@19.0.0:
     resolution: {integrity: sha512-V8AVnmPIICiWpGfm6GLzCR/W5FXLchHop40W4nXBmdlEceh16rCN8O8LNWm5bh5XUX91fh7KpA+W0TgMKmgTpQ==}
     engines: {node: '>=0.10.0'}
@@ -12995,10 +12988,10 @@ snapshots:
   '@next/swc-win32-x64-msvc@15.5.4':
     optional: true
 
-  '@next/third-parties@15.5.6(next@15.5.4(@opentelemetry/api@1.9.0)(react-dom@19.2.0(react@18.3.1))(react@18.3.1))(react@18.3.1)':
+  '@next/third-parties@15.5.6(next@15.5.4(@opentelemetry/api@1.9.0)(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react@19.2.0)':
     dependencies:
-      next: 15.5.4(@opentelemetry/api@1.9.0)(react-dom@19.2.0(react@18.3.1))(react@18.3.1)
-      react: 18.3.1
+      next: 15.5.4(@opentelemetry/api@1.9.0)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
+      react: 19.2.0
       third-party-capital: 1.0.20
 
   '@nodelib/fs.scandir@2.1.5':
@@ -15223,7 +15216,7 @@ snapshots:
       magic-string: 0.30.19
       storybook: 9.1.10(@testing-library/dom@10.4.1)(bufferutil@4.0.9)(prettier@3.5.3)(vite@6.2.4(@types/node@24.7.0)(jiti@2.6.1)(lightningcss@1.30.1)(terser@5.39.0)(tsx@4.20.6)(yaml@2.7.0))
       style-loader: 3.3.4(webpack@5.98.0(esbuild@0.25.10))
-      terser-webpack-plugin: 5.3.13(esbuild@0.25.10)(webpack@5.98.0(esbuild@0.25.10))
+      terser-webpack-plugin: 5.3.13(esbuild@0.25.10)(webpack@5.98.0(esbuild@0.25.2))
       ts-dedent: 2.2.0
       webpack: 5.98.0(esbuild@0.25.10)
       webpack-dev-middleware: 6.1.3(webpack@5.98.0(esbuild@0.25.10))
@@ -15985,8 +15978,6 @@ snapshots:
 
   '@types/prismjs@1.26.5': {}
 
-  '@types/prop-types@15.7.15': {}
-
   '@types/react-dom@19.0.4(@types/react@19.0.10)':
     dependencies:
       '@types/react': 19.0.10
@@ -15994,11 +15985,6 @@ snapshots:
   '@types/react-dom@19.2.0(@types/react@19.2.1)':
     dependencies:
       '@types/react': 19.2.1
-
-  '@types/react@18.3.26':
-    dependencies:
-      '@types/prop-types': 15.7.15
-      csstype: 3.1.3
 
   '@types/react@19.0.10':
     dependencies:
@@ -16062,16 +16048,10 @@ snapshots:
     dependencies:
       uncrypto: 0.1.3
 
-  '@vercel/analytics@1.5.0(next@15.5.4(@opentelemetry/api@1.9.0)(react-dom@19.2.0(react@18.3.1))(react@18.3.1))(react@18.3.1)':
-    optionalDependencies:
-      next: 15.5.4(@opentelemetry/api@1.9.0)(react-dom@19.2.0(react@18.3.1))(react@18.3.1)
-      react: 18.3.1
-
   '@vercel/analytics@1.5.0(next@15.5.4(@opentelemetry/api@1.9.0)(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react@19.2.0)':
     optionalDependencies:
       next: 15.5.4(@opentelemetry/api@1.9.0)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       react: 19.2.0
-    optional: true
 
   '@vercel/blob@2.0.0':
     dependencies:
@@ -16510,7 +16490,7 @@ snapshots:
   autoprefixer@10.4.21(postcss@8.5.6):
     dependencies:
       browserslist: 4.24.4
-      caniuse-lite: 1.0.30001702
+      caniuse-lite: 1.0.30001750
       fraction.js: 4.3.7
       normalize-range: 0.1.2
       picocolors: 1.1.1
@@ -16713,7 +16693,7 @@ snapshots:
 
   browserslist@4.24.4:
     dependencies:
-      caniuse-lite: 1.0.30001702
+      caniuse-lite: 1.0.30001750
       electron-to-chromium: 1.5.112
       node-releases: 2.0.19
       update-browserslist-db: 1.1.3(browserslist@4.24.4)
@@ -16804,8 +16784,6 @@ snapshots:
   camelcase-css@2.0.1: {}
 
   camelcase@6.3.0: {}
-
-  caniuse-lite@1.0.30001702: {}
 
   caniuse-lite@1.0.30001750: {}
 
@@ -19923,7 +19901,7 @@ snapshots:
     dependencies:
       '@next/env': 15.5.2
       '@swc/helpers': 0.5.15
-      caniuse-lite: 1.0.30001702
+      caniuse-lite: 1.0.30001750
       postcss: 8.4.31
       react: 19.0.0
       react-dom: 19.0.0(react@19.0.0)
@@ -19947,7 +19925,7 @@ snapshots:
     dependencies:
       '@next/env': 15.5.4
       '@swc/helpers': 0.5.15
-      caniuse-lite: 1.0.30001702
+      caniuse-lite: 1.0.30001750
       postcss: 8.4.31
       react: 19.2.0
       react-dom: 19.2.0(react@19.2.0)
@@ -19971,7 +19949,7 @@ snapshots:
     dependencies:
       '@next/env': 15.5.4
       '@swc/helpers': 0.5.15
-      caniuse-lite: 1.0.30001702
+      caniuse-lite: 1.0.30001750
       postcss: 8.4.31
       react: 19.2.0
       react-dom: 19.2.0(react@19.2.0)
@@ -19991,35 +19969,11 @@ snapshots:
       - '@babel/core'
       - babel-plugin-macros
 
-  next@15.5.4(@opentelemetry/api@1.9.0)(react-dom@19.2.0(react@18.3.1))(react@18.3.1):
-    dependencies:
-      '@next/env': 15.5.4
-      '@swc/helpers': 0.5.15
-      caniuse-lite: 1.0.30001702
-      postcss: 8.4.31
-      react: 18.3.1
-      react-dom: 19.2.0(react@18.3.1)
-      styled-jsx: 5.1.6(react@18.3.1)
-    optionalDependencies:
-      '@next/swc-darwin-arm64': 15.5.4
-      '@next/swc-darwin-x64': 15.5.4
-      '@next/swc-linux-arm64-gnu': 15.5.4
-      '@next/swc-linux-arm64-musl': 15.5.4
-      '@next/swc-linux-x64-gnu': 15.5.4
-      '@next/swc-linux-x64-musl': 15.5.4
-      '@next/swc-win32-arm64-msvc': 15.5.4
-      '@next/swc-win32-x64-msvc': 15.5.4
-      '@opentelemetry/api': 1.9.0
-      sharp: 0.34.4
-    transitivePeerDependencies:
-      - '@babel/core'
-      - babel-plugin-macros
-
   next@15.5.4(@opentelemetry/api@1.9.0)(react-dom@19.2.0(react@19.2.0))(react@19.2.0):
     dependencies:
       '@next/env': 15.5.4
       '@swc/helpers': 0.5.15
-      caniuse-lite: 1.0.30001702
+      caniuse-lite: 1.0.30001750
       postcss: 8.4.31
       react: 19.2.0
       react-dom: 19.2.0(react@19.2.0)
@@ -20927,11 +20881,6 @@ snapshots:
       react: 19.0.0
       scheduler: 0.25.0
 
-  react-dom@19.2.0(react@18.3.1):
-    dependencies:
-      react: 18.3.1
-      scheduler: 0.27.0
-
   react-dom@19.2.0(react@19.2.0):
     dependencies:
       react: 19.2.0
@@ -21091,10 +21040,6 @@ snapshots:
       prop-types: 15.8.1
       react: 19.2.0
       react-dom: 19.2.0(react@19.2.0)
-
-  react@18.3.1:
-    dependencies:
-      loose-envify: 1.4.0
 
   react@19.0.0: {}
 
@@ -22052,11 +21997,6 @@ snapshots:
     optionalDependencies:
       '@babel/core': 7.28.4
 
-  styled-jsx@5.1.6(react@18.3.1):
-    dependencies:
-      client-only: 0.0.1
-      react: 18.3.1
-
   styled-jsx@5.1.6(react@19.2.0):
     dependencies:
       client-only: 0.0.1
@@ -22167,17 +22107,6 @@ snapshots:
       ansi-escapes: 4.3.2
       supports-hyperlinks: 2.3.0
 
-  terser-webpack-plugin@5.3.13(esbuild@0.25.10)(webpack@5.98.0(esbuild@0.25.10)):
-    dependencies:
-      '@jridgewell/trace-mapping': 0.3.31
-      jest-worker: 27.5.1
-      schema-utils: 4.3.0
-      serialize-javascript: 6.0.2
-      terser: 5.39.0
-      webpack: 5.98.0(esbuild@0.25.10)
-    optionalDependencies:
-      esbuild: 0.25.10
-
   terser-webpack-plugin@5.3.13(esbuild@0.25.10)(webpack@5.98.0(esbuild@0.25.2)):
     dependencies:
       '@jridgewell/trace-mapping': 0.3.31
@@ -22185,7 +22114,7 @@ snapshots:
       schema-utils: 4.3.0
       serialize-javascript: 6.0.2
       terser: 5.39.0
-      webpack: 5.98.0(esbuild@0.25.2)
+      webpack: 5.98.0(esbuild@0.25.10)
     optionalDependencies:
       esbuild: 0.25.10
 
