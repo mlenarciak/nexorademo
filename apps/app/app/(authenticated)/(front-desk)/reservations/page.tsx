@@ -1,7 +1,21 @@
 import { Badge } from "@repo/design-system/components/ui/badge";
 import { Button } from "@repo/design-system/components/ui/button";
-import { Card } from "@repo/design-system/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@repo/design-system/components/ui/card";
 import { Checkbox } from "@repo/design-system/components/ui/checkbox";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@repo/design-system/components/ui/dropdown-menu";
 import { Input } from "@repo/design-system/components/ui/input";
 import {
   Select,
@@ -31,6 +45,7 @@ import {
   Search,
 } from "lucide-react";
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Header } from "../../components/header";
 
 export const metadata: Metadata = {
@@ -178,15 +193,13 @@ const ReservationsPage = () => (
     <div className="flex flex-1 flex-col gap-6 p-4 pt-0">
       <div className="grid gap-6 xl:grid-cols-[240px_1fr]">
         <Card className="h-full border-dashed border-primary/30 bg-primary/5 shadow-none">
-          <div className="flex flex-col gap-4 p-4">
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-wide text-primary">
-                Scorciatoie
-              </p>
-              <p className="text-sm text-muted-foreground">
-                Seleziona un cluster di prenotazioni ereditato dalla versione precedente.
-              </p>
-            </div>
+          <CardHeader>
+            <CardTitle className="text-sm">Scorciatoie</CardTitle>
+            <CardDescription>
+              Seleziona un cluster di prenotazioni ereditato dalla versione precedente.
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="flex h-full flex-col gap-4">
             <nav className="flex flex-col gap-1">
               {shortcuts.map((shortcut) => (
                 <Button
@@ -198,27 +211,59 @@ const ReservationsPage = () => (
                   size="sm"
                   variant={shortcut.isActive ? "default" : "ghost"}
                 >
-                  <span>{shortcut.label}</span>
-                  <Badge
-                    variant={shortcut.isActive ? "secondary" : "outline"}
-                    className={cn(
-                      shortcut.tone === "warning" && "border-amber-500 text-amber-700 dark:text-amber-200"
-                    )}
-                  >
-                    {shortcut.count}
-                  </Badge>
+                  <span>
+                    {shortcut.label}
+                    <Badge
+                      variant={shortcut.isActive ? "secondary" : "outline"}
+                      className={cn(
+                        "ml-2",
+                        shortcut.tone === "warning" &&
+                          "border-amber-500 text-amber-700 dark:text-amber-200"
+                      )}
+                    >
+                      {shortcut.count}
+                    </Badge>
+                  </span>
                 </Button>
               ))}
             </nav>
-            <Button className="mt-2 gap-2 rounded-lg shadow-sm">
-              <Plus className="h-4 w-4" />
-              Nuova prenotazione
-            </Button>
-          </div>
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button className="mt-auto gap-2 rounded-lg shadow-sm">
+                  <Plus className="h-4 w-4" />
+                  Nuova prenotazione
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="start" className="w-64">
+                <DropdownMenuLabel className="text-xs uppercase tracking-wide text-primary">
+                  Preventivi
+                </DropdownMenuLabel>
+                <DropdownMenuItem asChild>
+                  <Link href="/reservations/new/quote">+ Preventivo</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem>+ Preventivo senza soggiorno</DropdownMenuItem>
+                <DropdownMenuItem>+ Preventivo ristorante</DropdownMenuItem>
+                <DropdownMenuItem>+ Preventivo di gruppo</DropdownMenuItem>
+                <DropdownMenuItem>
+                  + Preventivo di gruppo camere a scelta
+                </DropdownMenuItem>
+                <DropdownMenuSeparator />
+                <DropdownMenuLabel className="text-xs uppercase tracking-wide text-primary">
+                  Prenotazioni
+                </DropdownMenuLabel>
+                <DropdownMenuItem asChild>
+                  <Link href="/reservations/new/booking">+ Prenotazione</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem>+ Prenotazione di gruppo</DropdownMenuItem>
+                <DropdownMenuItem>+ Prenotazione senza soggiorno</DropdownMenuItem>
+                <DropdownMenuItem>+ Prenotazione ristorante</DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </CardContent>
         </Card>
 
         <Card className="shadow-sm">
-          <div className="space-y-4 p-6">
+          <CardContent className="space-y-4 p-6">
               <div className="flex flex-wrap items-center justify-between gap-3">
               <div>
                 <div className="flex items-center gap-2">
@@ -383,7 +428,7 @@ const ReservationsPage = () => (
                 </TableBody>
               </Table>
             </div>
-          </div>
+          </CardContent>
         </Card>
       </div>
     </div>
