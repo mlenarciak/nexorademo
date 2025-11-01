@@ -54,9 +54,7 @@ import {
   SlidersHorizontal,
   Sparkles,
 } from "lucide-react";
-import { addDays, format } from "date-fns";
-import { it } from "date-fns/locale";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import type { DateRange } from "react-day-picker";
 
 const stayOptions = [
@@ -82,6 +80,38 @@ const messageTabs = [
   "Altro",
 ] as const;
 
+const addDays = (date: Date, days: number) =>
+  new Date(date.getTime() + days * 24 * 60 * 60 * 1000);
+
+const formatDate = (
+  date: Date | undefined,
+  options: Intl.DateTimeFormatOptions
+) =>
+  date
+    ? new Intl.DateTimeFormat("it-IT", {
+        ...options,
+      }).format(date)
+    : undefined;
+
+const formatRangeLabel = (range: DateRange | undefined) => {
+  const from = formatDate(range?.from, {
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric",
+  });
+  const to = formatDate(range?.to, {
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric",
+  });
+
+  if (!from || !to) {
+    return "Seleziona periodo";
+  }
+
+  return `${from} → ${to}`;
+};
+
 const QuoteBuilderPage = () => {
   const [stayType, setStayType] = useState<(typeof stayOptions)[number]["id"]>(
     "single"
@@ -92,6 +122,15 @@ const QuoteBuilderPage = () => {
   });
   const [activeMessageTab, setActiveMessageTab] =
     useState<(typeof messageTabs)[number]>("Messaggi");
+  const formattedScadenza = useMemo(
+    () =>
+      formatDate(dateRange?.to, {
+        day: "2-digit",
+        month: "2-digit",
+        year: "numeric",
+      }) ?? "Seleziona",
+    [dateRange?.to]
+  );
 
   return (
     <div className="grid gap-6 xl:grid-cols-[2fr_1.3fr]">
@@ -151,18 +190,12 @@ const QuoteBuilderPage = () => {
                   <PopoverTrigger asChild>
                     <Button variant="outline" className="gap-2">
                       <CalendarDays className="h-4 w-4" />
-                      {dateRange?.from && dateRange?.to
-                        ? `${format(dateRange.from, "dd/MM/yyyy")} → ${format(
-                            dateRange.to,
-                            "dd/MM/yyyy"
-                          )}`
-                        : "Seleziona periodo"}
+                      {formatRangeLabel(dateRange)}
                     </Button>
                   </PopoverTrigger>
                   <PopoverContent className="w-auto p-0" align="start">
                     <Calendar
                       initialFocus
-                      locale={it}
                       mode="range"
                       numberOfMonths={2}
                       selected={dateRange}
@@ -330,8 +363,8 @@ const QuoteBuilderPage = () => {
             <div className="flex gap-2">
               <Popover>
                 <PopoverTrigger asChild>
-                  <Button variant="outline" className="flex-1 justify-between">
-                    Scadenza
+                    <Button variant="outline" className="flex-1 justify-between">
+                    Scadenza: {formattedScadenza}
                     <ChevronDown className="h-4 w-4" />
                   </Button>
                 </PopoverTrigger>
@@ -339,7 +372,6 @@ const QuoteBuilderPage = () => {
                   <Calendar
                     mode="single"
                     selected={dateRange?.to}
-                    locale={it}
                     onSelect={(date) =>
                       setDateRange((current) =>
                         current?.from

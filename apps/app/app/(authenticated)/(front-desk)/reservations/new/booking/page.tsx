@@ -44,9 +44,7 @@ import {
   ShieldCheck,
   Ticket,
 } from "lucide-react";
-import { addDays, format } from "date-fns";
-import { it } from "date-fns/locale";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import type { DateRange } from "react-day-picker";
 
 const ledgerRows = [
@@ -66,11 +64,32 @@ const ledgerRows = [
   },
 ] as const;
 
+const addDays = (date: Date, days: number) =>
+  new Date(date.getTime() + days * 24 * 60 * 60 * 1000);
+
+const formatLongDate = (date: Date | undefined) =>
+  date
+    ? new Intl.DateTimeFormat("it-IT", {
+        weekday: "short",
+        day: "2-digit",
+        month: "short",
+        year: "numeric",
+      }).format(date)
+    : "-";
+
 const BookingBuilderPage = () => {
   const [dateRange, setDateRange] = useState<DateRange>({
     from: new Date("2025-11-01"),
     to: addDays(new Date("2025-11-01"), 7),
   });
+  const formattedArrival = useMemo(
+    () => formatLongDate(dateRange?.from),
+    [dateRange?.from]
+  );
+  const formattedDeparture = useMemo(
+    () => formatLongDate(dateRange?.to),
+    [dateRange?.to]
+  );
 
   return (
     <div className="grid gap-6 xl:grid-cols-[2fr_1.1fr]">
@@ -135,11 +154,19 @@ const BookingBuilderPage = () => {
               <PopoverContent className="w-auto p-0" align="start">
                 <Calendar
                   initialFocus
-                  locale={it}
                   mode="range"
                   numberOfMonths={2}
                   selected={dateRange}
-                  onSelect={(range) => setDateRange(range)}
+                  onSelect={(range) => {
+                    if (range?.from && !range.to) {
+                      setDateRange({
+                        from: range.from,
+                        to: addDays(range.from, 7),
+                      });
+                      return;
+                    }
+                    setDateRange(range);
+                  }}
                 />
               </PopoverContent>
             </Popover>
@@ -217,17 +244,13 @@ const BookingBuilderPage = () => {
             <p>
               Arrivo:{" "}
               <span className="font-semibold">
-                {dateRange?.from
-                  ? format(dateRange.from, "EEE dd MMM yyyy", { locale: it })
-                  : "-"}
+                {formattedArrival}
               </span>
             </p>
             <p>
               Partenza:{" "}
               <span className="font-semibold">
-                {dateRange?.to
-                  ? format(dateRange.to, "EEE dd MMM yyyy", { locale: it })
-                  : "-"}
+                {formattedDeparture}
               </span>
             </p>
           </div>
