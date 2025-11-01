@@ -38,7 +38,6 @@ import { NotificationsTrigger } from "@repo/notifications/components/trigger";
 import {
   BarChart3,
   BookOpenIcon,
-  Broom,
   Building2,
   CalendarClock,
   CalendarDays,
@@ -57,6 +56,7 @@ import {
   SendIcon,
   Share2,
   ShieldCheck,
+  Sparkles,
   Users,
   Wallet,
 } from "lucide-react";
@@ -151,7 +151,7 @@ const navGroups: NavGroup[] = [
       {
         title: "Housekeeping",
         url: "/housekeeping",
-        icon: Broom,
+        icon: Sparkles,
         badge: "In Dev",
       },
       {
