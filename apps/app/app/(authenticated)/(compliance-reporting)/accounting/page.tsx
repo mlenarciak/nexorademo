@@ -14,7 +14,7 @@ const AccountingPage = () => (
     <FeaturePlaceholder
       description="Manage invoices, fiscal receipts, and payment reconciliation with integrations for Italian accounting systems."
       legacyFeature="Contabilità"
-      plannedCapabilities([
+      plannedCapabilities={[
         "Automated generation of fiscal documents and XML exports",
         "Payment reconciliation across POS, online gateways, and cash",
         "Bridges to TeamSystem and Agenzia Entrate requirements",
