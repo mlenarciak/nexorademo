@@ -22,7 +22,7 @@ export const Stats = ({ dictionary }: StatsProps) => (
             return (
               <div
                 className="flex flex-col items-center gap-4 text-center"
-                key={item.label}
+                key={`stat-${index}`}
               >
                 <Icon className="h-8 w-8 text-primary" />
                 <div className="flex flex-col gap-1">

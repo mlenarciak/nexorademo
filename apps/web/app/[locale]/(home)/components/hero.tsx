@@ -39,13 +39,18 @@ export const Hero = async ({ dictionary }: HeroProps) => (
         {/* Problem Statement - YC Style */}
         <div className="mx-auto max-w-3xl rounded-lg border bg-muted/50 p-6 text-center">
           <p className="font-semibold text-lg">
-            <span className="text-red-600">Problem:</span> Scidoo and legacy PMS
-            systems are slow, expensive, and built for the 2010s.
+            <span className="text-red-600">
+              {dictionary.web.home.hero.problem?.label ?? "Problem:"}
+            </span>{" "}
+            {dictionary.web.home.hero.problem?.text ??
+              "Scidoo and legacy PMS systems are slow, expensive, and built for the 2010s."}
           </p>
           <p className="mt-2 text-muted-foreground">
-            <span className="font-semibold text-green-600">Solution:</span>{" "}
-            Nexora is a modern, cloud-native PMS that's 10x faster, actually
-            affordable, and built for today's hospitality needs.
+            <span className="font-semibold text-green-600">
+              {dictionary.web.home.hero.solution?.label ?? "Solution:"}
+            </span>{" "}
+            {dictionary.web.home.hero.solution?.text ??
+              "Nexora is a modern, cloud-native PMS that's 10x faster, actually affordable, and built for today's hospitality needs."}
           </p>
         </div>
 
@@ -65,21 +70,28 @@ export const Hero = async ({ dictionary }: HeroProps) => (
         {/* Trust Indicators */}
         <div className="mt-8 flex flex-col items-center gap-4">
           <p className="text-muted-foreground text-sm">
-            Trusted by property managers across Italy and Brazil
+            {dictionary.web.home.hero.trust?.tagline ??
+              "Trusted by property managers across Italy and Brazil"}
           </p>
           <div className="flex gap-4 text-muted-foreground text-xs">
-            <div className="flex items-center gap-2">
-              <div className="h-2 w-2 rounded-full bg-green-500" />
-              <span>99.9% Uptime</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <div className="h-2 w-2 rounded-full bg-blue-500" />
-              <span>GDPR Compliant</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <div className="h-2 w-2 rounded-full bg-purple-500" />
-              <span>Italian Fiscal Ready</span>
-            </div>
+            {(dictionary.web.home.hero.trust?.items ?? [
+              "99.9% Uptime",
+              "GDPR Compliant",
+              "Italian Fiscal Ready",
+            ]).map((label, idx) => (
+              <div className="flex items-center gap-2" key={`trust-${idx}`}>
+                <div
+                  className={
+                    idx === 0
+                      ? "h-2 w-2 rounded-full bg-green-500"
+                      : idx === 1
+                        ? "h-2 w-2 rounded-full bg-blue-500"
+                        : "h-2 w-2 rounded-full bg-purple-500"
+                  }
+                />
+                <span>{label}</span>
+              </div>
+            ))}
           </div>
         </div>
       </div>

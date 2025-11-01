@@ -23,7 +23,23 @@
         "description": "No mundo acelerado de hoje, sua empresa merece mais do que sistemas de negociação ultrapassados. Nossa plataforma inovadora simplifica operações, reduz a complexidade e ajuda pequenas empresas a prosperar na economia moderna."
       },
       "hero": {
-        "announcement": "Leia nosso último artigo"
+        "announcement": "Leia nosso último artigo",
+        "problem": {
+          "label": "Problema:",
+          "text": "Scidoo e PMS legados são lentos, caros e pensados para os anos 2010."
+        },
+        "solution": {
+          "label": "Solução:",
+          "text": "A Nexora é um PMS moderno, em nuvem, 10x mais rápido, acessível e feito para as necessidades atuais da hotelaria."
+        },
+        "trust": {
+          "tagline": "Confiada por gestores na Itália e no Brasil",
+          "items": [
+            "99,9% de disponibilidade",
+            "Compatível com GDPR",
+            "Pronta para a fiscalidade italiana"
+          ]
+        }
       },
       "cases": {
         "title": "Histórias de Sucesso que Empoderam o Mundo Todo"
@@ -51,76 +67,38 @@
         ]
       },
       "stats": {
-        "title": "Resultados Reais, Impacto Real",
-        "description": "Junte-se a milhares de empresas que transformaram suas operações com nossa plataforma. Nossas soluções ajudaram empresas a reduzir a sobrecarga administrativa em 60% e aumentar a eficiência comercial em 45% em média.",
+        "title": "Os números que importam",
         "items": [
-          {
-            "title": "Usuários ativos mensais",
-            "metric": "100000",
-            "delta": "10",
-            "type": "unidade"
-          },
-          {
-            "title": "Usuários ativos diários",
-            "metric": "10000",
-            "delta": "-5",
-            "type": "unidade"
-          },
-          {
-            "title": "Receita recorrente mensal",
-            "metric": "100000",
-            "delta": "20",
-            "type": "moeda"
-          },
-          {
-            "title": "Custo por aquisição",
-            "metric": "100",
-            "delta": "-10",
-            "type": "moeda"
-          }
+          { "value": "< 2s", "label": "Tempo de carregamento da página" },
+          { "value": "99,9%", "label": "SLA de disponibilidade" },
+          { "value": "50+", "label": "Usuários simultâneos por propriedade" },
+          { "value": "3", "label": "Idiomas (EN, IT, PT)" }
         ]
       },
       "testimonials": {
-        "title": "Ouça Nossa Comunidade Próspera",
+        "title": "Por que gestores escolhem a Nexora",
         "items": [
           {
-            "title": "Melhor decisão",
-            "description": "Nosso objetivo era simplificar o comércio de PME, tornando-o mais fácil e rápido do que nunca, e conseguimos isso juntos.",
-            "author": {
-              "name": "Hayden Bleasel",
-              "image": "https://github.com/haydenbleasel.png"
-            }
+            "quote": "Substituímos o Scidoo e mais 3 sistemas pela Nexora. A interface moderna nos economiza 2 horas por dia e a equipe gosta de usar.",
+            "author": "Marco Rossi",
+            "role": "Proprietário, Villa Bella Vista (Florença)"
           },
           {
-            "title": "Mudança de jogo",
-            "description": "Esta plataforma revolucionou a forma como lidamos com nossas operações diárias. Os ganhos de eficiência foram notáveis.",
-            "author": {
-              "name": "Lee Robinson",
-              "image": "https://github.com/leerob.png"
-            }
+            "quote": "Finalmente um PMS que entende as regras italianas. CIN, CIR, ISTAT — tudo funciona. Meu contador está feliz, então eu também estou.",
+            "author": "Sofia Romano",
+            "role": "Gerente, Resort Amalfi Paradise"
           },
           {
-            "title": "Superou as expectativas",
-            "description": "A implementação foi tranquila e os resultados foram imediatos. Nossa equipe se adaptou rapidamente e a produtividade disparou.",
-            "author": {
-              "name": "shadcn",
-              "image": "https://github.com/shadcn.png"
-            }
-          },
-          {
-            "title": "Suporte excepcional",
-            "description": "Não só a plataforma é poderosa, mas a equipe de suporte ao cliente tem sido excepcional em nos ajudar a maximizar seu potencial.",
-            "author": {
-              "name": "Pontus Abrahamsson",
-              "image": "https://github.com/pontusab.png"
-            }
+            "quote": "As atualizações em tempo real do calendário mudaram o jogo. Nada de overbooking e nada de ligações para checar disponibilidade.",
+            "author": "Giovanni Ferrari",
+            "role": "Recepcionista, Tuscany Hotels Group"
           }
         ]
       },
       "faq": {
-        "title": "Perguntas Comuns, Respostas de Especialistas",
-        "description": "Obtenha respostas rápidas para suas perguntas mais urgentes sobre nossa plataforma. Compilamos tudo o que você precisa saber sobre como transformar suas operações comerciais e começar com soluções de negociação modernas.",
-        "cta": "Alguma dúvida? Entre em contato",
+        "title": "Perguntas frequentes",
+        "description": "Perguntas comuns sobre a Nexora. Não encontrou o que procura?",
+        "cta": "Falar com o suporte",
         "items": [
           {
             "question": "O que é a plataforma?",
@@ -145,8 +123,15 @@
         ]
       },
       "cta": {
-        "title": "Comece Sua Transformação Empresarial",
-        "description": "Junte-se a milhares de empresas visionárias que já modernizaram suas operações. Nossa plataforma oferece as ferramentas, suporte e eficiência que você precisa para ter sucesso no mercado competitivo de hoje. Comece em minutos."
+        "title": "Comece a modernizar sua gestão",
+        "description": "Junte-se aos gestores que já fizeram a mudança para a Nexora.",
+        "primary": "Comece o teste gratuito",
+        "secondary": "Agendar uma demonstração",
+        "trustBadges": [
+          "✓ Teste gratuito de 14 dias",
+          "✓ Sem cartão de crédito",
+          "✓ Cancele quando quiser"
+        ]
       }
     },
     "blog": {

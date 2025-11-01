@@ -1,0 +1,197 @@
+{
+  "web": {
+    "global": {
+      "primaryCta": "Prenota una demo",
+      "secondaryCta": "Inizia la prova gratuita"
+    },
+    "header": {
+      "home": "Home",
+      "product": {
+        "title": "Prodotto",
+        "description": "Gestione moderna delle proprietà per l'ospitalità",
+        "pricing": "Prezzi"
+      },
+      "blog": "Blog",
+      "docs": "Documentazione",
+      "contact": "Contatti",
+      "signIn": "Accedi",
+      "signUp": "Inizia"
+    },
+    "home": {
+      "meta": {
+        "title": "Gestione moderna delle proprietà per hotel e resort",
+        "description": "Nexora sostituisce i PMS obsoleti con una piattaforma moderna e cloud-native pensata per le strutture ricettive italiane e brasiliane. Gestisci camere, prenotazioni e ricavi in un unico luogo."
+      },
+      "hero": {
+        "announcement": "Fase 1 attiva: Gestione proprietà e camere",
+        "problem": {
+          "label": "Problema:",
+          "text": "Scidoo e i PMS legacy sono lenti, costosi e progettati per gli anni 2010."
+        },
+        "solution": {
+          "label": "Soluzione:",
+          "text": "Nexora è un PMS moderno e cloud‑native, 10x più veloce, conveniente e pensato per le esigenze di oggi."
+        },
+        "trust": {
+          "tagline": "Scelto dai gestori in Italia e Brasile",
+          "items": [
+            "99,9% di disponibilità",
+            "Conforme al GDPR",
+            "Pronto per la fiscalità italiana"
+          ]
+        }
+      },
+      "cases": {
+        "title": "Pensato per i professionisti dell'ospitalità"
+      },
+      "features": {
+        "title": "Tutto ciò che ti serve per gestire la tua struttura",
+        "description": "Sostituisci oltre 5 sistemi con una piattaforma moderna. Basata su Next.js e alimentata da dati in tempo reale.",
+        "items": [
+          {
+            "title": "Gestione Multi‑Proprietà",
+            "description": "Gestisci proprietà illimitate da un unico account. Passa tra le proprietà all'istante. Ideale per B&B, resort e hotel."
+          },
+          {
+            "title": "Gestione Camere e Categorie",
+            "description": "Categorie flessibili con gestione capacità, configurazioni letti e ereditarietà dei servizi. Aggiorna una volta, applica a tutte le camere."
+          },
+          {
+            "title": "Disponibilità in Tempo Reale",
+            "description": "Stato camere aggiornato istantaneamente per tutti gli utenti. Evita le doppie prenotazioni. Sincronizzazione automatica con i channel manager."
+          },
+          {
+            "title": "Pronto per Channel Manager",
+            "description": "Connettiti ad Airbnb, Booking.com, Expedia tramite RoomCloud. Sincronizzazione bidirezionale di tariffe, disponibilità e prenotazioni."
+          },
+          {
+            "title": "Conformità Fiscale Italiana",
+            "description": "Supporto nativo per CIN, CIR, report ISTAT, imposta di soggiorno e fatturazione elettronica. Conforme alla normativa italiana."
+          },
+          {
+            "title": "Analisi Integrate",
+            "description": "Dashboard Metabase integrate. Occupazione, ricavi e insight sugli ospiti senza sviluppo custom. BI self‑service per i gestori."
+          }
+        ]
+      },
+      "stats": {
+        "title": "I numeri che contano",
+        "items": [
+          { "value": "< 2s", "label": "Tempo di caricamento pagina" },
+          { "value": "99,9%", "label": "SLA di disponibilità" },
+          { "value": "50+", "label": "Utenti simultanei per proprietà" },
+          { "value": "3", "label": "Lingue (EN, IT, PT)" }
+        ]
+      },
+      "testimonials": {
+        "title": "Perché i gestori scelgono Nexora",
+        "items": [
+          {
+            "quote": "Abbiamo sostituito Scidoo e altri 3 sistemi con Nexora. L'interfaccia moderna ci fa risparmiare 2 ore al giorno e al team piace usarla.",
+            "author": "Marco Rossi",
+            "role": "Proprietario, Villa Bella Vista (Firenze)"
+          },
+          {
+            "quote": "Finalmente un PMS che capisce le norme italiane. CIN, CIR, ISTAT: funziona tutto. Il commercialista è contento, quindi anch'io.",
+            "author": "Sofia Romano",
+            "role": "Direttrice, Resort Amalfi Paradise"
+          },
+          {
+            "quote": "Gli aggiornamenti in tempo reale del calendario sono rivoluzionari. Niente più overbooking e telefonate per verificare la disponibilità.",
+            "author": "Giovanni Ferrari",
+            "role": "Receptionist, Tuscany Hotels Group"
+          }
+        ]
+      },
+      "faq": {
+        "title": "Domande frequenti",
+        "items": [
+          {
+            "question": "Per quali strutture è pensata Nexora?",
+            "answer": "Nexora è pensata per strutture piccole e medie: B&B (5‑15 camere), Resort Villaggi (20‑100 unità), Open Air Resorts (50‑200 piazzole) e piccoli hotel (15‑100 camere)."
+          },
+          {
+            "question": "Come funziona il prezzo?",
+            "answer": "Prezzo per proprietà al mese. Piani da €49/mese fino a soluzioni complete con channel manager, analisi e conformità fiscale. Nessun costo per utente."
+          },
+          {
+            "question": "Posso migrare da Scidoo o altri sistemi?",
+            "answer": "Sì. Offriamo servizi di migrazione per importare proprietà, camere e prenotazioni da Scidoo, Cloudbeds o altri PMS. Inclusa nell'onboarding."
+          },
+          {
+            "question": "La conformità fiscale italiana è inclusa?",
+            "answer": "Assolutamente. Supportiamo CIN, CIR, VAT, report ISTAT, imposta di soggiorno e fatturazione elettronica nativamente."
+          },
+          {
+            "question": "Con quali channel manager vi integrate?",
+            "answer": "Integrazione con RoomCloud per Airbnb, Booking.com, Expedia e molte altre OTA. Integrazioni dirette in roadmap."
+          }
+        ]
+      },
+      "cta": {
+        "title": "Pronto a modernizzare la gestione?",
+        "description": "Unisciti ai gestori che sono già passati a Nexora.",
+        "primary": "Inizia la prova gratuita",
+        "secondary": "Prenota una demo",
+        "trustBadges": [
+          "✓ Prova gratuita di 14 giorni",
+          "✓ Nessuna carta di credito richiesta",
+          "✓ Disdici in qualsiasi momento"
+        ]
+      }
+    },
+    "blog": {
+      "meta": {
+        "title": "Blog",
+        "description": "Pensieri, idee e aggiornamenti."
+      }
+    },
+    "contact": {
+      "meta": {
+        "title": "Parliamo della tua struttura",
+        "description": "Prenota una consulenza con il nostro team per capire come semplificare le tue operazioni e far crescere la tua attività."
+      },
+      "hero": {
+        "benefits": [
+          {
+            "title": "Consulenza personalizzata",
+            "description": "Soluzioni su misura e consigli degli esperti per le esigenze della tua struttura."
+          },
+          {
+            "title": "Integrazione senza interruzioni",
+            "description": "Ci integriamo con i sistemi esistenti per una transizione fluida e minima interruzione."
+          },
+          {
+            "title": "Guida degli esperti",
+            "description": "Ti accompagniamo nell'impostazione e nelle best practice per ottenere il massimo da Nexora."
+          }
+        ],
+        "form": {
+          "title": "Prenota un incontro",
+          "date": "Data",
+          "firstName": "Nome",
+          "lastName": "Cognome",
+          "resume": "Carica CV",
+          "cta": "Prenota l'incontro"
+        }
+      }
+    },
+    "footer": {
+      "tagline": "Gestione moderna delle proprietà per l'ospitalità",
+      "product": "Prodotto",
+      "features": "Funzionalità",
+      "pricing": "Prezzi",
+      "changelog": "Changelog",
+      "docs": "Documentazione",
+      "company": "Azienda",
+      "about": "Chi siamo",
+      "blog": "Blog",
+      "careers": "Carriere",
+      "legal": "Legale",
+      "privacy": "Privacy",
+      "terms": "Termini di servizio",
+      "cookies": "Cookie Policy"
+    }
+  },
+  "app": {}
+}

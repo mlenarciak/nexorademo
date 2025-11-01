@@ -24,14 +24,15 @@ export const FAQ = ({ dictionary }: FAQProps) => (
               {dictionary.web.home.faq.title}
             </h2>
             <p className="max-w-lg text-lg text-muted-foreground leading-relaxed">
-              Common questions about Nexora. Can't find what you're looking for?
+              {dictionary.web.home.faq.description ??
+                "Common questions about Nexora. Can't find what you're looking for?"}
             </p>
           </div>
           <div>
             <Button asChild className="gap-2" size="lg" variant="outline">
               <Link href="/contact">
                 <MessageCircle className="h-4 w-4" />
-                Contact support
+                {dictionary.web.home.faq.cta ?? "Contact support"}
               </Link>
             </Button>
           </div>

@@ -101,6 +101,8 @@
       },
       "faq": {
         "title": "Frequently Asked Questions",
+        "description": "Common questions about Nexora. Can't find what you're looking for?",
+        "cta": "Contact support",
         "items": [
           {
             "question": "What types of properties does Nexora support?",
@@ -132,7 +134,26 @@
         "title": "Ready to modernize your property management?",
         "description": "Join forward-thinking hoteliers who have already made the switch to Nexora.",
         "primary": "Start free trial",
-        "secondary": "Book a demo"
+        "secondary": "Book a demo",
+        "trustBadges": [
+          "✓ Free 14-day trial",
+          "✓ No credit card required",
+          "✓ Cancel anytime"
+        ]
+      },
+      "hero": {
+        "problem": {
+          "label": "Problem:",
+          "text": "Scidoo and legacy PMS systems are slow, expensive, and built for the 2010s."
+        },
+        "solution": {
+          "label": "Solution:",
+          "text": "Nexora is a modern, cloud-native PMS that's 10x faster, actually affordable, and built for today's hospitality needs."
+        },
+        "trust": {
+          "tagline": "Trusted by property managers across Italy and Brazil",
+          "items": ["99.9% Uptime", "GDPR Compliant", "Italian Fiscal Ready"]
+        }
       }
     },
     "blog": {

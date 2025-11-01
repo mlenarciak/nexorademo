@@ -33,11 +33,15 @@ export const CTA = ({ dictionary }: CTAProps) => (
 
           {/* Trust Badges */}
           <div className="mt-8 flex flex-wrap items-center justify-center gap-6 text-muted-foreground text-sm">
-            <div className="flex items-center gap-2">✓ Free 14-day trial</div>
-            <div className="flex items-center gap-2">
-              ✓ No credit card required
-            </div>
-            <div className="flex items-center gap-2">✓ Cancel anytime</div>
+            {(dictionary.web.home.cta.trustBadges ?? [
+              "✓ Free 14-day trial",
+              "✓ No credit card required",
+              "✓ Cancel anytime",
+            ]).map((badge, idx) => (
+              <div className="flex items-center gap-2" key={`trust-${idx}`}>
+                {badge}
+              </div>
+            ))}
           </div>
         </div>
       </div>

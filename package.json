@@ -9,7 +9,7 @@
   ],
   "scripts": {
     "build": "turbo build",
-    "dev": "NODE_OPTIONS='--max-http-header-size=32768' turbo dev",
+    "dev": "NODE_OPTIONS='--max-http-header-size=131072' turbo dev",
     "check": "npx ultracite@latest check",
     "fix": "npx ultracite@latest fix",
     "test": "turbo test",
