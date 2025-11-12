@@ -20,6 +20,17 @@ import {
   XAxis,
 } from "recharts";
 
+const CHART_HORIZONTAL_MARGIN = 12;
+const MONTH_LABEL_LENGTH = 3;
+const AREA_TICK_MARGIN = 8;
+const BAR_TICK_MARGIN = 10;
+const AREA_FILL_OPACITY = 0.4;
+const BAR_CORNER_RADIUS = 4;
+const LINE_STROKE_WIDTH = 2;
+const PIE_INNER_RADIUS = 48;
+const PIE_STROKE_WIDTH = 5;
+const PIE_LABEL_OFFSET = 24;
+
 const multiSeriesData = [
   { month: "January", desktop: 186, mobile: 80 },
   { month: "February", desktop: 305, mobile: 200 },
@@ -94,17 +105,17 @@ export const StackedAreaChart: Story = {
         accessibilityLayer
         data={multiSeriesData}
         margin={{
-          left: 12,
-          right: 12,
+          left: CHART_HORIZONTAL_MARGIN,
+          right: CHART_HORIZONTAL_MARGIN,
         }}
       >
         <CartesianGrid vertical={false} />
         <XAxis
           axisLine={false}
           dataKey="month"
-          tickFormatter={(value) => value.slice(0, 3)}
+          tickFormatter={(value) => value.slice(0, MONTH_LABEL_LENGTH)}
           tickLine={false}
-          tickMargin={8}
+          tickMargin={AREA_TICK_MARGIN}
         />
         <ChartTooltip
           content={<ChartTooltipContent indicator="dot" />}
@@ -113,7 +124,7 @@ export const StackedAreaChart: Story = {
         <Area
           dataKey="mobile"
           fill="var(--color-mobile)"
-          fillOpacity={0.4}
+          fillOpacity={AREA_FILL_OPACITY}
           stackId="a"
           stroke="var(--color-mobile)"
           type="natural"
@@ -121,7 +132,7 @@ export const StackedAreaChart: Story = {
         <Area
           dataKey="desktop"
           fill="var(--color-desktop)"
-          fillOpacity={0.4}
+          fillOpacity={AREA_FILL_OPACITY}
           stackId="a"
           stroke="var(--color-desktop)"
           type="natural"
@@ -145,16 +156,24 @@ export const StackedBarChart: Story = {
         <XAxis
           axisLine={false}
           dataKey="month"
-          tickFormatter={(value) => value.slice(0, 3)}
+          tickFormatter={(value) => value.slice(0, MONTH_LABEL_LENGTH)}
           tickLine={false}
-          tickMargin={10}
+          tickMargin={BAR_TICK_MARGIN}
         />
         <ChartTooltip
           content={<ChartTooltipContent indicator="dashed" />}
           cursor={false}
         />
-        <Bar dataKey="desktop" fill="var(--color-desktop)" radius={4} />
-        <Bar dataKey="mobile" fill="var(--color-mobile)" radius={4} />
+        <Bar
+          dataKey="desktop"
+          fill="var(--color-desktop)"
+          radius={BAR_CORNER_RADIUS}
+        />
+        <Bar
+          dataKey="mobile"
+          fill="var(--color-mobile)"
+          radius={BAR_CORNER_RADIUS}
+        />
       </BarChart>
     </ChartContainer>
   ),
@@ -173,17 +192,17 @@ export const MultiLineChart: Story = {
         accessibilityLayer
         data={multiSeriesData}
         margin={{
-          left: 12,
-          right: 12,
+          left: CHART_HORIZONTAL_MARGIN,
+          right: CHART_HORIZONTAL_MARGIN,
         }}
       >
         <CartesianGrid vertical={false} />
         <XAxis
           axisLine={false}
           dataKey="month"
-          tickFormatter={(value) => value.slice(0, 3)}
+          tickFormatter={(value) => value.slice(0, MONTH_LABEL_LENGTH)}
           tickLine={false}
-          tickMargin={8}
+          tickMargin={AREA_TICK_MARGIN}
         />
         <ChartTooltip
           content={<ChartTooltipContent hideLabel />}
@@ -193,14 +212,14 @@ export const MultiLineChart: Story = {
           dataKey="desktop"
           dot={false}
           stroke="var(--color-desktop)"
-          strokeWidth={2}
+          strokeWidth={LINE_STROKE_WIDTH}
           type="natural"
         />
         <Line
           dataKey="mobile"
           dot={false}
           stroke="var(--color-mobile)"
-          strokeWidth={2}
+          strokeWidth={LINE_STROKE_WIDTH}
           type="natural"
         />
       </LineChart>
@@ -230,9 +249,9 @@ export const DoughnutChart: Story = {
           <Pie
             data={singleSeriesData}
             dataKey="visitors"
-            innerRadius={48}
+            innerRadius={PIE_INNER_RADIUS}
             nameKey="browser"
-            strokeWidth={5}
+            strokeWidth={PIE_STROKE_WIDTH}
           >
             <Label
               content={({ viewBox }) => {
@@ -254,7 +273,7 @@ export const DoughnutChart: Story = {
                       <tspan
                         className="fill-muted-foreground"
                         x={viewBox.cx}
-                        y={(viewBox.cy || 0) + 24}
+                        y={(viewBox.cy || 0) + PIE_LABEL_OFFSET}
                       >
                         Visitors
                       </tspan>

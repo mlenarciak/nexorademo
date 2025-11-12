@@ -19,25 +19,31 @@ type TestimonialsProps = {
   dictionary: Dictionary;
 };
 
+const INITIAL_SLIDE_INDEX = 0;
+const SCROLL_INCREMENT = 1;
+const AUTOMATIC_ROTATION_DELAY_MS = 4000;
+
 export const Testimonials = ({ dictionary }: TestimonialsProps) => {
   const [api, setApi] = useState<CarouselApi>();
-  const [current, setCurrent] = useState(0);
 
   useEffect(() => {
     if (!api) {
       return;
     }
 
-    setTimeout(() => {
-      if (api.selectedScrollSnap() + 1 === api.scrollSnapList().length) {
-        setCurrent(0);
-        api.scrollTo(0);
+    const intervalId = window.setInterval(() => {
+      if (
+        api.selectedScrollSnap() + SCROLL_INCREMENT ===
+        api.scrollSnapList().length
+      ) {
+        api.scrollTo(INITIAL_SLIDE_INDEX);
       } else {
         api.scrollNext();
-        setCurrent(current + 1);
       }
-    }, 4000);
-  }, [api, current]);
+    }, AUTOMATIC_ROTATION_DELAY_MS);
+
+    return () => window.clearInterval(intervalId);
+  }, [api]);
 
   return (
     <div className="w-full py-20 lg:py-40">
@@ -48,8 +54,8 @@ export const Testimonials = ({ dictionary }: TestimonialsProps) => {
           </h2>
           <Carousel className="w-full" setApi={setApi}>
             <CarouselContent>
-              {dictionary.web.home.testimonials.items.map((item, index) => (
-                <CarouselItem className="lg:basis-1/2" key={index}>
+              {dictionary.web.home.testimonials.items.map((item) => (
+                <CarouselItem className="lg:basis-1/2" key={item.title}>
                   <div className="flex aspect-video h-full flex-col justify-between rounded-md bg-muted p-6 lg:col-span-2">
                     <User className="h-8 w-8 stroke-1" />
                     <div className="flex flex-col gap-4">

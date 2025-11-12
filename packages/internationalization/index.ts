@@ -1,5 +1,5 @@
 import "server-only";
-import type en from "./dictionaries/en.json";
+import en from "./dictionaries/en.json" with { type: "json" };
 import languine from "./languine.json" with { type: "json" };
 
 export const locales = [
@@ -14,10 +14,12 @@ const dictionaries: Record<string, () => Promise<Dictionary>> =
     locales.map((locale) => [
       locale,
       () =>
-        import(`./dictionaries/${locale}.json`)
+        import(`./dictionaries/${locale}.json`, { with: { type: "json" } })
           .then((mod) => mod.default)
           .catch((_err) =>
-            import("./dictionaries/en.json").then((mod) => mod.default)
+            import("./dictionaries/en.json", {
+              with: { type: "json" },
+            }).then((mod) => mod.default)
           ),
     ])
   );
@@ -25,7 +27,7 @@ const dictionaries: Record<string, () => Promise<Dictionary>> =
 export const getDictionary = async (locale: string): Promise<Dictionary> => {
   const normalizedLocale = locale.split("-")[0];
 
-  if (!locales.includes(normalizedLocale as any)) {
+  if (!locales.includes(normalizedLocale as (typeof locales)[number])) {
     return dictionaries.en();
   }
 

@@ -18,6 +18,9 @@ import {
   url,
 } from "./utils.js";
 
+const SELECT_MENU_ITEM_LIMIT = 10;
+const GIT_DIFF_MAX_BUFFER = 1024 * 1024 * 1024;
+
 const compareVersions = (a: string, b: string) => {
   const [aMajor, aMinor, aPatch] = a.split(".").map(Number);
   const [bMajor, bMinor, bPatch] = b.split(".").map(Number);
@@ -85,7 +88,7 @@ const selectVersion = async (
     message: `Select a version to update ${label}:`,
     options: availableVersions.map((v) => ({ value: v, label: `v${v}` })),
     initialValue,
-    maxItems: 10,
+    maxItems: SELECT_MENU_ITEM_LIMIT,
   });
 
   if (isCancel(version)) {
@@ -113,7 +116,7 @@ const getDiff = async (
       (
         await exec(
           `git diff ${from.version} ${to.version} -- "${cleanFileName(file)}"`,
-          { maxBuffer: 1024 * 1024 * 1024 }
+          { maxBuffer: GIT_DIFF_MAX_BUFFER }
         )
       )
         .toString()

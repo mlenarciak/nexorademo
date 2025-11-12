@@ -16,6 +16,8 @@ type PresenceAvatarProps = {
   info?: Liveblocks["UserMeta"]["info"];
 };
 
+const MAX_DISPLAYED_COLLABORATORS = 3;
+
 const PresenceAvatar = ({ info }: PresenceAvatarProps) => (
   <Tooltip delayDuration={0}>
     <TooltipTrigger>
@@ -35,18 +37,20 @@ const PresenceAvatar = ({ info }: PresenceAvatarProps) => (
 export const AvatarStack = () => {
   const others = useOthers();
   const self = useSelf();
-  const hasMoreUsers = others.length > 3;
+  const hasMoreUsers = others.length > MAX_DISPLAYED_COLLABORATORS;
 
   return (
     <div className="-space-x-1 flex items-center px-4">
-      {others.slice(0, 3).map(({ connectionId, info }) => (
-        <PresenceAvatar info={info} key={connectionId} />
-      ))}
+      {others
+        .slice(0, MAX_DISPLAYED_COLLABORATORS)
+        .map(({ connectionId, info }) => (
+          <PresenceAvatar info={info} key={connectionId} />
+        ))}
 
       {hasMoreUsers && (
         <PresenceAvatar
           info={{
-            name: `+${others.length - 3}`,
+            name: `+${others.length - MAX_DISPLAYED_COLLABORATORS}`,
             color: "var(--color-muted-foreground)",
           }}
         />

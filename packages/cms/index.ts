@@ -1,8 +1,8 @@
 import { basehub as basehubClient, fragmentOn } from "basehub";
-// ensures types are passed through to apps that use this package
-import type * as _types from "./basehub-types.d.ts";
 import { keys } from "./keys";
 import "./basehub.config";
+
+export type * from "./basehub-types.d.ts";
 
 const basehub = basehubClient({
   token: keys().BASEHUB_TOKEN,

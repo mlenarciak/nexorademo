@@ -21,16 +21,16 @@ const sitemap = async (): Promise<MetadataRoute.Sitemap> => [
     url: new URL("/", url).href,
     lastModified: new Date(),
   },
-  ...pages.map((page) => ({
-    url: new URL(page, url).href,
+  ...pages.map((pageSlug) => ({
+    url: new URL(pageSlug, url).href,
     lastModified: new Date(),
   })),
-  ...blogs.map((blog) => ({
-    url: new URL(`blog/${blog}`, url).href,
+  ...blogs.map((blogSlug) => ({
+    url: new URL(`blog/${blogSlug}`, url).href,
     lastModified: new Date(),
   })),
-  ...legals.map((legal) => ({
-    url: new URL(`legal/${legal}`, url).href,
+  ...legals.map((legalSlug) => ({
+    url: new URL(`legal/${legalSlug}`, url).href,
     lastModified: new Date(),
   })),
 ];

@@ -2,6 +2,12 @@ import { AspectRatio } from "@repo/design-system/components/ui/aspect-ratio";
 import type { Meta, StoryObj } from "@storybook/react";
 import Image from "next/image";
 
+const DEFAULT_ASPECT_RATIO = 16 / 9;
+const SQUARE_ASPECT_RATIO = 1;
+const LANDSCAPE_ASPECT_RATIO = 4 / 3;
+const CINEMASCOPE_ASPECT_RATIO = 2.35;
+const DECORATOR_WIDTH = "w-1/2";
+
 /**
  * Displays content within a desired ratio.
  */
@@ -21,9 +27,9 @@ const meta: Meta<typeof AspectRatio> = {
     </AspectRatio>
   ),
   decorators: [
-    (Story) => (
-      <div className="w-1/2">
-        <Story />
+    (StoryComponent) => (
+      <div className={DECORATOR_WIDTH}>
+        <StoryComponent />
       </div>
     ),
   ],
@@ -38,7 +44,7 @@ type Story = StoryObj<typeof meta>;
  */
 export const Default: Story = {
   args: {
-    ratio: 16 / 9,
+    ratio: DEFAULT_ASPECT_RATIO,
   },
 };
 
@@ -47,7 +53,7 @@ export const Default: Story = {
  */
 export const Square: Story = {
   args: {
-    ratio: 1,
+    ratio: SQUARE_ASPECT_RATIO,
   },
 };
 
@@ -56,7 +62,7 @@ export const Square: Story = {
  */
 export const Landscape: Story = {
   args: {
-    ratio: 4 / 3,
+    ratio: LANDSCAPE_ASPECT_RATIO,
   },
 };
 
@@ -65,6 +71,6 @@ export const Landscape: Story = {
  */
 export const Cinemascope: Story = {
   args: {
-    ratio: 2.35 / 1,
+    ratio: CINEMASCOPE_ASPECT_RATIO,
   },
 };

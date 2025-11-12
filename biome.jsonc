@@ -16,7 +16,23 @@
       "!docs/hooks",
       "!apps/docs/**/*.json",
       "!apps/email/.react-email",
-      "!packages/cms/basehub-types.d.ts"
+      "!packages/cms/basehub-types.d.ts",
+      "!gb/**/*",
+      "!scripts/__pycache__/**/*"
     ]
+  },
+  "linter": {
+    "rules": {
+      "suspicious": {
+        "useAwait": "off",
+        "noUnknownAtRules": "off"
+      },
+      "performance": {
+        "noBarrelFile": "off"
+      },
+      "style": {
+        "noMagicNumbers": "off"
+      }
+    }
   }
 }

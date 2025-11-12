@@ -11,8 +11,7 @@ import {
   NavigationMenuTrigger,
 } from "@repo/design-system/components/ui/navigation-menu";
 import type { Dictionary } from "@repo/internationalization";
-import { CommandIcon, Menu, MoveRight, X } from "lucide-react";
-import Image from "next/image";
+import { Menu, MoveRight, X } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 import { env } from "@/env";
@@ -90,11 +89,11 @@ export const Header = ({ dictionary }: HeaderProps) => {
                             </Button>
                           </div>
                           <div className="flex h-full flex-col justify-end text-sm">
-                            {item.items?.map((subItem, idx) => (
+                            {item.items?.map((subItem) => (
                               <NavigationMenuLink
                                 className="flex flex-row items-center justify-between rounded px-4 py-2 hover:bg-muted"
                                 href={subItem.href}
-                                key={idx}
+                                key={subItem.title}
                               >
                                 <span>{subItem.title}</span>
                                 <MoveRight className="h-4 w-4 text-muted-foreground" />
